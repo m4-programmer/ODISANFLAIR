@@ -15,10 +15,12 @@ return new class extends Migration
             $table->id();
             $table->foreignId('post_id')->constrained('posts');
             $table->foreignId('user_id')->nullable()->constrained('users');
+            $table->foreignId('parent_id')->nullable()->constrained('comments');
             $table->string('name')->nullable();
             $table->string('email')->nullable();
             $table->string('website')->nullable();
-            $table->text('comments');
+            $table->text('comment');
+            $table->string('ipAddress')->nullable();
             $table->timestamps();
         });
     }

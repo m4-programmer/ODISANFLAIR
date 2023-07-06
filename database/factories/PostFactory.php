@@ -17,7 +17,7 @@ class PostFactory extends Factory
      */
     public function definition(): array
     {
-        $title = fake()->sentence(3);
+        $title = fake()->unique()->sentence(3);
         return [
             'title' => $title,
             'user_id' => 1,
@@ -26,7 +26,10 @@ class PostFactory extends Factory
             'slug' => Str::slug($title),
             'likes' => fake()->numberBetween(1,100),
             'cover' => "asset/images/news/img" . str_pad(fake()->numberBetween(1, 17), 2, '0', STR_PAD_LEFT) . ".jpg",
-            'created_at' => fake()->date
+            'created_at' => fake()->date,
+            'status' => 'normal',
+                //fake()->optional()->randomElement(['trending', 'normal', 'popular','latest']),
+
         ];
     }
 }

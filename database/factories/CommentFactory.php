@@ -18,11 +18,12 @@ class CommentFactory extends Factory
     {
         return [
             'post_id' => fake()->numberBetween(1,10),
-            'comments' => fake()->sentence,
+            'comment' => fake()->sentence,
             'user_id' => fake()->optional()->randomElement([1,null]),
             'name' => fake()->name,
             'email' => fake()->email,
             'website' => fake()->text,
+            'parent_id' => fake()->optional()->randomElement([1,null]),
         ];
     }
 }

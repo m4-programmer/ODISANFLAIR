@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
@@ -43,9 +44,9 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-
-        return "Success";
-
+        $ip = ['ipAddress' => $request->ip()];
+        Comment::create(array_merge($request->validated(), $ip));
+        return back()->with(['success' => 'Comment stored successfully']);
     }
 
     /**

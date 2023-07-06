@@ -7,10 +7,11 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [WelcomeController::class,'index']);
+Route::get('/search', [WelcomeController::class,'search'])->name('search');
 Route::get('/category/{title}', [CategoryController::class,'index']);
 Route::get('/{category}/{post_slug}', [PostController::class,'index']);
 Route::post('/{category}/{post_slug}', [PostController::class,'store']);
-
+Route::post('/newsletter',[App\Http\Controllers\Controller::class,'subcribe']);
 Route::get('/contact',function (){
     return view('contact');
 });

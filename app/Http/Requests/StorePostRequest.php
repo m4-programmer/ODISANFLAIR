@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StorePostRequest extends FormRequest
 {
@@ -25,7 +26,12 @@ class StorePostRequest extends FormRequest
             'name' => 'required',
             'email' => 'nullable',
             'website' => 'nullable',
-            'message' => 'required',
+            'comment' => 'required',
+            'parent_id' => 'nullable',
+            'post_id' => [
+                'required',
+                Rule::exists('posts', 'id'),
+            ],
         ];
     }
 }

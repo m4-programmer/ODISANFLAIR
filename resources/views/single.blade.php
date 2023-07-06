@@ -144,9 +144,9 @@
                             <img src="{{asset('asset/images/img01.jpg')}}">
                         </figure>
                         <div class="details">
-                            <div class="job">Web Developer</div>
+                            <div class="job">{{$post->user->title}}</div>
                             <h3 class="name">{{$post->user->name}}</h3>
-                            <p>Nulla sagittis rhoncus nisi, vel gravida ante. Nunc lobortis condimentum elit, quis porta ipsum rhoncus vitae. Curabitur magna leo, porta vel fringilla gravida, consectetur in libero. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
+                            <p>{{$post->user->about}}</p>
                             <ul class="social trp sm">
                                 <li>
                                     <a href="#" class="facebook">
@@ -204,6 +204,12 @@
                                 <h3 class="title">Leave Your Response</h3>
                             </div>
                             <div class="form-group col-md-4">
+                                <input type="hidden" name="post_id" value="{{ $post->id }}">
+                                @error('post_id')
+                                <div class="text-danger">
+                                    <span>{{$message}}</span>
+                                </div>
+                                @enderror
                                 <label for="name">Name <span class="required"></span></label>
                                 <input type="text" id="name" name="name" value="{{old('name')}}" class="form-control">
                                 @error('name')
@@ -232,8 +238,8 @@
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="message">Response <span class="required"></span></label>
-                                <textarea class="form-control" name="message" value="{{old('message')}}" placeholder="Write your response ..."></textarea>
-                                @error('message')
+                                <textarea class="form-control" name="comment" value="{{old('comment')}}" placeholder="Write your response ..."></textarea>
+                                @error('comment')
                                 <div class="text-danger">
                                     <span>{{$message}}</span>
                                 </div>
@@ -258,13 +264,16 @@
                                         <h5 class="name">{{$data->name}}</h5>
                                         <div class="time">{{$data->created_at->diffForHumans()}}</div>
                                         <div class="description">
-                                            {{$data->comments}}
+                                            {{$data->comment}}
                                         </div>
                                         <footer>
                                             <a href="#">Reply</a>
                                         </footer>
-                                    </div>
-
+                                        @if ($data->replies->count() > 0)
+                                            <div class="nested-comments">
+                                                @include('partials.comments', ['comments' => $data->replies])
+                                            </div>
+                                        @endif
                                 </div>
                                 @endforeach
                             </div>

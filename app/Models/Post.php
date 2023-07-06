@@ -8,16 +8,36 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
-    protected $fillable = ['user_id','title','post','likes','tag_id','cover','slug'];
-    public function scopeFilter($query,array $filters){
-        if ($filters['tag']){
-            $query->where('title','like', '%'.request('tags.title').'%');
+    protected $fillable = ['user_id','title','post','likes','tag_id','cover','slug','status'];
+    public function scopeFilter($query, array $filters)
+    {
+        if (isset($filters['q'])) {
+            $query->where(function ($q) use ($filters) {
+                $q->where('title', 'like', '%' . $filters['q'] . '%')
+                    ->orWhere('slug', 'like', '%' . $filters['q'] . '%')
+                    ->orWhere('post', 'like', '%' . $filters['q'] . '%');
+            });
         }
-        if ($filters['search']){
-            $query->where('title','like', '%'.request('title').'%')
-            ->orWhere('title','like', '%'.request('post').'%');
+
+        if (isset($filters['date'])) {
+            switch ($filters['date']) {
+                case 'today':
+                    $query->whereDate('created_at', now()->toDateString());
+                    break;
+                case 'last_week':
+                    $query->whereBetween('created_at', [now()->subWeek(), now()]);
+                    break;
+                case 'last_month':
+                    $query->whereBetween('created_at', [now()->subMonth(), now()]);
+                    break;
+                // Add more cases for other date options
+            }
+        }
+        if (isset($filters['category'])) {
+            $query->where('category', $filters['category']);
         }
     }
+
     public function user(){
         return $this->belongsTo(User::class);
     }

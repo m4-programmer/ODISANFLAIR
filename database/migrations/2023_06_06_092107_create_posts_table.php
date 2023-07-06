@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('slug')->unique()->nullable();
             $table->integer('likes');
             $table->foreignId('tag_id')->constrained('tags')->nullable();
+            $table->enum('status', ['popular', 'latest', 'trending','normal'])->default('normal');
             $table->timestamps();
         });
     }

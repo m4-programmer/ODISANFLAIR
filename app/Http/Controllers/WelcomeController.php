@@ -23,7 +23,7 @@ class WelcomeController extends Controller
         $comments = Comment::get()->random(3);
         //footer var
 
-//        Post::latest()->fiilter(\request('tag','search'))->get();
+
         return view('welcome',compact('tags','firstFivePosts','latestPosts','author','popular','recommended','comments'));
     }
 
@@ -31,5 +31,12 @@ class WelcomeController extends Controller
 
         return "yes";
         return view('category',compact('title'));
+    }
+    public function search(Request $request){
+        $query = $request->q;
+
+        $result = Post::latest()->filter($request->all())->paginate(10);
+        $totalCount = $result->total();
+        return  view('search', compact('result','query','totalCount'));
     }
 }
