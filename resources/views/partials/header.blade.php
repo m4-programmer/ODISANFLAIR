@@ -20,7 +20,7 @@
                             </div>
                         </div>
                         <div class="help-block">
-                            <div class="okwy">Follow Us:</div>
+                            <div class="okwy">Follow Us Via:</div>
                             <x-follow-us-head />
                         </div>
                     </form>
