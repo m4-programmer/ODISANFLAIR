@@ -10,7 +10,7 @@
                 <div class="padding">
                     <div class="detail">
                         <div class="time">{{$data->created_at->format('F d, Y')}}</div>
-                        <div class="category"><a href="category.html">{{$data->tags->title}}</a></div>
+                        <div class="category"><a href="{{url('/category/'.$data->tags->title)}}">{{$data->tags->title}}</a></div>
                     </div>
                     <h2><a href="{{url($data->tags->title.'/'.$data->slug)}}">{{$data->title}}</a></h2>
                     <p>{{Str::limit($data->post, 100,'...')}}</p>

@@ -9,7 +9,7 @@
             <div class="padding">
                 <h1><a href="#">{{$data->title}}</a></h1>
                 <div class="detail">
-                    <div class="category"><a href="category.html">{{$data->tags->title}}</a></div>
+                    <div class="category"><a href="{{url('/category/'.$data->tags->title)}}">{{$data->tags->title}}</a></div>
                     <div class="time">{{$data->created_at->format('F d, Y')}}</div>
                 </div>
             </div>
