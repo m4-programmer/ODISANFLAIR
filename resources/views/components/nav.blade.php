@@ -1,8 +1,21 @@
+@php
+    use App\Models\Post;
+    $trending = Post::where('status','trending')->get();
+    if ($trending->count() > 0) {
+         if ($trending->count() >= 5) {
+        $trending = $trending->random(5);
+        } else {
+            $trending = $trending->random($trending->count());
+        }
+    }
+
+    $posts = Post::orderBy('created_at','desc')->get()->random(3);
+@endphp
 <nav class="menu">
     <div class="container">
         <div class="brand">
             <a href="#">
-                <img src="{{asset('asset/images/logo.png')}}" alt="Magz Logo">
+                <img src="{{asset('asset/images/logo.png')}}" alt="Odisanflair Logo">
             </a>
         </div>
         <div class="mobile-toggle">
@@ -49,10 +62,12 @@
                 <li class="dropdown magz-dropdown"><a href="#">Dropdown <i class="ion-ios-arrow-right"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="category.html">Internet</a></li>
-                        <li class="dropdown magz-dropdown"><a href="category.html">Troubleshoot <i class="ion-ios-arrow-right"></i></a>
+                        <li class="dropdown magz-dropdown"><a href="category.html">Troubleshoot <i
+                                    class="ion-ios-arrow-right"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a href="category.html">Software</a></li>
-                                <li class="dropdown magz-dropdown"><a href="category.html">Hardware <i class="ion-ios-arrow-right"></i></a>
+                                <li class="dropdown magz-dropdown"><a href="category.html">Hardware <i
+                                            class="ion-ios-arrow-right"></i></a>
                                     <ul class="dropdown-menu">
                                         <li><a href="category.html">Main Board</a></li>
                                         <li><a href="category.html">RAM</a></li>
@@ -63,12 +78,15 @@
                             </ul>
                         </li>
                         <li><a href="category.html">Office</a></li>
-                        <li class="dropdown magz-dropdown"><a href="#">Programming <i class="ion-ios-arrow-right"></i></a>
+                        <li class="dropdown magz-dropdown"><a href="#">Programming <i
+                                    class="ion-ios-arrow-right"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a href="category.html">Web</a></li>
-                                <li class="dropdown magz-dropdown"><a href="category.html">Mobile <i class="ion-ios-arrow-right"></i></a>
+                                <li class="dropdown magz-dropdown"><a href="category.html">Mobile <i
+                                            class="ion-ios-arrow-right"></i></a>
                                     <ul class="dropdown-menu">
-                                        <li class="dropdown magz-dropdown"><a href="category.html">Hybrid <i class="ion-ios-arrow-right"></i></a>
+                                        <li class="dropdown magz-dropdown"><a href="category.html">Hybrid <i
+                                                    class="ion-ios-arrow-right"></i></a>
                                             <ul class="dropdown-menu">
                                                 <li><a href="#">Ionic Framework 1</a></li>
                                                 <li><a href="#">Ionic Framework 2</a></li>
@@ -84,7 +102,10 @@
                         </li>
                     </ul>
                 </li>
-                <li class="dropdown magz-dropdown magz-dropdown-megamenu"><a href="#">Mega Menu <i class="ion-ios-arrow-right"></i> <div class="badge">Hot</div></a>
+                <li class="dropdown magz-dropdown magz-dropdown-megamenu"><a href="#">Blogs<i
+                            class="ion-ios-arrow-right"></i>
+                        <div class="badge">Hot</div>
+                    </a>
                     <div class="dropdown-menu megamenu">
                         <div class="megamenu-inner">
                             <div class="row">
@@ -95,11 +116,11 @@
                                         </div>
                                     </div>
                                     <ul class="vertical-menu">
-                                        <li><a href="#"><i class="ion-ios-circle-outline"></i> Mega menu is a new feature</a></li>
-                                        <li><a href="#"><i class="ion-ios-circle-outline"></i> This is an example</a></li>
-                                        <li><a href="#"><i class="ion-ios-circle-outline"></i> For a submenu item</a></li>
-                                        <li><a href="#"><i class="ion-ios-circle-outline"></i> You can add</a></li>
-                                        <li><a href="#"><i class="ion-ios-circle-outline"></i> Your own items</a></li>
+                                       @forelse($trending as $data)
+                                        <li><a href="{{url($data->tags->title.'/'.$data->title)}}"><i class="ion-ios-circle-outline"></i> {{$data->title}}</a></li>
+                                        @empty
+                                            <li><a href="#"><i class="ion-ios-circle-outline"></i> No trending post yet.</a></li>
+                                        @endforelse
                                     </ul>
                                 </div>
                                 <div class="col-md-9">
@@ -109,61 +130,35 @@
                                         </div>
                                     </div>
                                     <div class="row">
+                                        @foreach($posts as $data)
                                         <article class="article col-md-4 mini">
                                             <div class="inner">
                                                 <figure>
-                                                    <a href="single.html">
-                                                        <img src="images/news/img10.jpg" alt="Sample Article">
+                                                    <a href="{{url($data->tags->title.'/'.$data->slug)}}">
+                                                        <img src="{{asset($data->cover)}}" alt="{{$data->title}}">
                                                     </a>
                                                 </figure>
                                                 <div class="padding">
                                                     <div class="detail">
-                                                        <div class="time">December 10, 2016</div>
-                                                        <div class="category"><a href="category.html">Healthy</a></div>
+                                                        <div class="time">{{$data->created_at->format('F d, Y')}}</div>
+                                                        <div class="category"><a href="{{url('/category/'.$data->tags->title)}}">{{$data->tags->title}}</a></div>
                                                     </div>
-                                                    <h2><a href="single.html">Duis aute irure dolor in reprehenderit in voluptate</a></h2>
+                                                    <h2>
+                                                        <a href="{{url($data->tags->title.'/'.$data->slug)}}"> {{$data->title}}</a>
+                                                    </h2>
+
                                                 </div>
                                             </div>
                                         </article>
-                                        <article class="article col-md-4 mini">
-                                            <div class="inner">
-                                                <figure>
-                                                    <a href="single.html">
-                                                        <img src="images/news/img11.jpg" alt="Sample Article">
-                                                    </a>
-                                                </figure>
-                                                <div class="padding">
-                                                    <div class="detail">
-                                                        <div class="time">December 13, 2016</div>
-                                                        <div class="category"><a href="category.html">Lifestyle</a></div>
-                                                    </div>
-                                                    <h2><a href="single.html">Duis aute irure dolor in reprehenderit in voluptate</a></h2>
-                                                </div>
-                                            </div>
-                                        </article>
-                                        <article class="article col-md-4 mini">
-                                            <div class="inner">
-                                                <figure>
-                                                    <a href="single.html">
-                                                        <img src="images/news/img14.jpg" alt="Sample Article">
-                                                    </a>
-                                                </figure>
-                                                <div class="padding">
-                                                    <div class="detail">
-                                                        <div class="time">December 14, 2016</div>
-                                                        <div class="category"><a href="category.html">Travel</a></div>
-                                                    </div>
-                                                    <h2><a href="single.html">Duis aute irure dolor in reprehenderit in voluptate</a></h2>
-                                                </div>
-                                            </div>
-                                        </article>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </li>
-                <li class="dropdown magz-dropdown magz-dropdown-megamenu"><a href="#">Column <i class="ion-ios-arrow-right"></i></a>
+                <li class="dropdown magz-dropdown magz-dropdown-megamenu"><a href="#">Column <i
+                            class="ion-ios-arrow-right"></i></a>
                     <div class="dropdown-menu megamenu">
                         <div class="megamenu-inner">
                             <div class="row">

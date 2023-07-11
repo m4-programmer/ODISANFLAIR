@@ -27,8 +27,8 @@
                 </div>
                 <div class="col-md-3 col-sm-12 text-right">
                     <ul class="nav-icons">
-                        <li><a href="{{route('register')}}"><i class="ion-person-add"></i><div>Register</div></a></li>
-                        <li><a href="{{route('login')}}"><i class="ion-person"></i><div>Login</div></a></li>
+                        <li><a href="{{url('about')}}"><i class="ion-person-add"></i><div>About</div></a></li>
+                        <li><a href="{{url('contact')}}"><i class="ion-person"></i><div>Contact</div></a></li>
                     </ul>
                 </div>
             </div>

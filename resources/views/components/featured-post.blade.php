@@ -4,7 +4,7 @@
             <article class="featured">
                 <div class="overlay"></div>
                 <figure>
-                    <img src="{{asset($data->cover)}}" alt="Sample Article">
+                    <img src="{{asset($data->cover)}}" alt="{{$data->title}}">
                 </figure>
                 <div class="details">
                     <div class="category"><a href="{{url('/category/'.$data->tags->title)}}">{{$data->tags->title}}</a></div>
