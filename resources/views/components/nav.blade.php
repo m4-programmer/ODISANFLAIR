@@ -10,7 +10,7 @@
     }
 
     $posts = Post::orderBy('created_at','desc')->get()->random(3);
-    $categories = Tag::get()->random(8);
+    $categories = Tag::get()->random(5);
 @endphp
 <nav class="menu">
     <div class="container">
