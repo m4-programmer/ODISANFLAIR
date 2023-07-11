@@ -28,13 +28,8 @@
         <div id="menu-list">
             <ul class="nav-list">
                 <li class="for-tablet nav-title"><a>Menu</a></li>
-
-                @foreach($categories as $data)
-                    <li>
-                        <a href="{{url('/category/'.$data->title)}}">{{$data->title}} <i class="ion-ios-arrow-right"></i></a>
-                    </li>
-                @endforeach
-                <li class="dropdown magz-dropdown magz-dropdown-megamenu"><a href="#">Blogs<i
+                <li class="dropdown magz-dropdown magz-dropdown-megamenu">
+                    <a href="#">Blogs<i
                             class="ion-ios-arrow-right"></i>
                         <div class="badge">Hot</div>
                     </a>
@@ -94,6 +89,12 @@
                         </div>
                     </div>
                 </li>
+                @foreach($categories as $data)
+                    <li>
+                        <a href="{{url('/category/'.$data->title)}}">{{$data->title}} <i class="ion-ios-arrow-right"></i></a>
+                    </li>
+                @endforeach
+
             </ul>
         </div>
     </div>

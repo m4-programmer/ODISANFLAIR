@@ -17,7 +17,6 @@
                     <div class="row">
                         @forelse($posts as $data)
                             <article class="col-md-12 article-list">
-                                {{$posts->onFirstPage()}}
                                 <div class="inner">
                                     <figure>
                                         <a href="{{url($data->tags->title.'/'.$data->slug)}}">
