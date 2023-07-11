@@ -15,7 +15,10 @@ class Post extends Model
             $query->where(function ($q) use ($filters) {
                 $q->where('title', 'like', '%' . $filters['q'] . '%')
                     ->orWhere('slug', 'like', '%' . $filters['q'] . '%')
-                    ->orWhere('post', 'like', '%' . $filters['q'] . '%');
+                    ->orWhere('post', 'like', '%' . $filters['q'] . '%')
+                    ->orWhereHas('tags', function ($query) use ($filters) {
+                        $query->where('title', 'like', '%' . $filters['q'] . '%');
+                    });
             });
         }
 
