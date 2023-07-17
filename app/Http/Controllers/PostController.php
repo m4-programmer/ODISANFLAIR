@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function index($category,$post_slug)
     {
-        $verify = Tag::where('title',$category)->exists();
+        $verify = Tag::where('title',$category)->orWhere('slug',$category)->exists();
         if ($verify){
             $title = $post_slug;
             $tag = $category;
@@ -24,7 +24,6 @@ class PostController extends Controller
             $recommended = $posts->random(3);
             $comments = $post->comments;
 
-//            dd($comments);
             return view('single',compact('title','post','recommended','tag','comments'));
         }else{
             abort(404);

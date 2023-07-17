@@ -13,7 +13,7 @@ class CategoryController extends Controller
      */
     public function index($title)
     {
-        $tag = Tag::where('title', $title)->first();
+        $tag = Tag::where('title', $title)->orWhere('slug',$title)->first();
 
         if ($tag) {
             $tagId = $tag->id;
@@ -27,7 +27,24 @@ class CategoryController extends Controller
             abort(404);
         }
     }
-
+    public function latest(){
+        $posts = Post::where('status', 'latest')->paginate(8);
+        if (!$posts->count()){
+            $posts = Post::latest()->paginate(8);
+        }
+        $title = "Latest";
+        $sidePost = Post::latest()->get();
+        return view('category',compact('posts','title','sidePost'));
+    }
+    public function popular(){
+        $posts = Post::where('status', 'popular')->paginate(8);
+        if (!$posts->count()){
+            $posts = Post::latest()->paginate(8);
+        }
+        $title = "Popular";
+        $sidePost = Post::latest()->get();
+        return view('category',compact('posts','title','sidePost'));
+    }
     /**
      * Show the form for creating a new resource.
      */

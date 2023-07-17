@@ -67,7 +67,7 @@
                             <p>No news yet</p>
                         @endforelse
 
-                        <a href="#" class="btn btn-magz white btn-block">See All <i class="ion-ios-arrow-thin-right"></i></a>
+                        <a href="{{route('latest' )}}" class="btn btn-magz white btn-block">See All <i class="ion-ios-arrow-thin-right"></i></a>
                     </div>
                 </div>
             </div>

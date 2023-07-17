@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users')->nullable();
             $table->string('title')->unique();
             $table->enum('status',['active','pending'])->default('active');
+            $table->string('slug')->nullable();
             $table->timestamps();
         });
     }

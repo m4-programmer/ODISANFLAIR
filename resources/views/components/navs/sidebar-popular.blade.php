@@ -1,5 +1,5 @@
 <aside>
-    <h1 class="aside-title">Popular <a href="#" class="all">See All <i class="ion-ios-arrow-right"></i></a></h1>
+    <h1 class="aside-title">Popular <a href="{{route('popular')}}" class="all">See All <i class="ion-ios-arrow-right"></i></a></h1>
     <div class="aside-body">
         @foreach($popular as $data)
             <article class="article-mini">
