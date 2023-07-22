@@ -24,7 +24,7 @@ class WelcomeController extends Controller
         //footer var
 
 
-        return view('welcome',compact('tags','firstFivePosts','latestPosts','author','popular','recommended','comments'));
+        return view('welcome',compact('tags','firstFivePosts','latestPosts','author','popular','recommended','comments','posts'));
     }
 
     public function category(Request $request,$title){

@@ -7,7 +7,8 @@
                     <h1 class="block-title">Company Info</h1>
                     <div class="block-body">
                         <figure class="foot-logo">
-                            <img src="{{asset('asset/images/logo-light.png')}}" class="img-responsive" alt="Logo">
+                            <img src="{{asset('asset/images/20230713_171907.png')}}" class="img-responsive" alt="Logo">
+                            <img src="{{asset('asset/images/20230713_171214.png')}}" class="img-responsive" alt="Logo">
                         </figure>
                         <p class="brand-description">
                             Odisanflair offers an extensive blogging articles, online courses, and best-selling books covering a variety of topics.
@@ -144,10 +145,24 @@
                 <div class="block">
                     <div class="block-body no-margin">
                         <ul class="footer-nav-horizontal">
-                            <li><a href="{{url('/')}}">Home</a></li>
-                            <li><a href="#">Partner</a></li>
-                            <li><a href="{{url('/contact')}}">Contact</a></li>
-                            <li><a href="{{url('/about')}}">About</a></li>
+                            <ul class="footer-nav-horizontal">
+                                <li><a href="{{url('/')}}">HOME</a></li>
+                                <li><a href="{{url('#')}}">ACADEMY</a></li>
+                                <li><a href="{{url('#')}}">PREMIUM</a></li>
+                            </ul>
+                            <ul class="footer-nav-horizontal">
+                                <li><a href="{{url('#')}}">BOOKS</a></li>
+                                <li><a href="{{url('#')}}">BLOG</a></li>
+                            </ul>
+                            <ul class="footer-nav-horizontal">
+                                <li><a href="{{url('#')}}">CONTACT</a></li>
+                                <li><a href="{{url('#')}}">ABOUT</a></li>
+                            </ul>
+                            <ul class="footer-nav-horizontal">
+                                <li><a href="{{url('#')}}">PRIVACY</a></li>
+                                <li><a href="{{url('#')}}">POLICY</a></li>
+                                <li><a href="{{url('#')}}">SCAM ALERT</a></li>
+                            </ul>
                         </ul>
                     </div>
                 </div>
