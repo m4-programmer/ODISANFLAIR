@@ -5,7 +5,7 @@
                 <div class="col-md-3 col-sm-12">
                     <div class="brand">
                         <a href="/">
-                            <img src="{{asset('asset/images/logo.png')}}" alt="Magz Logo">
+                            <img src="{{asset('asset/images/20230714_154601.png')}}" alt="Magz Logo">
                         </a>
                     </div>
                 </div>

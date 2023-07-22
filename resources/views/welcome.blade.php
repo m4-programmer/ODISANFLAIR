@@ -51,6 +51,44 @@
                     <div class="row">
                        <x-another-news :news="$firstFivePosts" />
                     </div>
+                    <section class="best-of-the-week">
+                        <div class="container">
+                            <h1><div class="text">Best Of The Week</div>
+                                <div class="carousel-nav" id="best-of-the-week-nav">
+                                    <div class="prev">
+                                        <i class="ion-ios-arrow-left"></i>
+                                    </div>
+                                    <div class="next">
+                                        <i class="ion-ios-arrow-right"></i>
+                                    </div>
+                                </div>
+                            </h1>
+                            <div class="owl-carousel owl-theme carousel-1">
+                                @foreach($posts->take(6) as $data)
+                                <article class="article">
+                                    <div class="inner">
+                                        <figure>
+                                            <a href="{{url($data->tags->title.'/'.$data->slug)}}">
+                                                <img src="{{asset($data->cover)}}" alt="{{$data->title}}">
+                                            </a>
+                                        </figure>
+                                        <div class="padding">
+                                            <div class="detail">
+                                                <div class="time">{{$data->created_at->format('F d, Y')}}</div>
+                                                <div class="category">
+                                                    <a href="{{url('/category/'.$data->tags->slug)}}">{{$data->tags->title}}</a>
+                                                </div>
+                                            </div>
+                                            <h2><a href="{{url($data->tags->title.'/'.$data->slug)}}"> {{$data->title}}</a></h2>
+                                            <p>
+                                                {{Str::limit($data->post, 50,'...')}}</p>
+                                        </div>
+                                    </div>
+                                </article>
+                                @endforeach
+                            </div>
+                        </div>
+                    </section>
                 </div>
                 <x-side-bar :recommended="$recommended" :comments="$comments"  :author="$author" :popular="$popular" />
             </div>
