@@ -95,7 +95,7 @@
 {{--                    </li>--}}
 {{--                @endforeach--}}
                 <!-- academy starts -->
-                <li><a href="{{url('starter.html')}}">ACADEMY</a></li>
+                <li><a href="{{url('starter')}}">ACADEMY</a></li>
                 <!-- academy ends -->
 
                 <!-- PODCAST STARTS -->
@@ -106,41 +106,41 @@
                                 <div class="col-md-3">
                                     <h2 class="megamenu-title">TRADING</h2>
                                     <ul class="vertical-menu">
-                                        <li><a href="{{url('single.html')}}">FOREX</a></li>
-                                        <li><a href="{{url('single.html')}}">CRYPTO</a></li>
-                                        <li><a href="{{url('single.html')}}">STOCK</a></li>
-                                        <li><a href="{{url('single.html')}}">COMMODITY</a></li>
-                                        <li><a href="{{url('single.html')}}">OTHERS</a></li>
+                                        <li><a href="{{url('starter')}}">FOREX</a></li>
+                                        <li><a href="{{url('starter')}}">CRYPTO</a></li>
+                                        <li><a href="{{url('starter')}}">STOCK</a></li>
+                                        <li><a href="{{url('starter')}}">COMMODITY</a></li>
+                                        <li><a href="{{url('starter')}}">OTHERS</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-md-3">
                                     <h2 class="megamenu-title">SUCCESS</h2>
                                     <ul class="vertical-menu">
-                                        <li><a href="{{url('single.html')}}">FOREX</a></li>
-                                        <li><a href="{{url('single.html')}}">CRYPTO</a></li>
-                                        <li><a href="{{url('single.html')}}">STOCK</a></li>
-                                        <li><a href="{{url('starter.html')}}">COMMODITY</a></li>
-                                        <li><a href="{{url('single.html')}}">OTHERS</a></li>
+                                        <li><a href="{{url('starter')}}">FOREX</a></li>
+                                        <li><a href="{{url('starter')}}">CRYPTO</a></li>
+                                        <li><a href="{{url('starter')}}">STOCK</a></li>
+                                        <li><a href="{{url('starter')}}">COMMODITY</a></li>
+                                        <li><a href="{{url('starter')}}">OTHERS</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-md-3">
                                     <h2 class="megamenu-title">BUINESS</h2>
                                     <ul class="vertical-menu">
-                                        <li><a href="{{url('single.html')}}">FOREX</a></li>
-                                        <li><a href="{{url('single.html')}}">CRYPTO</a></li>
-                                        <li><a href="{{url('single.html')}}">STOCK</a></li>
-                                        <li><a href="{{url('single.html')}}">COMMODITY</a></li>
-                                        <li><a href="{{url('single.html')}}">OTHERS</a></li>
+                                        <li><a href="{{url('starter')}}">FOREX</a></li>
+                                        <li><a href="{{url('starter')}}">CRYPTO</a></li>
+                                        <li><a href="{{url('starter')}}">STOCK</a></li>
+                                        <li><a href="{{url('starter')}}">COMMODITY</a></li>
+                                        <li><a href="{{url('starter')}}">OTHERS</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-md-3">
                                     <h2 class="megamenu-title">RANDOM</h2>
                                     <ul class="vertical-menu">
-                                        <li><a href="{{url('single.html')}}">FOREX</a></li>
-                                        <li><a href="{{url('single.html')}}">CRYPTO</a></li>
-                                        <li><a href="{{url('single.html')}}">STOCK</a></li>
-                                        <li><a href="{{url('single.html')}}">COMMODITY</a></li>
-                                        <li><a href="{{url('single.html')}}">OTHERS</a></li>
+                                        <li><a href="{{url('starter')}}">FOREX</a></li>
+                                        <li><a href="{{url('starter')}}">CRYPTO</a></li>
+                                        <li><a href="{{url('starter')}}">STOCK</a></li>
+                                        <li><a href="{{url('starter')}}">COMMODITY</a></li>
+                                        <li><a href="{{url('starter')}}">OTHERS</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -154,14 +154,14 @@
                 <li class="dropdown magz-dropdown">
                     <a href="category.html">BOOKS <i class="ion-ios-arrow-right"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{url('single.html')}}">Price Action</a></li>
-                        <li><a href="{{url('single.html')}}">Surpport And Resistnace</i></a></li>
-                        <li><a href="{{url('single.html')}}">Indicator Trading</a></li>
-                        <li><a href="{{url('single.html')}}">Supply And Demand</a></li>
-                        <li><a href="{{url('single.html')}}">Chart pattern Trading</a></li>
-                        <li><a href="{{url('single.html')}}">Trade Properlly</a></li>
-                        <li><a href="{{url('single.html')}}">Psychology Treatment</a></li>
-                        <li><a href="{{url('single.html')}}">What Really Works</a>
+                        <li><a href="{{url('starter')}}">Price Action</a></li>
+                        <li><a href="{{url('starter')}}">Surpport And Resistnace</i></a></li>
+                        <li><a href="{{url('starter')}}">Indicator Trading</a></li>
+                        <li><a href="{{url('starter')}}">Supply And Demand</a></li>
+                        <li><a href="{{url('starter')}}">Chart pattern Trading</a></li>
+                        <li><a href="{{url('starter')}}">Trade Properlly</a></li>
+                        <li><a href="{{url('starter')}}">Psychology Treatment</a></li>
+                        <li><a href="{{url('starter')}}">What Really Works</a>
                         </li>
                     </ul>
                 </li>
@@ -172,29 +172,29 @@
                 <li class="dropdown magz-dropdown">
                     <a href="category.html">PREMIUM <i class="ion-ios-arrow-right"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{url('single.html')}}">Price Action</a></li>
-                        <li><a href="{{url('single.html')}}">Surpport And Resistnace</i></a></li>
-                        <li><a href="{{url('single.html')}}">Indicator Trading</a></li>
-                        <li><a href="{{url('single.html')}}">Supply And Demand</a></li>
-                        <li><a href="{{url('single.html')}}">Chart pattern Trading</a></li>
-                        <li><a href="{{url('single.html')}}">Trade Properlly</a></li>
-                        <li><a href="{{url('single.html')}}">Psychology Treatment</a></li>
-                        <li><a href="{{url('single.html')}}">What Really Works</a>
+                        <li><a href="{{url('starter')}}">Price Action</a></li>
+                        <li><a href="{{url('starter')}}">Surpport And Resistnace</i></a></li>
+                        <li><a href="{{url('starter')}}">Indicator Trading</a></li>
+                        <li><a href="{{url('starter')}}">Supply And Demand</a></li>
+                        <li><a href="{{url('starter')}}">Chart pattern Trading</a></li>
+                        <li><a href="{{url('starter')}}">Trade Properlly</a></li>
+                        <li><a href="{{url('starter')}}">Psychology Treatment</a></li>
+                        <li><a href="{{url('starter')}}">What Really Works</a>
                         </li>
                     </ul>
                 </li>
                 <!-- premium ends -->
 
                 <!-- results starts -->
-                <li><a href="{{url('single.html')}}">RESULTS</a></li>
+                <li><a href="{{url('starter')}}">RESULTS</a></li>
                 <!-- results end -->
 
                 <!-- about starts -->
-                <li><a href="{{url('single.html')}}">ABOUT</a></li>
+                <li><a href="{{url('starter')}}">ABOUT</a></li>
                 <!-- about ends	-->
 
                 <!-- contact starts -->
-                <li><a href="{{url('single.html')}}">CONTACT</a></li>
+                <li><a href="{{url('starter')}}">CONTACT</a></li>
                 <!-- contact ends -->
 
                 <!-- academy starts -->
