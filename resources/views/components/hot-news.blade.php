@@ -2,7 +2,7 @@
     <article class="article-mini">
         <div class="inner">
             <figure>
-                <a href="#">
+                <a href="{{url($data->tags->title.'/'.$data->slug)}}">
                     <img src="{{asset($data->cover)}}" alt="{{$data->title}}">
                 </a>
             </figure>
