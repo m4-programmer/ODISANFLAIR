@@ -147,21 +147,21 @@
                         <ul class="footer-nav-horizontal">
                             <ul class="footer-nav-horizontal">
                                 <li><a href="{{url('/')}}">HOME</a></li>
-                                <li><a href="{{url('#')}}">ACADEMY</a></li>
-                                <li><a href="{{url('#')}}">PREMIUM</a></li>
+                                <li><a href="{{url('starter')}}">ACADEMY</a></li>
+                                <li><a href="{{url('starter')}}">PREMIUM</a></li>
                             </ul>
                             <ul class="footer-nav-horizontal">
-                                <li><a href="{{url('#')}}">BOOKS</a></li>
-                                <li><a href="{{url('#')}}">BLOG</a></li>
+                                <li><a href="{{url('starter')}}">BOOKS</a></li>
+                                <li><a href="{{url('starter')}}">BLOG</a></li>
                             </ul>
                             <ul class="footer-nav-horizontal">
-                                <li><a href="{{url('#')}}">CONTACT</a></li>
-                                <li><a href="{{url('#')}}">ABOUT</a></li>
+                                <li><a href="{{url('contact')}}">CONTACT</a></li>
+                                <li><a href="{{url('about')}}">ABOUT</a></li>
                             </ul>
                             <ul class="footer-nav-horizontal">
-                                <li><a href="{{url('#')}}">PRIVACY</a></li>
-                                <li><a href="{{url('#')}}">POLICY</a></li>
-                                <li><a href="{{url('#')}}">SCAM ALERT</a></li>
+                                <li><a href="{{url('starter')}}">PRIVACY</a></li>
+                                <li><a href="{{url('starter')}}">POLICY</a></li>
+                                <li><a href="{{url('starter')}}">SCAM ALERT</a></li>
                             </ul>
                         </ul>
                     </div>
