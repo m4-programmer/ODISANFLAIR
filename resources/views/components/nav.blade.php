@@ -190,11 +190,11 @@
                 <!-- results end -->
 
                 <!-- about starts -->
-                <li><a href="{{url('starter')}}">ABOUT</a></li>
+                <li><a href="{{url('about')}}">ABOUT</a></li>
                 <!-- about ends	-->
 
                 <!-- contact starts -->
-                <li><a href="{{url('starter')}}">CONTACT</a></li>
+                <li><a href="{{url('contact')}}">CONTACT</a></li>
                 <!-- contact ends -->
 
                 <!-- academy starts -->
