@@ -46,7 +46,7 @@
                                         <form action="{{route('admin.categories.destroy',$data->id)}}" method="post">
                                             @csrf
                                             @method('delete')
-                                            <button class="btn btn-danger btn-sm" "> Delete Category</button>
+                                            <button class="btn btn-danger btn-sm" > Delete Category</button>
                                         </form>
                                     </td>
                                 </tr>
