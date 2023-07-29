@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Tag;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ManageCategories extends Controller
 {
@@ -12,7 +15,8 @@ class ManageCategories extends Controller
      */
     public function index()
     {
-        return view('admin.categories.index');
+        $categories = Tag::all()->load('posts');
+        return view('admin.categories.index',compact('categories'));
     }
 
     /**
@@ -20,7 +24,7 @@ class ManageCategories extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.categories.create');
     }
 
     /**
@@ -28,7 +32,22 @@ class ManageCategories extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required|unique:tags,title',
+            'status'=>'required'
+        ]);
+        $slug = Str::slug($request->title);
+        $result = Tag::create([
+            'title'=>$request->title,
+            'status'=>$request->status,
+            'user_id'=>$request->user()->id?? 1,
+            'slug'=>$slug
+        ]);
+        if ($result){
+            return back()->with(['success','category created successfully']);
+        }else{
+            return back()->with(['error','an error occurred']);
+        }
     }
 
     /**
@@ -36,30 +55,50 @@ class ManageCategories extends Controller
      */
     public function show(string $id)
     {
-        //
+
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Tag $category)
     {
-        //
+        return view('admin.categories.edit',compact('category'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Tag $category)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required|unique:tags,title',
+            'status'=>'required'
+        ]);
+        $slug = Str::slug($request->title);
+        $result = $category->update([
+            'title'=>$request->title,
+            'status'=>$request->status,
+            'user_id'=>$request->user()->id ?? 1,
+            'slug'=>$slug
+        ]);
+        if ($result){
+            return back()->with(['success','category updated successfully']);
+        }else{
+            return back()->with(['error','an error occurred']);
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Tag $category)
     {
-        //
+        try {
+            $category->delete();
+            return back()->with('success','category deleted successsfully');
+        }catch (ModelNotFoundException $e){
+            return back()->with('error','category not found');
+        }
     }
 }
