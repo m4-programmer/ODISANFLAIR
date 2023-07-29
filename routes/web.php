@@ -1,11 +1,15 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
-
+//Admin Routes
+Route::prefix('admin')->name('admin.')->group(function (){
+    Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
+});
 Route::get('/', [WelcomeController::class,'index']);
 Route::get('/search', [WelcomeController::class,'search'])->name('search');
 Route::get('/category/latest',[CategoryController::class,'latest'])->name('latest');
@@ -27,3 +31,7 @@ Route::get('/starter',function (){
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+
