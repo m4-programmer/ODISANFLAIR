@@ -3,6 +3,8 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ManageCategories as ManageCategoriesAlias;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ManageCommentController;
+use App\Http\Controllers\ManagePostController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
@@ -11,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('admin')->name('admin.')->group(function (){
     Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
     Route::resource('/categories', ManageCategoriesAlias::class);
+    Route::resource('/posts', ManagePostController::class);
+    Route::resource('/comments', ManageCommentController::class);
 });
 Route::get('/', [WelcomeController::class,'index']);
 Route::get('/search', [WelcomeController::class,'search'])->name('search');

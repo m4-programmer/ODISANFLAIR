@@ -13,6 +13,13 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Tempusdominus Bootstrap 4 -->
     <link rel="stylesheet" href="{{asset('admin/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="{{asset('admin/plugins/select2/css/select2.min.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
+    <!-- Bootstrap4 Duallistbox -->
+    <link rel="stylesheet" href="{{asset('admin/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css')}}">
+    <!-- BS Stepper -->
+    <link rel="stylesheet" href="{{asset('admin/plugins/bs-stepper/css/bs-stepper.min.css')}}">
     <!-- iCheck -->
     <link rel="stylesheet" href="{{asset('admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
     <!-- JQVMap -->
@@ -73,6 +80,9 @@
 </script>
 <!-- Bootstrap 4 -->
 <script src="{{asset('admin/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<!-- Select2 -->
+<script src="{{asset('admin/plugins/select2/js/select2.full.min.js')}}"></script>
+
 <!-- DataTables  & Plugins -->
 <script src="{{asset('admin/plugins/datatables/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
@@ -85,7 +95,7 @@
 <script src="{{asset('admin/plugins/pdfmake/vfs_fonts.js')}}"></script>
 <script src="{{asset('admin/plugins/datatables-buttons/js/buttons.html5.min.js')}}"></script>
 <script src="{{asset('admin/plugins/datatables-buttons/js/buttons.print.min.js')}}"></script>
-<script src="{{('admin/plugins/datatables-buttons/js/buttons.colVis.minasset.js')}}"></script>
+<script src="{{asset('admin/plugins/datatables-buttons/js/buttons.colVis.minasset.js')}}"></script>
 <!-- ChartJS -->
 <script src="{{asset('admin/plugins/chart.js/Chart.min.js')}}"></script>
 <!-- Sparkline -->
@@ -128,6 +138,22 @@
             "responsive": true,
         });
     });
+</script>
+<script>
+    $(function () {
+
+        // Summernote
+        $('#summernote').summernote()
+
+
+        //Initialize Select2 Elements
+        $('.select2').select2()
+
+        //Initialize Select2 Elements
+        $('.select2bs4').select2({
+            theme: 'bootstrap4'
+        })
+    })
 </script>
 </body>
 </html>

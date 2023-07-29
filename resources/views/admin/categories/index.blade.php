@@ -38,15 +38,18 @@
                                     <td>{{$data->title}}</td>
                                     <td>{{$data->user->name}}</td>
                                     <td><span class="badge badge-{{($data->status == 'active') ? 'success' : 'danger'}}">{{ $data->status}}</span></td>
-                                    <td>{{$data->posts->count()}}</td>
+                                    <td>
+                                        {{$data->posts->count()}}
+                                        <a href="{{route('admin.posts.index')}}" class="btn btn-primary"><i class="fas fa-search"></i></a>
+                                    </td>
                                     <td>{{$data->slug}}</td>
                                     <td>{{$data->created_at->format('F d Y')}}</td>
                                     <td class="d-flex justify-content-between">
-                                        <a class="btn btn-success btn-sm" href="{{route('admin.categories.edit',$data->id)}}"> Edit Category</a>
+                                        <a class="btn btn-success btn-sm" href="{{route('admin.categories.edit',$data->id)}}" title="Edit Post"><i class="fas fa-edit"></i></a>
                                         <form action="{{route('admin.categories.destroy',$data->id)}}" method="post">
                                             @csrf
                                             @method('delete')
-                                            <button class="btn btn-danger btn-sm" > Delete Category</button>
+                                            <button class="btn btn-danger btn-sm" title="Delete Post"><i class="fas fa-trash-alt"></i></button>
                                         </form>
                                     </td>
                                 </tr>
