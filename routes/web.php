@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ManageCategories as ManageCategoriesAlias;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\WelcomeController;
@@ -9,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 //Admin Routes
 Route::prefix('admin')->name('admin.')->group(function (){
     Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
+    Route::resource('/categories', ManageCategoriesAlias::class);
 });
 Route::get('/', [WelcomeController::class,'index']);
 Route::get('/search', [WelcomeController::class,'search'])->name('search');
