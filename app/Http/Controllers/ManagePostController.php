@@ -15,7 +15,7 @@ class ManagePostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all()->load('user','tags','comments');
+        $posts = Post::orderBy('created_at','desc')->get()->load('user','tags','comments');
         return view('admin.posts.index',compact('posts'));
     }
 

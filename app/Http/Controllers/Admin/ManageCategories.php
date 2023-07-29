@@ -15,7 +15,7 @@ class ManageCategories extends Controller
      */
     public function index()
     {
-        $categories = Tag::all()->load('posts');
+        $categories = Tag::orderBy('created_at','desc')->get()->load('posts');
         return view('admin.categories.index',compact('categories'));
     }
 

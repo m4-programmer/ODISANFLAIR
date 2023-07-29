@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
 class ManageCommentController extends Controller
@@ -11,7 +12,8 @@ class ManageCommentController extends Controller
      */
     public function index()
     {
-        //
+        $comments = Comment::orderBy('created_at','desc')->get()->load('user','post','replies');
+        return view('admin.comments.index',compact('comments'));
     }
 
     /**
@@ -19,7 +21,7 @@ class ManageCommentController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.comments.create');
     }
 
     /**
@@ -33,17 +35,17 @@ class ManageCommentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Comment $comment)
     {
-        //
+        return view('admin.comments.edit',compact('comment'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Comment $comment)
     {
-        //
+        return view('admin.comments.edit',compact('comment'));
     }
 
     /**
