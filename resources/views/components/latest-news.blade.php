@@ -4,7 +4,7 @@
             <div class="inner">
                 <figure>
                     <a href="{{url($data->tags->title.'/'.$data->slug)}}">
-                        <img src="{{asset($data->cover)}}" alt="{{$data->title}}">
+                        <img src="{{asset($data->cover)}}" alt="{{$data->title}}" style="height: 100%!important;background-size: cover'">
                     </a>
                 </figure>
                 <div class="padding">
