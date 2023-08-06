@@ -22,7 +22,7 @@
                                 <tr>
                                     <th>S/N</th>
                                     <th>Category</th>
-                                    <th>Post</th>
+                                    <th>Post Title</th>
                                     <th>Created By</th>
                                     <th>Status</th>
                                     <th>Comments</th>
@@ -36,8 +36,8 @@
                                 @foreach($posts as $data)
                                     <tr>
                                         <td><?php echo $sn;  $sn++?></td>
-                                        <td>{{$data->title}}</td>
-                                        <td>{{\Illuminate\Support\Str::words($data->post,10,'...')}}</td>
+                                        <td>{{$data->tags->title}}</td>
+                                        <td>{!! \Illuminate\Support\Str::words($data->title,10,'...') !!}</td>
                                         <td>{{$data->user->name}}</td>
                                         <td><span class="badge badge-{{($data->status == 'active') ? 'success' : 'danger'}}">{{ $data->status}}</span></td>
                                         <td>

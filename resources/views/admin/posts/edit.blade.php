@@ -90,6 +90,7 @@
                             <!-- /.card-body -->
 
                             <div class="card-footer">
+                                <a href="{{route('admin.posts.index')}}" class="btn btn-success">Go Back </a>
                                 <button type="submit" class="btn btn-primary">Update </button>
                             </div>
                         </form>

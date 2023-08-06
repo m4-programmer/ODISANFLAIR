@@ -13,7 +13,7 @@
                         <div class="category"><a href="{{url('/category/'.$data->tags->title)}}">{{$data->tags->title}}</a></div>
                     </div>
                     <h2><a href="{{url($data->tags->title.'/'.$data->slug)}}">{{$data->title}}</a></h2>
-                    <p>{{Str::limit($data->post, 100,'...')}}</p>
+                    <p>{!! Str::limit($data->post, 100,'...') !!}</p>
                     <footer>
                         <a href="#" class="love"><i class="ion-android-favorite-outline"></i> <div>{{$data->likes}}</div></a>
                         <a class="btn btn-primary more" href="{{url($data->tags->title.'/'.$data->slug)}}">

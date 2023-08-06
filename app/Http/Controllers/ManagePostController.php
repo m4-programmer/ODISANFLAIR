@@ -33,17 +33,21 @@ class ManagePostController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
+
         $validated = $request->validate([
             'title' => 'required|unique:posts,title',
             'post' => 'required',
             'status'=>'required'
         ]);
         $slug = Str::slug($request->title);
+        if ($request->hasFile('cover')) {
+            $cover = 'asset/uploads/userImage' . '/' . Str::random(32) . '.' . $request->cover->getClientOriginalExtension();
+            $request->cover->move(public_path('asset/uploads/userImage'), $cover);
+        }
         $result = Post::create([
             'title'=>$request->title,
             'post'=>$request->post,
-            'cover'=>$request->cover,
+            'cover'=>$cover,
             'slug'=>$slug,
             'likes'=>$request->likes,
             'tag_id'=>$request->tag_id,
@@ -85,10 +89,18 @@ class ManagePostController extends Controller
         ]);
         $slug = Str::slug($request->title);
         //to write logic to handle uploading the cover image
+        if ($request->hasFile('cover')) {
+            $cover = 'asset/uploads/userImage' . '/' . Str::random(32) . '.' . $request->cover->getClientOriginalExtension();
+            $request->cover->move(public_path('asset/uploads/userImage'), $cover);
+        }else{
+            //we use the existing cover image
+            $cover = $post->cover;
+        }
+
         $result = $post->update([
             'title'=>$request->title,
             'post'=>$request->post,
-            'cover'=>$request->cover,
+            'cover'=>$cover,
             'slug'=>$slug,
             'likes'=>$request->likes?? 0,
             'tag_id'=>$request->tag_id,

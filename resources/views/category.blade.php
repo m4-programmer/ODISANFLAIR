@@ -31,9 +31,7 @@
                                             <div class="time">{{$data->created_at->format('F d, Y')}}</div>
                                         </div>
                                         <h1><a href="{{url($data->tags->title.'/'.$data->slug)}}">{{$data->title}}</a></h1>
-                                        <p>
-                                            {{Str::limit($data->post,200)}}
-                                        </p>
+                                        <p>{!! Str::limit($data->post, 200,'...') !!}</p>
                                         <footer>
                                             <a href="#" class="love"><i class="ion-android-favorite-outline"></i> <div>
                                                 {{$data->likes}}</div></a>
