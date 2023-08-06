@@ -15,11 +15,21 @@
                         <div class="card-header">
                             <h3 class="card-title">Edit Posts</h3>
                         </div>
+                        
                         <!-- /.card-header -->
                         <!-- form start -->
                         <form action="{{route('admin.posts.store')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
+                                {{-- Alert to display message --}}
+                                @if (session('message'))
+                                    <div class="alert alert-success alert-dismissible fade show mt-4" role="alert">
+                                        {{session('message')}}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                @endif
                                 {{--Category--}}
                                 <div class="form-group">
                                     <label>Select Category</label>

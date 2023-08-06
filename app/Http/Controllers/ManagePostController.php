@@ -7,6 +7,7 @@ use App\Models\Tag;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Session;
 
 class ManagePostController extends Controller
 {
@@ -55,9 +56,13 @@ class ManagePostController extends Controller
             'user_id'=>$request->user()->id ?? 1,
         ]);
         if ($result){
-            return back()->with(['success','post created successfully']);
+            $message = 'post created successfully';
+            Session::put('message',$message);
+            return back()->with(['success',$message]);
         }else{
-            return back()->with(['error','an error occurred']);
+            $message = 'an error occurred';
+            Session::put('message',$message);
+            return back()->with(['error',$message]);
         }
     }
 
