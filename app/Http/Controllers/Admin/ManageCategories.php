@@ -44,9 +44,9 @@ class ManageCategories extends Controller
             'slug'=>$slug
         ]);
         if ($result){
-            return back()->with(['success','category created successfully']);
+            return back()->with('success','category created successfully');
         }else{
-            return back()->with(['error','an error occurred']);
+            return back()->with('error','an error occurred');
         }
     }
 
@@ -71,8 +71,9 @@ class ManageCategories extends Controller
      */
     public function update(Request $request, Tag $category)
     {
+        $tagId = Tag::where('title',$request->title)->first()?->id;
         $validated = $request->validate([
-            'title' => 'required|unique:tags,title',
+            'title' => 'required|unique:tags,title,'.$tagId,
             'status'=>'required'
         ]);
         $slug = Str::slug($request->title);
@@ -83,9 +84,9 @@ class ManageCategories extends Controller
             'slug'=>$slug
         ]);
         if ($result){
-            return back()->with(['success','category updated successfully']);
+            return back()->with('success','category updated successfully');
         }else{
-            return back()->with(['error','an error occurred']);
+            return back()->with('error','an error occurred');
         }
     }
 
