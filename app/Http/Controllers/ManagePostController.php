@@ -86,7 +86,7 @@ class ManagePostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        $postId = Post::where('title',$request->title)->first()->id;
+        $postId = Post::where('title',$request->title)->first()?->id;
         $validated = $request->validate([
             'title' => 'required|unique:posts,title,'.$postId,
             'post' => 'required',
