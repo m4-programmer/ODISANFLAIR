@@ -34,7 +34,6 @@ class ManagePostController extends Controller
      */
     public function store(Request $request)
     {
-
         $validated = $request->validate([
             'title' => 'required|unique:posts,title',
             'post' => 'required',
@@ -87,8 +86,9 @@ class ManagePostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+        $postId = Post::where('title',$request->title)->first()->id;
         $validated = $request->validate([
-            'title' => 'required|unique:posts,title',
+            'title' => 'required|unique:posts,title,'.$postId,
             'post' => 'required',
             'status'=>'required',
         ]);
@@ -113,9 +113,9 @@ class ManagePostController extends Controller
             'user_id'=>$request->user()->id ?? 1,
         ]);
         if ($result){
-            return back()->with(['success','post updated successfully']);
+            return back()->with('success','post updated successfully');
         }else{
-            return back()->with(['error','an error occurred']);
+            return back()->with('error','an error occurred');
         }
     }
 
