@@ -13,13 +13,30 @@
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Edit Categories</h3>
+                            <h3 class="card-title">Create Categories</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
                         <form action="{{route('admin.categories.store')}}" method="post">
                             @csrf
                             <div class="card-body">
+                                @if (session('success'))
+                                    <div class="alert alert-success alert-dismissible fade show mt-4" role="alert">
+                                        {{session('success')}}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                @endif
+                            
+                                @if (session('error'))
+                                    <div class="alert alert-success alert-dismissible fade show mt-4" role="alert">
+                                        {{session('error')}}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                @endif
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Title</label>
                                     <input type="text" name="title" class="form-control" value="{{old('title')}}" placeholder="Enter title for category">
