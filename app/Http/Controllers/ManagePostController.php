@@ -37,7 +37,8 @@ class ManagePostController extends Controller
         $validated = $request->validate([
             'title' => 'required|unique:posts,title',
             'post' => 'required',
-            'status'=>'required'
+            'status'=>'required',
+            'cover'=>'required|mimes:png,jpg'
         ]);
         $slug = Str::slug($request->title);
         if ($request->hasFile('cover')) {
