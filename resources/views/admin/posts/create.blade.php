@@ -35,7 +35,9 @@
                                     <label>Select Category</label>
                                     <select class="form-control select2" name="tag_id" style="width: 100%;">
                                         @foreach($categories as $data)
-                                        <option  value="{{$data->id}}">{{$data->title}}</option>
+                                        <option value="{{$data->id}}" @if ($data->id == old('tag_id'))
+                                            selected
+                                        @endif>{{$data->title}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -57,9 +59,11 @@
                                         </div>
                                         <!-- /.card-header -->
                                         <div class="card-body">
-                                          <textarea id="summernote" name="post">
-                                             'Place <em>some</em> <u>text</u> <strong>here</strong>'
-                                          </textarea>
+                                            
+                                            <textarea id="summernote" name="post">
+                                                {!! old('post') ? old('post') : 'Place <em>some</em> <u>text</u> <strong>here</strong>' !!}
+                                            </textarea>
+                                            
                                         </div>
                                         <div class="card-footer">
                                             Write an elagant post
@@ -68,6 +72,7 @@
                                     @error('post')
                                     <label for="" class="text-danger">{{$message}}</label>
                                     @enderror
+                                    
                                 </div>
                                 {{--Cover--}}
                                 <div class="form-group">
@@ -88,10 +93,10 @@
                                     <label for="exampleInputEmail1">Status</label>
                                     <select class="form-control select2" name="status" style="width: 100%;" required>
                                         <option  disabled>Select Status</option>
-                                        <option  value="normal">normal</option>
-                                        <option  value="popular">popular</option>
-                                        <option  value="trending">trending</option>
-                                        <option  value="latest">latest</option>
+                                        <option  value="normal" @if (old('status') == 'normal') selected @endif>normal</option>
+                                        <option  value="popular" @if (old('status') == 'popular') selected @endif>popular</option>
+                                        <option  value="trending" @if (old('status') == 'trending') selected @endif>trending</option>
+                                        <option  value="latest" @if (old('status') == 'latest') selected @endif>latest</option>
                                     </select>
                                     @error('status')
                                     <label for="" class="text-danger">{{$message}}</label>
