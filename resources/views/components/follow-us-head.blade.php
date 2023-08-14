@@ -1,6 +1,6 @@
 <ul>
     <li>
-        <a href="#">Rss <i class="ion-social-rss"></i></a>
+        <a href="#">LinkedIn  <i class="ion-social-linkedin"></i></a>
     </li>
     <li>
         <a href="#">Facebook <i class="ion-social-facebook"></i></a>
@@ -12,4 +12,7 @@
         <a href="#">IG <i class="ion-social-instagram-outline"></i></a>
     </li>
     <li><a href="#">Youtube <i class="ion-social-youtube-outline"></i></a></li>
+    <li>
+        <a href="#">Telegram  <i class="ion-social-telegram"></i></a>
+    </li>
 </ul>
