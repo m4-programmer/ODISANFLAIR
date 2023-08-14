@@ -69,7 +69,7 @@
                                     <div class="inner">
                                         <figure>
                                             <a href="{{url($data->tags->title.'/'.$data->slug)}}">
-                                                <img src="{{asset($data->cover)}}" alt="{{$data->title}}">
+                                                <img src="{{asset($data->cover)}}" alt="{{$data->title}}" style="height:300px!important;background-size:contain!important">
                                             </a>
                                         </figure>
                                         <div class="padding">
@@ -81,7 +81,8 @@
                                             </div>
                                             <h2><a href="{{url($data->tags->title.'/'.$data->slug)}}"> {{$data->title}}</a></h2>
                                             <p>
-                                                {{Str::limit($data->post, 50,'...')}}</p>
+                                                {!! Str::limit(implode(' ', array_slice(explode(' ', strip_tags($data->post)), 0, 50)),50,'...' )!!}    
+                                            </p>
                                         </div>
                                     </div>
                                 </article>
