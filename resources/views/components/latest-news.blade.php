@@ -13,7 +13,7 @@
                         <div class="category"><a href="{{url('/category/'.$data->tags->title)}}">{{$data->tags->title}}</a></div>
                     </div>
                     <h2><a href="{{url($data->tags->title.'/'.$data->slug)}}">{{$data->title}}</a></h2>
-                    <div style="">{!! implode(' ', array_slice(explode(' ', strip_tags($data->post)), 0, 50)) !!}...</div>
+                    <div style="">{!! Str::limit(implode(' ', array_slice(explode(' ', strip_tags($data->post)), 0, 50)),150,'...' )!!}</div>
 
                     <footer style="margin-top: 10px!important">
                         <a href="#" class="love"><i class="ion-android-favorite-outline"></i> <div>{{$data->likes}}</div></a>
