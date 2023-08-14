@@ -45,7 +45,7 @@
                                     <ul class="vertical-menu">
                                         @forelse($trending as $data)
                                             <li><a href="{{url($data->tags->title.'/'.$data->title)}}"><i
-                                                        class="ion-ios-circle-outline"></i> {{Str::limit($data->title,22,'...')}}</a></li>
+                                                        class="ion-ios-circle-outline"></i> {{Str::limit($data->title,21,'...')}}</a></li>
                                         @empty
                                             <li><a href="#"><i class="ion-ios-circle-outline"></i> No trending post yet.</a>
                                             </li>
