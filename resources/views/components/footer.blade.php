@@ -22,7 +22,7 @@
                     <h1 class="block-title">Popular Tags <div class="right"><a href="#">See All <i class="ion-ios-arrow-thin-right"></i></a></div></h1>
                     <div class="block-body">
                         <ul class="tags">
-                            @forelse($tags->take(10) as $data)
+                            @forelse($tags->take(5) as $data)
                                 <li><a href="{{url('category/'.$data->title)}}">{{$data->title}}</a></li>
                             @empty
                                 <p>No Category</p>
