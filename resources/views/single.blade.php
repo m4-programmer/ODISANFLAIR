@@ -1,4 +1,39 @@
 <x-layout >
+    <style>
+    /* .row {
+    display: flex;
+  }
+
+  .sidebar {
+    width: 35%;
+    background-color: #f0f0f0;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    overflow-y: auto;
+    padding: 20px;
+    margin-top: 100px!important;
+    padding-top: 100px;
+  } */
+
+  /* .content {
+    width: 65%; */
+    /* margin-left: 35%; Width of the sidebar */
+    /* padding: 20px;
+    box-sizing: border-box;
+  } */
+
+  /* footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  } */
+    </style>
     <section class="single">
         <div class="container">
             <div class="row">
@@ -56,7 +91,7 @@
                     </aside>
                     <x-navs.sidebar-newsletter />
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-8 content">
                     <ol class="breadcrumb">
                         <li><a href="#">Home</a></li>
                         <li class="active">{{$tag}}</li>
@@ -72,15 +107,11 @@
                         </header>
                         <div class="main">
 
-{{--                            <p><h5>Internal Motivation Vs. External Motivation</h5>Internal motivation and external motivation are two different types of motivation that drive--}}
-{{--                            our behavior and actions. Internal motivation comes from within oneself and is driven--}}
-{{--                            by personal interests, values, and desires, whereas external motivation comes--}}
-{{--                            from external factors such as rewards, punishments, or social pressure.--}}
-{{--                            </p>--}}
+
                             <div class="featured">
                                 <figure>
                                     <img src="{{asset($post->cover)}}">
-{{--                                    <figcaption>Image by pexels.com</figcaption>--}}
+
                                 </figure>
                             </div>
 
@@ -248,7 +279,6 @@
                             </div>
                         </form>
                         <h2 class="title">{{$comments->count()}} Responses
-{{--                            <a href="#">Write a Response</a>--}}
                         </h2>
                         <div class="comment-list">
                             <div class="item">

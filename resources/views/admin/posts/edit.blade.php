@@ -57,7 +57,7 @@
                                         </div>
                                         <!-- /.card-header -->
                                         <div class="card-body">
-                                          <textarea id="summernote" name="post">
+                                          <textarea id="tiny" name="post">
                                              {!! $post->post ?? 'Place <em>some</em> <u>text</u> <strong>here</strong>' !!}
                                           </textarea>
                                         </div>
