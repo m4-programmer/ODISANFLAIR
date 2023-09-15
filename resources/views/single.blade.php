@@ -1,38 +1,38 @@
 <x-layout >
     <style>
-    /* .row {
-    display: flex;
-  }
+            /* .row {
+            display: flex;
+        }
 
-  .sidebar {
-    width: 35%;
-    background-color: #f0f0f0;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    overflow-y: auto;
-    padding: 20px;
-    margin-top: 100px!important;
-    padding-top: 100px;
-  } */
+        .sidebar {
+            width: 35%;
+            background-color: #f0f0f0;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            overflow-y: auto;
+            padding: 20px;
+            margin-top: 100px!important;
+            padding-top: 100px;
+        } */
 
-  /* .content {
-    width: 65%; */
-    /* margin-left: 35%; Width of the sidebar */
-    /* padding: 20px;
-    box-sizing: border-box;
-  } */
+        /* .content {
+            width: 65%; */
+            /* margin-left: 35%; Width of the sidebar */
+            /* padding: 20px;
+            box-sizing: border-box;
+        } */
 
-  /* footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  } */
+        /* footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        } */
     </style>
     <section class="single">
         <div class="container">
@@ -60,7 +60,7 @@
                                         <div class="details">
                                             <div class="detail">
                                                 <div class="time">{{$data->created_at->format("F d, Y")}}</div>
-                                                <div class="category"><a href="{{url('category'.$data->tags->title)}}">{{$data->tags->title}}</a></div>
+                                                <div class="category"><a href="{{url('category/'.$data->tags->title)}}">{{$data->tags->title}}</a></div>
                                             </div>
                                             <h1><a href="{{url($data->tags->title.'/'.$data->slug)}}">{{$data->title}}</a></h1>
                                             <p>{!! Str::limit($data->post, 200,'...') !!}</p>
@@ -212,7 +212,7 @@
                                 <div class="padding">
                                     <h2><a href="{{url($data->tags->title.'/'.$data->slug)}}">{{$data->title}}</a></h2>
                                     <div class="detail">
-                                        <div class="category"><a href="{{url('category'.$data->tags->title)}}">{{$data->tags->title}}</a></div>
+                                        <div class="category"><a href="{{url('category/'.$data->tags->title)}}">{{$data->tags->title}}</a></div>
                                         <div class="time">{{$data->created_at->format('F d, Y')}}</div>
                                     </div>
                                 </div>

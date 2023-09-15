@@ -96,7 +96,7 @@
                                 <div class="details">
                                     <div class="detail">
                                         <div class="category">
-                                            <a href="#">{{$data->tags->title}}</a>
+                                            <a href="{{url('category/'.$data->tags->title)}}">{{$data->tags->title}}</a>
                                         </div>
                                         <div class="time">{{$data->created_at->format('F d, Y')}}</div>
                                     </div>
