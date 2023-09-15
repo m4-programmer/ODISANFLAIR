@@ -13,8 +13,8 @@
                     </div>
                     <div class="time">{{$data->created_at->format('F d, Y')}}</div>
                 </div>
-                <h1><a href="{{url($data->tags->title.'/'.$data->slug)}}">{{$data->title}}</a></h1>
-                <p>{!! Str::limit($data->post, 100,'...') !!}</p>
+                <h1 class="article-title"><a href="{{url($data->tags->title.'/'.$data->slug)}}">{{$data->title}}</a></h1>
+                <p>{!! Str::limit(implode(' ', array_slice(explode(' ', strip_tags($data->post)), 0, 100)), 150, '...' )!!}</p>
 
                 <footer>
                     <a href="#" class="love"><i class="ion-android-favorite-outline"></i> <div>{{$data->likes}}</div></a>
