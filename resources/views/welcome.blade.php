@@ -1,4 +1,12 @@
 <x-layout body="skin-orange">
+    <style>
+        .article-title {
+        max-height: 3.8em; /* Adjust the max height as needed */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    </style>
     <section class="home">
         <div class="container">
             <div class="row">
@@ -79,7 +87,7 @@
                                                     <a href="{{url('/category/'.$data->tags->slug)}}">{{$data->tags->title}}</a>
                                                 </div>
                                             </div>
-                                            <h2><a href="{{url($data->tags->title.'/'.$data->slug)}}"> {{$data->title}}</a></h2>
+                                            <h2 class="article-title"><a href="{{url($data->tags->title.'/'.$data->slug)}}"> {{$data->title}}</a></h2>
                                             <p>
                                                 {!! Str::limit(implode(' ', array_slice(explode(' ', strip_tags($data->post)), 0, 50)),50,'...' )!!}    
                                             </p>
