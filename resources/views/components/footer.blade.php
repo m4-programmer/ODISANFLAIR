@@ -97,45 +97,15 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="googleplus">
-                                    <svg><rect width="0" height="0"/></svg>
-                                    <i class="ion-social-googleplus"></i>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="#" class="instagram">
                                     <svg><rect width="0" height="0"/></svg>
                                     <i class="ion-social-instagram-outline"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="tumblr">
-                                    <svg><rect width="0" height="0"/></svg>
-                                    <i class="ion-social-tumblr"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="dribbble">
-                                    <svg><rect width="0" height="0"/></svg>
-                                    <i class="ion-social-dribbble"></i>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="#" class="linkedin">
                                     <svg><rect width="0" height="0"/></svg>
                                     <i class="ion-social-linkedin"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="skype">
-                                    <svg><rect width="0" height="0"/></svg>
-                                    <i class="ion-social-skype"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="rss">
-                                    <svg><rect width="0" height="0"/></svg>
-                                    <i class="ion-social-rss"></i>
                                 </a>
                             </li>
                         </ul>
