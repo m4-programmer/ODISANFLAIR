@@ -25,7 +25,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
                 <li class="nav-item menu-open">
-                    <a href="{{route('admin.dashboard')}}" class="nav-link active">
+                    <a href="{{route('admin.dashboard')}}" class="nav-link @if (Route::currentRouteName() === 'admin.dashboard') active @endif">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -34,7 +34,8 @@
 
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('admin.categories.index')}}" class="nav-link">
+                    <a href="{{ route('admin.categories.index') }}" class="nav-link @if (Route::currentRouteName() === 'admin.categories.index') active @endif">
+
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             Categories
@@ -43,7 +44,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('admin.posts.index')}}" class="nav-link">
+                    <a href="{{route('admin.posts.index')}}" class="nav-link @if (Route::currentRouteName() === 'admin.posts.index') active @endif">
                         <i class="nav-icon fas fa-table"></i>
                         <p>
                             Posts
@@ -51,7 +52,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('admin.comments.index')}}" class="nav-link">
+                    <a href="{{route('admin.comments.index')}}" class="nav-link @if (Route::currentRouteName() === 'admin.comments.index') active @endif">
                         <i class="nav-icon fas fa-chart-pie"></i>
                         <p>
                             Comments

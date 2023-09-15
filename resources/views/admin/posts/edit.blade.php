@@ -93,8 +93,14 @@
                                 <input type="hidden" class="form-control" name="tag_id"  value="{{$post->tag_id}}" placeholder="likes" >
                                 {{--Status--}}
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Status</label>
-                                    <input type="text" class="form-control" name='status' value="{{$post->status}}" placeholder="status" >
+                                    <label for="exampleInputEmail1">Status {{$post->status}}</label>
+                                    <select class="form-control select2" name="status" style="width: 100%;" required>
+                                        <option  disabled>Select Status</option>
+                                        <option  value="normal" @if (old('status') == 'normal' || $post->status == 'normal') selected @endif>normal</option>
+                                        <option  value="popular" @if (old('status') == 'popular' || $post->status == 'popular') selected @endif>popular</option>
+                                        <option  value="trending" @if (old('status') == 'trending'|| $post->status == 'trending') selected @endif>trending</option>
+                                        <option  value="latest" @if (old('status') == 'latest' || $post->status == 'latest') selected @endif>latest</option>
+                                    </select>
                                     @error('status')
                                     <label for="" class="text-danger">{{$message}}</label>
                                     @enderror
