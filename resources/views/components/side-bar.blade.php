@@ -60,9 +60,9 @@
                                 </ul>
                             </div>
                         </div>
-{{--                        <div class="featured-author-footer">--}}
-{{--                            <a href="#">See All Authors</a>--}}
-{{--                        </div>--}}
+                       <div class="featured-author-footer">
+                           <a href="#">See All Authors</a>
+                       </div>
                     </div>
                 </div>
             </div>
