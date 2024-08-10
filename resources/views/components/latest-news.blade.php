@@ -13,8 +13,8 @@
 </style>
 <div class="row">
     @foreach($latestnews as $data)
-    <article class="article col-md-6">
-        <div class="inner">
+    <article class="article col-md-6" >
+        <div class="inner" >
             <figure>
                 <a href="{{url($data->tags->title.'/'.$data->slug)}}">
                     <img src="{{asset($data->cover)}}" alt="{{$data->title}}" style="height:300px!important;background-size:contain!important">
@@ -26,8 +26,8 @@
                     <div class="category"><a href="{{url('/category/'.$data->tags->title)}}">{{$data->tags->title}}</a></div>
                 </div>
                 <h2 class="article-title"><a href="{{url($data->tags->title.'/'.$data->slug)}}">{{$data->title}}</a></h2>
-                <div class="article-description">{!! Str::limit(implode(' ', array_slice(explode(' ', strip_tags($data->post)), 0, 50)), 150, '...' )!!}</div>
-    
+                <div class="article-description" style="height: 100px!important;" style="text-align: justify">{!! Str::limit(implode(' ', array_slice(explode(' ', strip_tags($data->post)), 0, 50)), 150, '...' )!!}</div>
+
                 <footer style="margin-top: 10px!important">
                     <a href="#" class="love"><i class="ion-android-favorite-outline"></i> <div>{{$data->likes}}</div></a>
                     <a class="btn btn-primary more" href="{{url($data->tags->title.'/'.$data->slug)}}">
