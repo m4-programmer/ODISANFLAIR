@@ -91,19 +91,19 @@
                 </li>
 
                 <!-- PODCAST STARTS -->
-                <li><a href="nextpage.html">Life's Talk</a></li>
+                <li><a href="#">Life's Talk</a></li>
 
 
 
                 <!-- markets starts -->
                 <li class="dropdown magz-dropdown">
-                    <a href="category.html">Academy <i class="ion-ios-arrow-right"></i>  <div class="badge">Trading</div></a>
+                    <a href="#">Academy <i class="ion-ios-arrow-right"></i>  <div class="badge">Trading</div></a>
                     <ul class="dropdown-menu">
-                        <li><a href="forex.html">Forex Trading</a></li>
-                        <li><a href="crypto.html">Crypto Trading</a></li>
-                        <li><a href="stocks.html">Stocks Trading</a></li>
-                        <li><a href="category.html">Business Acumen</a></li>
-                        <li><a href="category.html">Podcasts</a></li>
+                        <li><a href="#">Forex Trading</a></li>
+                        <li><a href="#">Crypto Trading</a></li>
+                        <li><a href="#">Stocks Trading</a></li>
+                        <li><a href="#">Business Acumen</a></li>
+                        <li><a href="#">Podcasts</a></li>
                         </li>
                     </ul>
                 </li>
@@ -111,16 +111,16 @@
 
 
                 <!-- Mentorship starts -->
-                <li><a href="single.html">Mentorship</a></li>
+                <li><a href="#">Mentorship</a></li>
                 <!-- premium ends -->
 
                 <!-- entertainment start -->
                 <li class="dropdown magz-dropdown">
-                    <a href="category.html">Entertainment <i class="ion-ios-arrow-right"></i></a>
+                    <a href="#">Entertainment <i class="ion-ios-arrow-right"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="nextpage.html">Movie Trailers</a></li>
-                        <li><a href="nextpage.html">Meme</a></li>
-                        <li><a href="nextpage.html">videos</a></li>
+                        <li><a href="#">Movie Trailers</a></li>
+                        <li><a href="#">Meme</a></li>
+                        <li><a href="#">videos</a></li>
                     </ul>
                 </li>
 
