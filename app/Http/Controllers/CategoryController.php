@@ -14,18 +14,20 @@ class CategoryController extends Controller
     public function index($title)
     {
         $tag = Tag::where('title', $title)->orWhere('slug',$title)->first();
-
-        if ($tag) {
+        if (!$tag){
+            $posts = [];
+            $sidePost = Post::latest()->get();
+            $encodedTitle = urlencode($title);
+        }
+        else{
             $tagId = $tag->id;
             $posts = Post::where('tag_id', $tagId)->paginate(8);
             $sidePost = Post::latest()->get();
 
             // URL-encode the title parameter for proper formatting in URLs
             $encodedTitle = urlencode($title);
-            return view('category',compact('title','encodedTitle','posts','sidePost'));        } else {
-            // Handle the case when the tag with the given title is not found
-            abort(404);
         }
+        return view('category',compact('title','encodedTitle','posts','sidePost'));
     }
     public function latest(){
         $posts = Post::where('status', 'latest')->paginate(8);
