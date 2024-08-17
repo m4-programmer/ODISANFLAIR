@@ -16,7 +16,8 @@ Route::prefix('admin')->name('admin.')->group(function (){
     Route::resource('/posts', ManagePostController::class);
     Route::resource('/comments', ManageCommentController::class);
 });
-Route::get('/', [WelcomeController::class,'index']);
+Route::get('/index', [WelcomeController::class,'index'])->name('blog_index');
+Route::get('/', [WelcomeController::class,'portfolio']);
 Route::get('/search', [WelcomeController::class,'search'])->name('search');
 Route::get('/category/latest',[CategoryController::class,'latest'])->name('latest');
 Route::get('/category/popular',[CategoryController::class,'popular'])->name('popular');
