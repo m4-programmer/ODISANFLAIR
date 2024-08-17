@@ -11,7 +11,8 @@ use Illuminate\Http\Request;
 class WelcomeController extends Controller
 {
     public function index(){
-        $tags = Tag::all()->random(10);
+        $tagCount = Tag::count();
+        $tags = Tag::all()->random($tagCount <= 10 ? $tagCount : 10);
         $posts = Post::latest()->get();
         $posts->load('comments','tags','user');
         $firstFivePosts = $posts->random(5);
