@@ -8,4 +8,5 @@ enum TagEnum: string
     case CRYPTO_TRADING = "crypto trading";
     case STOCKS_TRADING = "stocks trading";
     case BUSINESS_ACUMEN = "business acumen";
+    case PODCAST = "podcast";
 }
