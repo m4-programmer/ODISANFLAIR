@@ -1,5 +1,7 @@
 @php
-    use App\Models\Post;use App\Models\Tag;
+    use App\Models\Post;
+    use App\Models\Tag;
+    use \App\Enums\TagEnum;
     $trending = Post::where('status','trending')->get();
     if ($trending->count() > 0) {
          if ($trending->count() >= 5) {
@@ -99,11 +101,31 @@
                 <li class="dropdown magz-dropdown">
                     <a href="#">Academy <i class="ion-ios-arrow-right"></i>  <div class="badge">Trading</div></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Forex Trading</a></li>
-                        <li><a href="#">Crypto Trading</a></li>
-                        <li><a href="#">Stocks Trading</a></li>
-                        <li><a href="#">Business Acumen</a></li>
-                        <li><a href="#">Podcasts</a></li>
+                        <li>
+                            <a href="{{route('category', strtoupper(TagEnum::FOREX_TRADING->value))}}">
+                                {{strtoupper(TagEnum::FOREX_TRADING->value)}}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('category', strtoupper(TagEnum::CRYPTO_TRADING->value))}}">
+                                {{strtoupper(TagEnum::CRYPTO_TRADING->value)}}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('category', strtoupper(TagEnum::STOCKS_TRADING->value))}}">
+                                {{strtoupper(TagEnum::STOCKS_TRADING->value)}}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('category', strtoupper(TagEnum::BUSINESS_ACUMEN->value))}}">
+                                {{strtoupper(TagEnum::BUSINESS_ACUMEN->value)}}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('category', strtoupper(TagEnum::PODCAST->value))}}">
+                                {{strtoupper(TagEnum::PODCAST->value)}}
+                            </a>
+                        </li>
                         </li>
                     </ul>
                 </li>
