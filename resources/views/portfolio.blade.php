@@ -124,7 +124,7 @@
         </ul> <!-- end s-intro__social -->
 
         <div class="s-intro__content-media">
-            <img src="{{asset('asset/images/MyPhoto.png')}}" alt="">
+            <img src="{{asset('images-portfolio/MyPhoto.png')}}" alt="">
         </div> <!-- s-intro__content-media -->
 
         <div class="s-intro__btn-download">
