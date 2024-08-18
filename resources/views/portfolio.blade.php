@@ -55,7 +55,7 @@
             <div class="s-header__block">
                 <div class="s-header__logo">
                     <a class="logo" href="#">
-                        <img src="{{asset('asset/images-portfolio/Logo.png')}}" alt="Homepage">
+                        <img src="{{asset('images-portfolio/Logo.png')}}" alt="Homepage">
                     </a>
                 </div>
 
@@ -296,9 +296,9 @@
         <div class="row folio-entries">
             @foreach($quotes as $data)
                 <div class="column entry">
-                <a href="{{asset("asset/{$data->href}")}}" class="entry__link glightbox" data-glightbox="title: {$data->h4}; description: .entry__desc-01">
+                <a href="{{asset("{$data->href}")}}" class="entry__link glightbox" data-glightbox="title: {$data->h4}; description: .entry__desc-01">
                     <div class="entry__thumb">
-                        <img src="{{asset("asset/{$data->img}")}}"  alt="{{$data->h4}}" style="width: 100%">
+                        <img src="{{asset("{$data->img}")}}"  alt="{{$data->h4}}" style="width: 100%">
                     </div>
                     <div class="entry__info">
                         <h4 class="entry__title">{{$data->h4}}</h4>
@@ -396,7 +396,7 @@
 
                         <div class="s-testimonials__slide swiper-slide">
                             <div class="s-testimonials__author">
-                                <img src="{{asset('asset/images-portfolio/avatars/testimonials-5.jpg')}}" alt="Author image" class="s-testimonials__avatar">
+                                <img src="{{asset('images-portfolio/avatars/testimonials-5.jpg')}}" alt="Author image" class="s-testimonials__avatar">
                                 <cite class="s-testimonials__cite">
                                     <strong>John Wilfred</strong>
                                     <span>Alpha capitals</span>
@@ -414,7 +414,7 @@
 
                         <div class="s-testimonials__slide swiper-slide">
                             <div class="s-testimonials__author">
-                                <img src="{{asset('asset/images-portfolio/avatars/top-banner-author.jpg')}}" alt="Author image" class="s-testimonials__avatar">
+                                <img src="{{asset('images-portfolio/avatars/top-banner-author.jpg')}}" alt="Author image" class="s-testimonials__avatar">
                                 <cite class="s-testimonials__cite">
                                     <strong>matt Walker</strong>
                                     <span>Carnegie Steel Co.</span>
@@ -431,7 +431,7 @@
 
                         <div class="s-testimonials__slide swiper-slide">
                             <div class="s-testimonials__author">
-                                <img src="{{asset('asset/images-portfolio/avatars/author_image.png')}}" alt="Author image" class="s-testimonials__avatar">
+                                <img src="{{asset('images-portfolio/avatars/author_image.png')}}" alt="Author image" class="s-testimonials__avatar">
                                 <cite class="s-testimonials__cite">
                                     <strong>Rick Quinn</strong>
                                     <span>Student</span>
@@ -447,7 +447,7 @@
 
                         <div class="s-testimonials__slide swiper-slide">
                             <div class="s-testimonials__author">
-                                <img src="{{asset('asset/images-portfolio/avatars/user-06.jpg')}}" alt="Author image" class="s-testimonials__avatar">
+                                <img src="{{asset('images-portfolio/avatars/user-06.jpg')}}" alt="Author image" class="s-testimonials__avatar">
                                 <cite class="s-testimonials__cite">
                                     <strong>Henry Reid</strong>
                                     <span>Quantitative Trading Institute</span>
