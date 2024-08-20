@@ -296,7 +296,7 @@
         <div class="row folio-entries">
             @foreach($quotes as $data)
                 <div class="column entry">
-                <a href="{{asset("{$data->href}")}}" class="entry__link glightbox" data-glightbox="title: {$data->h4}; description: .entry__desc-01">
+                <a href="{{asset("{$data->href}")}}" class="entry__link glightbox" data-glightbox="title: {{$data->h4}}; description: .entry__desc-01">
                     <div class="entry__thumb">
                         <img src="{{asset("{$data->img}")}}"  alt="{{$data->h4}}" style="width: 100%">
                     </div>
