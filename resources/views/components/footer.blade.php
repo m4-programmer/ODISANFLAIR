@@ -117,21 +117,20 @@
                         <ul class="footer-nav-horizontal">
                             <ul class="footer-nav-horizontal">
                                 <li><a href="{{url('/')}}">HOME</a></li>
-                                <li><a href="{{url('starter')}}">ACADEMY</a></li>
-                                <li><a href="{{url('starter')}}">PREMIUM</a></li>
+                                <li><a href="{{route('category_card', \Illuminate\Support\Str::slug("LIFE'S TALK"))}}">LIFE'S TALK</a></li>
+                                <li><a href="{{route('category_card', \Illuminate\Support\Str::slug("ACADEMY"))}}">ACADEMY</a></li>
                             </ul>
                             <ul class="footer-nav-horizontal">
-                                <li><a href="{{url('starter')}}">BOOKS</a></li>
-                                <li><a href="{{url('starter')}}">BLOG</a></li>
+                                <li><a href="{{url('#')}}">MENTORSHIP</a></li>
+                                <li><a href="{{url('#')}}">RESULTS</a></li>
                             </ul>
                             <ul class="footer-nav-horizontal">
                                 <li><a href="{{url('contact')}}">CONTACT</a></li>
                                 <li><a href="{{url('about')}}">ABOUT</a></li>
                             </ul>
                             <ul class="footer-nav-horizontal">
-                                <li><a href="{{url('starter')}}">PRIVACY</a></li>
-                                <li><a href="{{url('starter')}}">POLICY</a></li>
-                                <li><a href="{{url('starter')}}">SCAM ALERT</a></li>
+                                <li><a href="{{url('privacy-policy')}}">PRIVACY POLICY</a></li>
+                                <li><a href="{{url('#')}}">SCAM ALERT</a></li>
                             </ul>
                         </ul>
                     </div>
@@ -141,9 +140,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="copyright">
-                    COPYRIGHT &copy; Odisanflair 2017. ALL RIGHT RESERVED.
+                    COPYRIGHT &copy; Odisanflair 2019. ALL RIGHT RESERVED.
                     <div>
-                        Made with <i class="ion-heart"></i> by <a href="http://kodinger.com">Kodinger</a>
+                        Made with <i class="ion-heart"></i> by <a href="/">Daniel</a>
                     </div>
                 </div>
             </div>
