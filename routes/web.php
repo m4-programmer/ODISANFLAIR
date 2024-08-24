@@ -43,6 +43,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/{category}', [CategoryController::class,'index'])->name('category_card');
+Route::get('/{category}', [CategoryController::class,'dynamicContent'])->name('category_card');
 
 

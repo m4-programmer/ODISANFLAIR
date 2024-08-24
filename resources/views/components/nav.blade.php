@@ -102,27 +102,27 @@
                     <a href="#">Academy <i class="ion-ios-arrow-right"></i>  <div class="badge">Trading</div></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="{{route('category', strtoupper(TagEnum::FOREX_TRADING->value))}}">
+                            <a href="{{route('category_card', strtoupper(TagEnum::FOREX_TRADING->value))}}">
                                 {{strtoupper(TagEnum::FOREX_TRADING->value)}}
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('category', strtoupper(TagEnum::CRYPTO_TRADING->value))}}">
+                            <a href="{{route('category_card', strtoupper(TagEnum::CRYPTO_TRADING->value))}}">
                                 {{strtoupper(TagEnum::CRYPTO_TRADING->value)}}
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('category', strtoupper(TagEnum::STOCKS_TRADING->value))}}">
+                            <a href="{{route('category_card', strtoupper(TagEnum::STOCKS_TRADING->value))}}">
                                 {{strtoupper(TagEnum::STOCKS_TRADING->value)}}
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('category', strtoupper(TagEnum::BUSINESS_ACUMEN->value))}}">
+                            <a href="{{route('category_card', strtoupper(TagEnum::BUSINESS_ACUMEN->value))}}">
                                 {{strtoupper(TagEnum::BUSINESS_ACUMEN->value)}}
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('category', strtoupper(TagEnum::PODCAST->value))}}">
+                            <a href="{{route('category_card', strtoupper(TagEnum::PODCAST->value))}}">
                                 {{strtoupper(TagEnum::PODCAST->value)}}
                             </a>
                         </li>

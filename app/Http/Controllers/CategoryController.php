@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\Comment;
 
 class CategoryController extends Controller
 {
@@ -28,6 +30,24 @@ class CategoryController extends Controller
             $encodedTitle = urlencode($title);
         }
         return view('category',compact('title','encodedTitle','posts','sidePost'));
+    }
+
+    public function dynamicContent($slug)
+    {
+        $tag = Tag::where('title', $slug)->orWhere('slug',$slug)->first();
+        if ($tag){
+            $posts = Post::latest()->get();
+            $sidePost = Post::latest()->get();
+            $title = $tag?->title;
+            $searchData = $tag?->posts?->take(12);
+            $popular = $posts->random(6);
+            $author = User::find(1);
+            $author->load('posts');
+            $recommended = $posts->random(3);
+            $comments = Comment::get()->random(3);
+            return view('dynamic_content', compact('posts', 'sidePost','searchData','title','author','popular','recommended','comments'));
+        }
+        abort(404);
     }
     public function latest(){
         $posts = Post::where('status', 'latest')->paginate(8);
