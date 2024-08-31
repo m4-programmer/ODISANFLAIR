@@ -93,7 +93,7 @@
                 </li>
 
                 <!-- PODCAST STARTS -->
-                <li><a href="#">Life's Talk</a></li>
+                <li><a href="{{route('category_card', "Life's Talk")}}">Life's Talk</a></li>
 
 
 
@@ -133,7 +133,7 @@
 
 
                 <!-- Mentorship starts -->
-                <li><a href="#">Mentorship</a></li>
+                <li><a href="{{route('category_card', "Mentorship")}}">Mentorship</a></li>
                 <!-- premium ends -->
 
                 <!-- entertainment start -->
@@ -147,7 +147,7 @@
                 </li>
 
                 <!-- results starts -->
-                <li><a href="{{url('starter')}}">Results</a></li>
+                <li><a href="{{route('category_card', "Results")}}">Results</a></li>
                 <!-- results end -->
 
                 <!-- academy starts -->
