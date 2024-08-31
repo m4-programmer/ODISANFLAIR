@@ -14,7 +14,7 @@
                             </figure>
                             <div class="featured-author-info">
                                 <h2 class="name">{{$author->name}}</h2>
-                                <div class="desc">@"{{$author->name}}"</div>
+                                <div class="desc">@"{{"Som-Danny"}}"</div>
                             </div>
                         </div>
                     </div>

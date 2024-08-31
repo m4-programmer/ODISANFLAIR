@@ -35,6 +35,12 @@ Route::get('/about',function (){
 Route::get('/privacy-policy',function (){
     return view('privacy');
 });
+Route::get('/disclaimer',function (){
+    return view('disclaimer');
+})->name('disclaimer');
+Route::get('/scam-alert',function (){
+    return view('scam_alert');
+})->name('scam_alert');
 Route::get('/starter',function (){
     return view('starter');
 });

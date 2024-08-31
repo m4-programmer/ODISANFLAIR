@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <ol class="breadcrumb">
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="{{route('blog_index')}}">Home</a></li>
                         <li class="active">Privacy Policy</li>
                     </ol>
                     <h1 class="page-title">Privacy Policy</h1>

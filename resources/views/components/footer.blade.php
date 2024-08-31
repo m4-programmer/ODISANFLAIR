@@ -130,7 +130,8 @@
                             </ul>
                             <ul class="footer-nav-horizontal">
                                 <li><a href="{{url('privacy-policy')}}">PRIVACY POLICY</a></li>
-                                <li><a href="{{url('#')}}">SCAM ALERT</a></li>
+                                <li><a href="{{route('disclaimer')}}">DISCLAIMER</a></li>
+                                <li><a href="{{route('scam_alert')}}">SCAM ALERT</a></li>
                             </ul>
                         </ul>
                     </div>

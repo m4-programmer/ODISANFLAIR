@@ -39,13 +39,15 @@ class CategoryController extends Controller
             $posts = Post::latest()->get();
             $sidePost = Post::latest()->get();
             $title = $tag?->title;
-            $searchData = $tag?->posts?->take(12);
+            $searchData = $tag?->posts()?->paginate(4);
             $popular = $posts->random(6);
             $author = User::find(1);
             $author->load('posts');
             $recommended = $posts->random(3);
             $comments = Comment::get()->random(3);
-            return view('dynamic_content', compact('posts', 'sidePost','searchData','title','author','popular','recommended','comments'));
+            $anotherNews = $posts->random(5);
+            $hotNews = $posts->random(8);
+            return view('dynamic_content', compact('posts', 'sidePost','searchData','title','author','popular','recommended','comments', 'anotherNews', 'hotNews'));
         }
         abort(404);
     }

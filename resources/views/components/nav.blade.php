@@ -31,7 +31,7 @@
             <ul class="nav-list">
                 <li class="for-tablet nav-title"><a>Menu</a></li>
                 <li class="dropdown magz-dropdown magz-dropdown-megamenu">
-                    <a href="#">Blogs<i
+                    <a href="#">BLOG<i
                             class="ion-ios-arrow-right"></i>
                         <div class="badge">Hot</div>
                     </a>
@@ -102,28 +102,28 @@
                     <a href="#">Academy <i class="ion-ios-arrow-right"></i>  <div class="badge">Trading</div></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="{{route('category_card', strtoupper(TagEnum::FOREX_TRADING->value))}}">
-                                {{strtoupper(TagEnum::FOREX_TRADING->value)}}
+                            <a style="text-transform: capitalize" href="{{route('category_card', ucwords(TagEnum::FOREX_TRADING->value))}}">
+                                {{ucwords(TagEnum::FOREX_TRADING->value)}}
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('category_card', strtoupper(TagEnum::CRYPTO_TRADING->value))}}">
-                                {{strtoupper(TagEnum::CRYPTO_TRADING->value)}}
+                            <a href="{{route('category_card', ucwords(TagEnum::CRYPTO_TRADING->value))}}">
+                                {{ucwords(TagEnum::CRYPTO_TRADING->value)}}
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('category_card', strtoupper(TagEnum::STOCKS_TRADING->value))}}">
-                                {{strtoupper(TagEnum::STOCKS_TRADING->value)}}
+                            <a href="{{route('category_card', ucwords(TagEnum::STOCKS_TRADING->value))}}">
+                                {{ucwords(TagEnum::STOCKS_TRADING->value)}}
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('category_card', strtoupper(TagEnum::BUSINESS_ACUMEN->value))}}">
-                                {{strtoupper(TagEnum::BUSINESS_ACUMEN->value)}}
+                            <a href="{{route('category', ucwords(TagEnum::BUSINESS_ACUMEN->value))}}">
+                                {{ucwords(TagEnum::BUSINESS_ACUMEN->value)}}
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('category_card', strtoupper(TagEnum::PODCAST->value))}}">
-                                {{strtoupper(TagEnum::PODCAST->value)}}
+                            <a href="{{route('category', ucwords(TagEnum::PODCAST->value))}}">
+                                {{ucwords(TagEnum::PODCAST->value)}}
                             </a>
                         </li>
                         </li>
@@ -147,7 +147,7 @@
                 </li>
 
                 <!-- results starts -->
-                <li><a href="{{url('starter')}}">RESULTS</a></li>
+                <li><a href="{{url('starter')}}">Results</a></li>
                 <!-- results end -->
 
                 <!-- academy starts -->
