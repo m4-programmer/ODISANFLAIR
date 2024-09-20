@@ -60,6 +60,22 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{route('admin.videos.index')}}" class="nav-link @if (Route::currentRouteName() === 'admin.videos.index') active @endif">
+                        <i class="nav-icon fas fa-chart-pie"></i>
+                        <p>
+                            Manage Videos
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('admin.audios.index')}}" class="nav-link @if (Route::currentRouteName() === 'admin.audios.index') active @endif">
+                        <i class="nav-icon fas fa-chart-pie"></i>
+                        <p>
+                            Manage Audios
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{'#'}}" class="nav-link">
                         <i class="nav-icon fas fa-server"></i>
                         <p>
