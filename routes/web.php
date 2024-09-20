@@ -3,8 +3,10 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ManageCategories as ManageCategoriesAlias;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ManageAudiosController;
 use App\Http\Controllers\ManageCommentController;
 use App\Http\Controllers\ManagePostController;
+use App\Http\Controllers\ManageVideosController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
@@ -14,6 +16,8 @@ Route::prefix('admin')->name('admin.')->group(function (){
     Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
     Route::resource('/categories', ManageCategoriesAlias::class);
     Route::resource('/posts', ManagePostController::class);
+    Route::resource('/videos', ManageVideosController::class);
+    Route::resource('/audios', ManageAudiosController::class);
     Route::resource('/comments', ManageCommentController::class);
 });
 Route::get('/index', [WelcomeController::class,'index'])->name('blog_index');
