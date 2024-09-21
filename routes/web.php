@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ManageCategories as ManageCategoriesAlias;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\GetVideosController;
 use App\Http\Controllers\ManageAudiosController;
 use App\Http\Controllers\ManageCommentController;
 use App\Http\Controllers\ManagePostController;
@@ -26,7 +27,7 @@ Route::get('/search', [WelcomeController::class,'search'])->name('search');
 Route::get('/category/latest',[CategoryController::class,'latest'])->name('latest');
 Route::get('/category/popular',[CategoryController::class,'popular'])->name('popular');
 Route::get('/category/{title}', [CategoryController::class,'index'])->name('category');
-
+Route::get("/videos", GetVideosController::class)->name("videos");
 Route::get('/{category}/{post_slug}', [PostController::class,'index']);
 Route::post('/{category}/{post_slug}', [PostController::class,'store']);
 Route::post('/newsletter',[App\Http\Controllers\Controller::class,'subcribe']);
