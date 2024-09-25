@@ -165,12 +165,16 @@
                     </div>
                     <div class="author">
                         <figure>
-                            <img src="{{asset('asset/images/img01.jpg')}}">
+                            <img src="{{asset('asset/images/Piture7.png')}}">
                         </figure>
                         <div class="details">
-                            <div class="job">{{$post->user->title}}</div>
-                            <h3 class="name">{{$post->user->name}}</h3>
-                            <p>{{$post->user->about}}</p>
+                            <div class="job">{{"REALIST"}}</div>
+                            <h3 class="name">{{"Daniel Som"}}</h3>
+                            <p>When you look in the eyes of grace, when you meet grace,
+                                when you embrace grace, when you see the nail prints 
+                                in grace’s hands and the fire in his eyes, when you feel 
+                                His relentless love for you - it will not motivate you to sin. 
+                                It will motivate you to righteousness.</p>
                             <ul class="social trp sm">
                                 <li>
                                     <a href="#" class="facebook">
