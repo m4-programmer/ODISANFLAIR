@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Session;
 
@@ -92,6 +93,7 @@ class ManagePostController extends Controller
             'title' => 'required|unique:posts,title,'.$postId,
             'post' => 'required',
             'status'=>'required',
+            "created_at" => "required|date"
         ]);
         $slug = Str::slug($request->title);
         //to write logic to handle uploading the cover image
@@ -113,6 +115,8 @@ class ManagePostController extends Controller
             'status'=>$request->status,
             'user_id'=>$request->user()->id ?? 1,
         ]);
+        $post->created_at = Carbon::parse($request->created_at);
+        $post->save();
         if ($result){
             return back()->with('success','post updated successfully');
         }else{
