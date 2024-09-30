@@ -28,7 +28,7 @@
                             </div>
                             <h1><a href="{{url($data->tags->title.'/'.$data->slug)}}">{{$data->title}}</a></h1>
                             <p>
-                                {{Str::limit($data->post, 200)}}
+                                {!! Str::limit($data->post, 200)!!}
                             </p>
                         </div>
                     </div>
