@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Cohensive\OEmbed\Facades\OEmbed;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
@@ -34,5 +35,16 @@ class Media extends Model
     public function scopeCategory(Builder $q, $value): void
     {
         $q->where("category", $value);
+    }
+
+    //accessors
+    public function getUrlAttribute($value)
+    {
+        $embed = OEmbed::get($value);
+        if($embed && $this->type == self::VIDEO)
+        {
+            return $embed->html(['width' => 700]);
+        }
+        return $value;
     }
 }
