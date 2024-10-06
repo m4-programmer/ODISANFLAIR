@@ -23,8 +23,10 @@ class PostController extends Controller
             $posts = Post::latest()->get();
             $recommended = $posts->random(3);
             $comments = $post->comments;
+            $tagCount = Tag::count();
+            $tags = Tag::all()->random($tagCount <= 10 ? $tagCount : 10);
 
-            return view('single',compact('title','post','recommended','tag','comments'));
+            return view('single',compact('title','post','recommended','tag','comments', 'tags'));
         }else{
             abort(404);
         }

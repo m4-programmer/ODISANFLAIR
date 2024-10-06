@@ -121,9 +121,17 @@
 
                         </div>
                         <footer>
-                            {{-- <div class="col"> --}}
+                            <div class="col">
+                                <ul class="tags">
+                                    @foreach ($tags as $tag )
+                                        <li><a href="{{route('category', $tag->slug)}}" class="uppercase">{{$tag->title}}</a></li>    
+                                    @endforeach
+                                    
+                                </ul>
+                            </div>
+                            <div class="col">
                                 <a href="#" class="love"><i class="ion-android-favorite-outline"></i> <div>{{$post->likes}}</div></a>
-                            {{-- </div> --}}
+                            </div>
                         </footer>
                     </article>
                     <div class="sharing">
