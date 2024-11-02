@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware("traffic")->group(function (){
     //Admin Routes
     Route::prefix('admin')->name('admin.')->group(function (){
-        Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
+        Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard')->withoutMiddleware('traffic');
         Route::resource('/categories', ManageCategoriesAlias::class);
         Route::resource('/posts', ManagePostController::class);
         Route::resource('/videos', ManageVideosController::class);
