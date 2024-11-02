@@ -9,6 +9,7 @@ use App\Http\Controllers\ManageCommentController;
 use App\Http\Controllers\ManagePostController;
 use App\Http\Controllers\ManageVideosController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ViewVideoController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +30,7 @@ Route::middleware("traffic")->group(function (){
     Route::get('/category/popular',[CategoryController::class,'popular'])->name('popular');
     Route::get('/category/{title}', [CategoryController::class,'index'])->name('category');
     Route::get("/videos", GetVideosController::class)->name("videos");
+    Route::get("/videos/{title}", ViewVideoController::class)->name("view_video");
     Route::get('/{category}/{post_slug}', [PostController::class,'index']);
     Route::post('/{category}/{post_slug}', [PostController::class,'store']);
     Route::post('/newsletter',[App\Http\Controllers\Controller::class,'subcribe']);

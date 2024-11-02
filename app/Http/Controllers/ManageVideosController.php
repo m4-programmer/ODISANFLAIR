@@ -34,10 +34,17 @@ class ManageVideosController extends Controller
         $data = $request->validate([
             'title' => 'required|unique:media,title,NULL,id,type,video',
             'url' => 'required',
+            'post' => 'filled',
+            'cover'=>'nullable|mimes:png,jpg'
         ]);
+        if ($request->hasFile('cover')) {
+            $cover = 'asset/uploads/userImage' . '/' . Str::random(32) . '.' . $request->cover->getClientOriginalExtension();
+            $request->cover->move(public_path('asset/uploads/userImage'), $cover);
+        }
         $data['slug'] = Str::slug($request->title);
         $data['type'] = Media::VIDEO;
         $data['status'] = true;
+        $data['cover'] = $cover;
 
         $result = Media::create($data);
         if ($result){
