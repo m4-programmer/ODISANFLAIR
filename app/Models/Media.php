@@ -19,6 +19,10 @@ class Media extends Model
 
     protected $casts = ["meta_data" => "json"];
 
+    public function post()
+    {
+        return $this->belongsTo(Post::class);
+    }
     public function scopeVideo(Builder $q): void
     {
         $q->where("type", self::VIDEO);

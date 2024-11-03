@@ -44,6 +44,10 @@ class Post extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+    public function media()
+    {
+        return $this->hasOne(Media::class);
+    }
     public function comments(){
         return $this->hasMany(Comment::class);
     }
