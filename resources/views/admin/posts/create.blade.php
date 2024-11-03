@@ -15,7 +15,7 @@
                         <div class="card-header">
                             <h3 class="card-title">Edit Posts</h3>
                         </div>
-                        
+
                         <!-- /.card-header -->
                         <!-- form start -->
                         <form action="{{route('admin.posts.store')}}" method="post" enctype="multipart/form-data">
@@ -59,11 +59,11 @@
                                         </div>
                                         <!-- /.card-header -->
                                         <div class="card-body">
-                                            
+
                                             <textarea id="tiny" name="post">
                                                 {!! old('post') ? old('post') : 'Place <em>some</em> <u>text</u> <strong>here</strong>' !!}
                                             </textarea>
-                                            
+
                                         </div>
                                         <div class="card-footer">
                                             Write an elagant post
@@ -72,7 +72,12 @@
                                     @error('post')
                                     <label for="" class="text-danger">{{$message}}</label>
                                     @enderror
-                                    
+
+                                </div>
+                                {{--Video Url--}}
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Youtube Link</label>
+                                    <input type="text" class="form-control" id="exampleInputPassword1" name="url" placeholder="Enter Youtube Link">
                                 </div>
                                 {{--Cover--}}
                                 <div class="form-group">

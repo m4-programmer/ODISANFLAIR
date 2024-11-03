@@ -140,9 +140,9 @@
                 <li class="dropdown magz-dropdown">
                     <a href="#">Entertainment <i class="ion-ios-arrow-right"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{route("videos")}}">Movie Trailers</a></li>
-                        <li><a href="{{route("videos")}}">Meme</a></li>
-                        <li><a href="{{route("videos")}}">videos</a></li>
+                        <li><a href="{{route('category', "trailers")}}">Movie Trailers</a></li>
+                        <li><a href="{{route('category', "meme")}}">Meme</a></li>
+                        <li><a href="{{route('category', "videos")}}">videos</a></li>
                     </ul>
                 </li>
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Media;
 use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -39,7 +40,8 @@ class ManagePostController extends Controller
             'title' => 'required|unique:posts,title',
             'post' => 'required',
             'status'=>'required',
-            'cover'=>'required|mimes:png,jpg'
+            'cover'=>'required|mimes:png,jpg',
+            'url' => 'filled',
         ]);
         $slug = Str::slug($request->title);
         if ($request->hasFile('cover')) {
@@ -51,10 +53,17 @@ class ManagePostController extends Controller
             'post'=>$request->post,
             'cover'=>$cover,
             'slug'=>$slug,
-            'likes'=>$request->likes,
+            'likes'=>$request->likes ?? 0,
             'tag_id'=>$request->tag_id,
             'status'=>$request->status,
             'user_id'=>$request->user()->id ?? 1,
+        ]);
+        $result->media()->create([
+            'title'=>$request->title,
+            'slug'=>$slug,
+            'type'=>Media::VIDEO,
+            'status'=>true,
+            "url" => $request->url,
         ]);
         if ($result){
             $message = 'post created successfully';

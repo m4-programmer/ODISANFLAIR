@@ -23,6 +23,7 @@
                                     <th>S/N</th>
                                     <th>Category</th>
                                     <th>Post Title</th>
+                                    <th>Has Video</th>
                                     <th>Created By</th>
                                     <th>Status</th>
                                     <th>Comments</th>
@@ -38,6 +39,7 @@
                                         <td><?php echo $sn;  $sn++?></td>
                                         <td>{{$data->tags->title}}</td>
                                         <td>{!! \Illuminate\Support\Str::words($data->title,10,'...') !!}</td>
+                                        <td>{{$data}}</td>
                                         <td>{{$data->user->name}}</td>
                                         <td><span class="badge badge-{{($data->status == 'active') ? 'success' : 'danger'}}">{{ $data->status}}</span></td>
                                         <td>

@@ -34,6 +34,37 @@
             width: 100%;
         } */
     </style>
+    <style>
+        .article-title {
+            max-height: 3.8em; /* Adjust the max height as needed */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .article-description {
+            /* Style for the description, if needed */
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000; /* Optional: To show a black background before video loads */
+        }
+
+        .video-container iframe,
+        .video-container object,
+        .video-container embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+    </style>
     <section class="single">
         <div class="container">
             <div class="row">
@@ -109,10 +140,16 @@
 
 
                             <div class="featured">
-                                <figure>
-                                    <img src="{{asset($post->cover)}}">
+                                @if($post->media)
+                                    <div class="video-container">
+                                        {!! $post->media->url !!}
+                                    </div>
+                                @else
+                                    <figure>
+                                        <img src="{{asset($post->cover)}}">
 
-                                </figure>
+                                    </figure>
+                                @endif
                             </div>
 
 
@@ -124,9 +161,9 @@
                             <div class="col">
                                 <ul class="tags">
                                     @foreach ($tags as $tag )
-                                        <li><a href="{{route('category', $tag->slug)}}" class="uppercase">{{$tag->title}}</a></li>    
+                                        <li><a href="{{route('category', $tag->slug)}}" class="uppercase">{{$tag->title}}</a></li>
                                     @endforeach
-                                    
+
                                 </ul>
                             </div>
                             <div class="col">
@@ -179,9 +216,9 @@
                             <div class="job">{{"REALIST"}}</div>
                             <h3 class="name">{{"Daniel Som"}}</h3>
                             <p>When you look in the eyes of grace, when you meet grace,
-                                when you embrace grace, when you see the nail prints 
-                                in grace’s hands and the fire in his eyes, when you feel 
-                                His relentless love for you - it will not motivate you to sin. 
+                                when you embrace grace, when you see the nail prints
+                                in grace’s hands and the fire in his eyes, when you feel
+                                His relentless love for you - it will not motivate you to sin.
                                 It will motivate you to righteousness.</p>
                             <ul class="social trp sm">
                                 <li>
