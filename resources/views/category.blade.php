@@ -9,7 +9,7 @@
                                 <li><a href="{{url('/')}}">Home</a></li>
                                 <li class="active">{{$title}}</li>
                             </ol>
-                            <h1 class="page-title"> {{$title}}</h1>
+                            <h1 class="page-title"> {{strtoupper($title)}}</h1>
                             <p class="page-subtitle">Showing all posts with category <i>{{$title}}</i></p>
                         </div>
                     </div>
