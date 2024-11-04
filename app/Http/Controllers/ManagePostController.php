@@ -41,7 +41,7 @@ class ManagePostController extends Controller
             'post' => 'required',
             'status'=>'required',
             'cover'=>'required|mimes:png,jpg',
-            'url' => 'filled',
+            'url' => 'nullable',
         ]);
         $slug = Str::slug($request->title);
         if ($request->hasFile('cover')) {
@@ -102,7 +102,8 @@ class ManagePostController extends Controller
             'title' => 'required|unique:posts,title,'.$postId,
             'post' => 'required',
             'status'=>'required',
-            "created_at" => "required|date"
+            "created_at" => "required|date",
+            'url' => 'nullable',
         ]);
         $slug = Str::slug($request->title);
         //to write logic to handle uploading the cover image
@@ -126,6 +127,15 @@ class ManagePostController extends Controller
         ]);
         $post->created_at = Carbon::parse($request->created_at);
         $post->save();
+        $post->media()->update([
+            'title'=>$request->title ?? $post->media->title,
+            'slug'=>$slug ?? $post->media->slug,
+            'type'=>Media::VIDEO,
+            'status'=>true,
+        ]);
+        if ($request->url){
+            $post->media()->update(["url" => $request->url]);
+        }
         if ($result){
             return back()->with('success','post updated successfully');
         }else{

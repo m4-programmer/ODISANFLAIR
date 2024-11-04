@@ -78,6 +78,9 @@
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Youtube Link</label>
                                     <input type="text" class="form-control" id="exampleInputPassword1" name="url" placeholder="Enter Youtube Link">
+                                    @error('url')
+                                    <label for="" class="text-danger">{{$message}}</label>
+                                    @enderror
                                 </div>
                                 {{--Cover--}}
                                 <div class="form-group">
