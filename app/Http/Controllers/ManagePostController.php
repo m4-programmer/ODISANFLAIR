@@ -58,13 +58,15 @@ class ManagePostController extends Controller
             'status'=>$request->status,
             'user_id'=>$request->user()->id ?? 1,
         ]);
-        $result->media()->create([
-            'title'=>$request->title,
-            'slug'=>$slug,
-            'type'=>Media::VIDEO,
-            'status'=>true,
-            "url" => $request->url,
-        ]);
+        if ($request->url){
+            $result->media()->create([
+                'title'=>$request->title,
+                'slug'=>$slug,
+                'type'=>Media::VIDEO,
+                'status'=>true,
+                "url" => $request->url,
+            ]);
+        }
         if ($result){
             $message = 'post created successfully';
             Session::put('message',$message);
