@@ -4,7 +4,7 @@
             <article class="featured">
                 <div class="overlay"></div>
                 <figure>
-                    <img src="{{asset($data->cover)}}" alt="{{$data->title}}">
+                    <img src="{{asset(\Illuminate\Support\Arr::random(["asset/images/Piture7.png", "asset/images/MyPhoto.png"]))}}" alt="{{$data->title}}">
                 </figure>
                 <div class="details">
                     <div class="category"><a href="{{url('/category/'.$data->tags->title)}}">{{$data->tags->title}}</a></div>
