@@ -12,7 +12,7 @@
 
 </style>
 <div class="row">
-    @foreach($latestnews as $data)
+    @forelse($latestnews as $data)
     <article class="article col-md-6" >
         <div class="inner" >
             <figure>
@@ -31,13 +31,16 @@
                 <footer style="margin-top: 10px!important">
                     <a href="#" class="love"><i class="ion-android-favorite-outline"></i> <div>{{$data->likes}}</div></a>
                     <a class="btn btn-primary more" href="{{url($data->tags->title.'/'.$data->slug)}}">
-                        <div>More</div>
+                        <div>{{$buttonText ?? "More"}}</div>
                         <div><i class="ion-ios-arrow-thin-right"></i></div>
                     </a>
                 </footer>
             </div>
         </div>
     </article>
-    @endforeach
+
+    @empty
+        <p class="text-center">No Data available at the moment</p>
+    @endforelse
 </div>
 

@@ -30,7 +30,6 @@ class WelcomeController extends Controller
 
     public function category(Request $request,$title){
 
-        return "yes";
         return view('category',compact('title'));
     }
     public function search(Request $request){
@@ -98,6 +97,16 @@ class WelcomeController extends Controller
 
     public function library(Request $request)
     {
-        return "yes";
+        $tag = Tag::where('title', "der trading")->orWhere('slug',"der_trading")->first();
+        $posts = Post::latest()->get();
+        $sidePost = Post::latest()->get();
+        $title = $tag?->title;
+        $searchData = $tag?->posts()?->paginate(4) ?? [];
+        $popular = $posts->random(6);
+        $author = User::find(1);
+        $author->load('posts');
+        $recommended = $posts->random(3);
+        $comments = Comment::get()->random(3);
+        return view('library', compact('posts', 'sidePost','searchData','title','author','popular','recommended','comments'));
     }
 }

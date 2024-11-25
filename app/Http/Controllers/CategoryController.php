@@ -7,6 +7,7 @@ use App\Models\Tag;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Comment;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -35,21 +36,18 @@ class CategoryController extends Controller
     public function dynamicContent($slug)
     {
         $tag = Tag::where('title', $slug)->orWhere('slug',$slug)->first();
-        if ($tag){
-            $posts = Post::latest()->get();
-            $sidePost = Post::latest()->get();
-            $title = $tag?->title;
-            $searchData = $tag?->posts()?->paginate(4);
-            $popular = $posts->random(6);
-            $author = User::find(1);
-            $author->load('posts');
-            $recommended = $posts->random(3);
-            $comments = Comment::get()->random(3);
-            $anotherNews = $posts->random(5);
-            $hotNews = $posts->random(8);
-            return view('dynamic_content', compact('posts', 'sidePost','searchData','title','author','popular','recommended','comments', 'anotherNews', 'hotNews'));
-        }
-        abort(404);
+        $posts = Post::latest()->get();
+        $sidePost = Post::latest()->get();
+        $title = $tag?->title ?? Str::title(str_replace('-', ' ', $slug));;
+        $searchData = $tag?->posts()?->paginate(4) ?? [];
+        $popular = $posts->random(6);
+        $author = User::find(1);
+        $author->load('posts');
+        $recommended = $posts->random(3);
+        $comments = Comment::get()->random(3);
+        $anotherNews = $posts->random(5);
+        $hotNews = $posts->random(8);
+        return view('dynamic_content', compact('posts', 'sidePost','searchData','title','author','popular','recommended','comments', 'anotherNews', 'hotNews'));
     }
     public function latest(){
         $posts = Post::where('status', 'latest')->paginate(8);

@@ -142,16 +142,16 @@
                         <li class="dropdown magz-dropdown">
                             <a href="#">Video <i class="ion-ios-arrow-right"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{route('category_card', "amazon_finds")}}">Amazon Finds</a></li>
-                                <li><a href="{{route('category_card', "trading_videos")}}">Trading Videos</a></li>
-                                <li><a href="{{route('category_card', "realities_of_life")}}">Realities Of Life</a>
+                                <li><a href="{{route('category_card', "amazon-finds")}}">Amazon Finds</a></li>
+                                <li><a href="{{route('category_card', "trading-videos")}}">Trading Videos</a></li>
+                                <li><a href="{{route('category_card', "realities-of-life")}}">Realities Of Life</a>
                             </ul>
                         </li>
 {{--                        <li class="dropdown magz-dropdown">--}}
 {{--                            <a href="#">Podcasts <i class="ion-ios-arrow-right"></i></a>--}}
 {{--                            <ul class="dropdown-menu">--}}
-{{--                                <li><a href="{{route('category_card', "trading_videos")}}">Trading Videos</a></li>--}}
-{{--                                <li><a href="{{route('category_card', "realities_of_life")}}">Realities Of Life</a>--}}
+{{--                                <li><a href="{{route('category_card', "trading-videos")}}">Trading Videos</a></li>--}}
+{{--                                <li><a href="{{route('category_card', "realities-of-life")}}">Realities Of Life</a>--}}
 {{--                            </ul>--}}
 {{--                        </li>--}}
                     </ul>
