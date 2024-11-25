@@ -5,7 +5,7 @@
                 <div class="col-md-3 col-sm-12">
                     <div class="brand">
                         <a href="{{route('blog_index')}}">
-                            <img src="{{asset('asset/images/odin.jpg')}}" style="height: 80px; width: 100%" alt="Magz Logo">
+                            <img src="{{asset('asset/images/odin2.jpg')}}" style="height: 80px; width: 100%" alt="Magz Logo">
                         </a>
                     </div>
                 </div>
