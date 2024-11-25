@@ -7,8 +7,8 @@
                     <h1 class="block-title">Company Info</h1>
                     <div class="block-body">
                         <figure class="foot-logo">
-                            <img src="{{asset('asset/images/20230713_171907.png')}}" class="img-responsive" alt="Logo">
-                            <img src="{{asset('asset/images/20230713_171214.png')}}" class="img-responsive" alt="Logo">
+                            <img src="{{asset('asset/images/odin2.jpg')}}" class="img-responsive" alt="Logo">
+{{--                            <img src="{{asset('asset/images/20230713_171214.png')}}" class="img-responsive" alt="Logo">--}}
                         </figure>
                         <p class="brand-description">
                             Odisanflair offers an extensive blogging articles, online courses, and best-selling books covering a variety of topics.
@@ -118,11 +118,10 @@
                             <ul class="footer-nav-horizontal">
                                 <li><a href="{{url('/')}}">HOME</a></li>
                                 <li><a href="{{route('category_card', \Illuminate\Support\Str::slug("LIFE'S TALK"))}}">LIFE'S TALK</a></li>
-                                <li><a href="{{route('category_card', \Illuminate\Support\Str::slug("ACADEMY"))}}">ACADEMY</a></li>
                             </ul>
                             <ul class="footer-nav-horizontal">
-                                <li><a href="{{url('#')}}">MENTORSHIP</a></li>
-                                <li><a href="{{url('#')}}">RESULTS</a></li>
+                                <li><a href="{{route('category_card', \Illuminate\Support\Str::slug("ACADEMY"))}}">ACADEMY</a></li>
+                                <li><a href="{{url('#')}}">LIBRARY</a></li>
                             </ul>
                             <ul class="footer-nav-horizontal">
                                 <li><a href="{{url('contact')}}">CONTACT</a></li>

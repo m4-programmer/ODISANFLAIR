@@ -95,4 +95,9 @@ class WelcomeController extends Controller
         ];
         return view('portfolio',compact('quotes'));
     }
+
+    public function library(Request $request)
+    {
+        return "yes";
+    }
 }

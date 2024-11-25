@@ -18,7 +18,7 @@
     <div class="container">
         <div class="brand">
             <a href="#">
-                <img src="{{asset('asset/images/20230714_154601.png')}}" alt="Odisanflair Logo">
+{{--                <img src="{{asset('asset/images/odin.jpg')}}" alt="Odisanflair Logo">--}}
             </a>
         </div>
         <div class="mobile-toggle">
@@ -133,25 +133,47 @@
 
 
                 <!-- Mentorship starts -->
-                <li><a href="{{route('category_card', "Mentorship")}}">Mentorship</a></li>
+                <li><a href="{{route("library")}}">Library</a></li>
                 <!-- premium ends -->
 
-                <!-- entertainment start -->
-                <li class="dropdown magz-dropdown">
-                    <a href="#">Entertainment <i class="ion-ios-arrow-right"></i></a>
+                <!-- watch and listen starts -->
+                <li class="dropdown magz-dropdown"><a href="#">Watch & Listen <i class="ion-ios-arrow-right"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{route('category_card', "trailers")}}">Movie Trailers</a></li>
-                        <li><a href="{{route('category_card', "meme")}}">Meme</a></li>
-                        <li><a href="{{route('category_card', "videos")}}">videos</a></li>
+                        <li class="dropdown magz-dropdown">
+                            <a href="#">Video <i class="ion-ios-arrow-right"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{route('category_card', "amazon_finds")}}">Amazon Finds</a></li>
+                                <li><a href="{{route('category_card', "trading_videos")}}">Trading Videos</a></li>
+                                <li><a href="{{route('category_card', "realities_of_life")}}">Realities Of Life</a>
+                            </ul>
+                        </li>
+{{--                        <li class="dropdown magz-dropdown">--}}
+{{--                            <a href="#">Podcasts <i class="ion-ios-arrow-right"></i></a>--}}
+{{--                            <ul class="dropdown-menu">--}}
+{{--                                <li><a href="{{route('category_card', "trading_videos")}}">Trading Videos</a></li>--}}
+{{--                                <li><a href="{{route('category_card', "realities_of_life")}}">Realities Of Life</a>--}}
+{{--                            </ul>--}}
+{{--                        </li>--}}
                     </ul>
                 </li>
+                <!-- watch and listen ends -->
+
+                <!-- entertainment start -->
+{{--                <li class="dropdown magz-dropdown">--}}
+{{--                    <a href="#">Entertainment <i class="ion-ios-arrow-right"></i></a>--}}
+{{--                    <ul class="dropdown-menu">--}}
+{{--                        <li><a href="{{route('category_card', "trailers")}}">Movie Trailers</a></li>--}}
+{{--                        <li><a href="{{route('category_card', "meme")}}">Meme</a></li>--}}
+{{--                        <li><a href="{{route('category_card', "videos")}}">videos</a></li>--}}
+{{--                    </ul>--}}
+{{--                </li>--}}
 
                 <!-- results starts -->
-                <li><a href="{{route('category_card', "Results")}}">Results</a></li>
+{{--                <li><a href="{{route('category_card', "Results")}}">Results</a></li>--}}
                 <!-- results end -->
 
                 <!-- academy starts -->
-                <li><a href="https://t.me/PrecizeTrading">Telegram <div class="badge">Join</div></a></li>
+{{--                <li><a href="https://t.me/PrecizeTrading">Telegram <div class="badge">Join</div></a></li>--}}
                 <!-- academy ends -->
 
             </ul>

@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ManageCategories as ManageCategoriesAlias;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\GetVideosController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ManageAudiosController;
 use App\Http\Controllers\ManageCommentController;
 use App\Http\Controllers\ManagePostController;
@@ -55,8 +56,8 @@ Route::middleware("traffic")->group(function (){
 
     Auth::routes();
 
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/library', [WelcomeController::class, 'library'])->name('library');
     Route::get('/{category}', [CategoryController::class,'dynamicContent'])->name('category_card');
 });
 
