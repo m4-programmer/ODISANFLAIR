@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
-    protected $fillable = ['user_id','title','post','likes','tag_id','cover','slug','status'];
+    protected $fillable = ['user_id','title','post','likes','tag_id','cover','library_tags_id','slug','status'];
     public function scopeFilter($query, array $filters)
     {
         if (isset($filters['q'])) {
