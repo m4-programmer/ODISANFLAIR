@@ -7,6 +7,7 @@ use App\Models\Post;
 use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 
 class WelcomeController extends Controller
 {
@@ -97,16 +98,23 @@ class WelcomeController extends Controller
 
     public function library(Request $request)
     {
-        $tag = Tag::where('title', "der trading")->orWhere('slug',"der_trading")->first();
+        $tag = Tag::where('title', "library")->orWhere('slug',"library")->first();
         $posts = Post::latest()->get();
         $sidePost = Post::latest()->get();
         $title = $tag?->title;
-        $searchData = $tag?->posts()?->paginate(4) ?? [];
+        $searchData = $tag ? $tag->posts()
+            ->get()
+            ->groupBy('library_tags_id')
+            ->map(function (Collection $posts) {
+                // Limit to 4 posts per group
+                return $posts->take(4);
+            }) : collect([]);
         $popular = $posts->random(6);
         $author = User::find(1);
         $author->load('posts');
         $recommended = $posts->random(3);
         $comments = Comment::get()->random(3);
+//        dd($searchData->toArray());
         return view('library', compact('posts', 'sidePost','searchData','title','author','popular','recommended','comments'));
     }
 }

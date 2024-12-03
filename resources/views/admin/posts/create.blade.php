@@ -13,7 +13,7 @@
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Edit Posts</h3>
+                            <h3 class="card-title">Create Post</h3>
                         </div>
 
                         <!-- /.card-header -->
@@ -40,6 +40,25 @@
                                         @endif>{{$data->title}}</option>
                                         @endforeach
                                     </select>
+                                    @error('tag_id')
+                                    <label for="" class="text-danger">{{$message}}</label>
+                                    @enderror
+                                </div>
+
+                                {{--Library Tags--}}
+                                <div class="form-group">
+                                    <label>Select Library Tag <small class="text-danger">(Select this if the selected category above is library)</small></label>
+                                    <select class="form-control select2" name="library_tag_id" style="width: 100%;">
+                                        <option value="" disabled selected> Select a tag if category is Library</option>
+                                        @foreach($libraryTags as $data)
+                                        <option value="{{$data->id}}" @if ($data->id == old('library_tag_id'))
+                                            selected
+                                        @endif>{{$data->title}}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('library_tag_id')
+                                    <label for="" class="text-danger">{{$message}}</label>
+                                    @enderror
                                 </div>
                                 {{--Title--}}
                                 <div class="form-group">

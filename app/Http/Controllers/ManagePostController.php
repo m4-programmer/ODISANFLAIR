@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LibraryTags;
 use App\Models\Media;
 use App\Models\Post;
 use App\Models\Tag;
@@ -28,7 +29,8 @@ class ManagePostController extends Controller
     public function create()
     {
         $categories = Tag::all();
-        return view('admin.posts.create',compact('categories'));
+        $libraryTags = LibraryTags::latest()->get();
+        return view('admin.posts.create',compact('categories', 'libraryTags'));
     }
 
     /**
@@ -36,12 +38,13 @@ class ManagePostController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
+        $request->validate([
             'title' => 'required|unique:posts,title',
             'post' => 'required',
             'status'=>'required',
             'cover'=>'required|mimes:png,jpg',
             'url' => 'nullable',
+            'library_tag_id' => "nullable|exists:library_tags,id"
         ]);
         $slug = Str::slug($request->title);
         if ($request->hasFile('cover')) {
@@ -57,6 +60,7 @@ class ManagePostController extends Controller
             'tag_id'=>$request->tag_id,
             'status'=>$request->status,
             'user_id'=>$request->user()->id ?? 1,
+            'library_tags_id' => $request->library_tag_id
         ]);
         if ($request->url){
             $result->media()->create([
@@ -100,7 +104,7 @@ class ManagePostController extends Controller
     public function update(Request $request, Post $post)
     {
         $postId = Post::where('title',$request->title)->first()?->id;
-        $validated = $request->validate([
+        $request->validate([
             'title' => 'required|unique:posts,title,'.$postId,
             'post' => 'required',
             'status'=>'required',

@@ -54,4 +54,9 @@ class Post extends Model
     public function tags(){
         return $this->belongsTo(Tag::class,'tag_id','id');
     }
+
+    public function library_tag()
+    {
+        return $this->belongsTo(LibraryTags::class,'library_tags_id');
+    }
 }

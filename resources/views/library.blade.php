@@ -18,24 +18,26 @@
                     </div>
 
                     <!-- New Library Section -->
-                    <div class="line">
-                        <div>{{$title}}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <x-latest-news :latestnews="$searchData" buttonText="Check it Out"/>
+                    @foreach($searchData as  $libraryTagsId => $posts)
+                        <div class="line mt-5" style="margin: 80px 0;">
+                            <div>{{$posts->first()->library_tag->title ?? 'Unknown Tag'}}</div>
                         </div>
-                        @if($searchData)
-                            <div class="col-md-12 text-center">
-                                <a class="btn btn-primary more" href="#">
-                                    <div>MORE</div>
-                                    <div>
-                                        <i class="ion-ios-arrow-thin-right"></i>
-                                    </div>
-                                </a>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <x-library_card :searchData="$posts" buttonText="Check it Out"/>
                             </div>
-                        @endif
-                    </div>
+                            @if($searchData)
+                                <div class="col-md-12 text-center mb-5">
+                                    <a class="btn btn-primary more" href="#">
+                                        <div>MORE</div>
+                                        <div>
+                                            <i class="ion-ios-arrow-thin-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            @endif
+                        </div>
+                    @endforeach
                     {{--Advertisement--}}
                     <div class="banner">
                         <a href="#">

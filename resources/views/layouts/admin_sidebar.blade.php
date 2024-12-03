@@ -44,6 +44,16 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('admin.library_tags.index') }}" class="nav-link @if (Route::currentRouteName() === 'admin.library_tags.index') active @endif">
+
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Library Tags
+                            <span class="right badge badge-success">New</span>
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{route('admin.posts.index')}}" class="nav-link @if (Route::currentRouteName() === 'admin.posts.index') active @endif">
                         <i class="nav-icon fas fa-table"></i>
                         <p>

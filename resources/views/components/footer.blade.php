@@ -8,7 +8,7 @@
                     <div class="block-body">
                         <figure class="foot-logo">
                             <img src="{{asset('asset/images/odin1.png')}}" class="img-responsive" alt="Logo">
-<!-- {{--                            <img src="{{asset('asset/images/20230713_171214.png')}}" class="img-responsive" alt="Logo">--}} -->
+<!-- {{--                   <img src="{{asset('asset/images/20230713_171214.png')}}" class="img-responsive" alt="Logo">--}} -->
                         </figure>
                         <p class="brand-description">
                             Odisanflair offers an extensive blogging articles, online courses, and best-selling books covering a variety of topics.
