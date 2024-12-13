@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware("traffic")->group(function (){
     //Admin Routes
-    Route::prefix('admin')->name('admin.')->group(base_path('routes/admin.php'));
+    Route::prefix('admin')->middleware("auth")->name('admin.')->group(base_path('routes/admin.php'));
 
     Route::get('/index', [WelcomeController::class,'index'])->name('blog_index');
     Route::get('/', [WelcomeController::class,'portfolio']);
@@ -18,12 +18,8 @@ Route::middleware("traffic")->group(function (){
     Route::get('/category/{title}', [CategoryController::class,'index'])->name('category');
 //    Route::get("/videos", GetVideosController::class)->name("videos");
 //    Route::get("/videos/{title}", ViewVideoController::class)->name("view_video");
-    Route::get('/{category}/{post_slug}', [PostController::class,'index']);
-    Route::post('/{category}/{post_slug}', [PostController::class,'store']);
-    Route::post('/newsletter',[App\Http\Controllers\Controller::class,'subcribe']);
-    Route::get('/contact',function (){
-        return view('contact');
-    });
+    Route::post('/newsletter',[App\Http\Controllers\Controller::class,'subscribe']);
+    Route::view('/contact',"contact");
     Route::view('/about', 'about');
     Route::view('/privacy-policy', 'privacy');
 
@@ -35,7 +31,10 @@ Route::middleware("traffic")->group(function (){
 
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/library', [WelcomeController::class, 'library'])->name('library');
+    Route::get('/library/{librarySlug}', [WelcomeController::class, 'getLibraryCategoryData'])->name('library_more');
     Route::get('/{category}', [CategoryController::class,'dynamicContent'])->name('category_card');
+    Route::get('/{category}/{post_slug}', [PostController::class,'index']);
+    Route::post('/{category}/{post_slug}', [PostController::class,'store']);
 });
 
 

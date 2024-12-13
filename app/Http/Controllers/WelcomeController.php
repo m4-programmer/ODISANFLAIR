@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use App\Models\LibraryTags;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 
 class WelcomeController extends Controller
 {
@@ -116,5 +118,22 @@ class WelcomeController extends Controller
         $comments = Comment::get()->random(3);
 //        dd($searchData->toArray());
         return view('library', compact('posts', 'sidePost','searchData','title','author','popular','recommended','comments'));
+    }
+
+    public function getLibraryCategoryData($librarySlug)
+    {
+        $tag = Tag::where('title', "library")->orWhere('slug',"library")->first();
+        $posts = Post::latest()->get();
+        $sidePost = Post::latest()->get();
+        $title = LibraryTags::where("slug", $librarySlug)->first()?->title ?? abort(404, "Incorrect url path");
+        $searchData = $tag?->posts()?->whereHas("library_tag", function ($q) use($librarySlug){$q->where("slug", $librarySlug);})?->paginate(4) ?? [];
+        $popular = $posts->random(6);
+        $author = User::find(1);
+        $author->load('posts');
+        $recommended = $tag->posts->random(3);
+        $comments = Comment::get()->random(3);
+        $anotherNews = $posts->random(5);
+        $hotNews = $posts->random(8);
+        return view('library_content', compact('posts', 'sidePost','searchData','title','author','popular','recommended','comments', 'anotherNews', 'hotNews'));
     }
 }

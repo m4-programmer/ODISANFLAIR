@@ -18,7 +18,7 @@
     <div class="container">
         <div class="brand">
             <a href="#">
-{{--                <img src="{{asset('asset/images/odin.jpg')}}" alt="Odisanflair Logo">--}}
+                <img src="{{asset('asset/images/odin.png')}}" style="height: 90%;" alt="Magz Logo">
             </a>
         </div>
         <div class="mobile-toggle">
@@ -121,11 +121,11 @@
                                 {{ucwords(TagEnum::BUSINESS_ACUMEN->value)}}
                             </a>
                         </li>
-                        <li>
-                            <a href="{{route('category', ucwords(TagEnum::PODCAST->value))}}">
-                                {{ucwords(TagEnum::PODCAST->value)}}
-                            </a>
-                        </li>
+{{--                        <li>--}}
+{{--                            <a href="{{route('category', ucwords(TagEnum::PODCAST->value))}}">--}}
+{{--                                {{ucwords(TagEnum::PODCAST->value)}}--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
                         </li>
                     </ul>
                 </li>
