@@ -27,7 +27,11 @@ Route::middleware("traffic")->group(function (){
     Route::view('/scam-alert', 'scam_alert')->name('scam_alert');
     Route::view('/starter', 'starter');
 
-    Auth::routes();
+    Auth::routes([
+        'register' => false, // Disable registration routes
+        'reset' => false,    // Disable password reset routes
+        'verify' => false,   // Disable email verification routes
+    ]);
 
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/library', [WelcomeController::class, 'library'])->name('library');
