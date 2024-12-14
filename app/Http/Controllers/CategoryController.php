@@ -39,7 +39,7 @@ class CategoryController extends Controller
         $posts = Post::latest()->get();
         $sidePost = Post::latest()->get();
         $title = $tag?->title ?? Str::title(str_replace('-', ' ', $slug));;
-        $searchData = $tag?->posts()?->paginate(4) ?? [];
+        $searchData = $tag?->posts()?->paginate(14) ?? [];
         $popular = $posts->random(6);
         $author = User::find(1);
         $author->load('posts');

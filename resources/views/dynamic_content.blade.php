@@ -25,28 +25,28 @@
                     {{--End of Advertisement--}}
 
                     {{--Hot News--}}
-                    <div class="col-md-6 col-sm-6">
-                        <h1 class="title-col">
-                            Hot News
-                            <div class="carousel-nav" id="hot-news-nav">
-                                <div class="prev">
-                                    <i class="ion-ios-arrow-left"></i>
-                                </div>
-                                <div class="next">
-                                    <i class="ion-ios-arrow-right"></i>
-                                </div>
-                            </div>
-                        </h1>
-                        <div class="body-col vertical-slider" data-max="4" data-nav="#hot-news-nav" data-item="article">
-                            <x-hot-news :hotnews="$hotNews" />
-                        </div>
-                    </div>
+{{--                    <div class="col-md-6 col-sm-6">--}}
+{{--                        <h1 class="title-col">--}}
+{{--                            Hot News--}}
+{{--                            <div class="carousel-nav" id="hot-news-nav">--}}
+{{--                                <div class="prev">--}}
+{{--                                    <i class="ion-ios-arrow-left"></i>--}}
+{{--                                </div>--}}
+{{--                                <div class="next">--}}
+{{--                                    <i class="ion-ios-arrow-right"></i>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </h1>--}}
+{{--                        <div class="body-col vertical-slider" data-max="4" data-nav="#hot-news-nav" data-item="article">--}}
+{{--                            <x-hot-news :hotnews="$hotNews" />--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
-                    <div class="line top">
-                        <div>Just Another News</div>
-                    </div>
+{{--                    <div class="line top">--}}
+{{--                        <div>Just Another News</div>--}}
+{{--                    </div>--}}
                     <div class="row">
-                        <x-another-news :news="$anotherNews" />
+{{--                        <x-another-news :news="$anotherNews" />--}}
 
                         {{--Pagination--}}
                         @if($searchData)
