@@ -35,7 +35,7 @@ Route::middleware("traffic")->group(function (){
 
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/library', [WelcomeController::class, 'library'])->name('library');
-    Route::get('/library/{librarySlug}', [WelcomeController::class, 'getLibraryCategoryData'])->name('library_more');
+    Route::get('/library/tags/{librarySlug}', [WelcomeController::class, 'getLibraryCategoryData'])->name('library_more');
     Route::get('/{category}', [CategoryController::class,'dynamicContent'])->name('category_card');
     Route::get('/{category}/{post_slug}', [PostController::class,'index']);
     Route::post('/{category}/{post_slug}', [PostController::class,'store']);

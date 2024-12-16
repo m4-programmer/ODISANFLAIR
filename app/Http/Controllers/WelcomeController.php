@@ -107,9 +107,10 @@ class WelcomeController extends Controller
         $searchData = $tag ? $tag->posts()
             ->get()
             ->groupBy('library_tags_id')
-            ->map(function (Collection $posts) {
+            ->map(function (Collection $post) {
                 // Limit to 4 posts per group
-                return $posts->take(4);
+                $count = $post->count() > 4 ? 4 : $post->count();
+                return $post->random($count);
             }) : collect([]);
         $popular = $posts->random(6);
         $author = User::find(1);
@@ -126,7 +127,7 @@ class WelcomeController extends Controller
         $posts = Post::latest()->get();
         $sidePost = Post::latest()->get();
         $title = LibraryTags::where("slug", $librarySlug)->first()?->title ?? abort(404, "Incorrect url path");
-        $searchData = $tag?->posts()?->whereHas("library_tag", function ($q) use($librarySlug){$q->where("slug", $librarySlug);})?->paginate(15) ?? [];
+        $searchData = $tag?->posts()?->whereHas("library_tag", function ($q) use($librarySlug){$q->where("slug", $librarySlug);})?->inRandomOrder()->paginate(15) ?? [];
         $popular = $posts->random(6);
         $author = User::find(1);
         $author->load('posts');
