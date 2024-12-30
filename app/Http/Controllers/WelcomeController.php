@@ -16,17 +16,15 @@ class WelcomeController extends Controller
     public function index(){
         $tagCount = Tag::count();
         $tags = Tag::all()->random($tagCount <= 10 ? $tagCount : 10);
-        $posts = Post::latest()->get();
+        $posts = Post::inRandomOrder()->get();
         $posts->load('comments','tags','user');
         $firstFivePosts = $posts->random(5);
-        $latestPosts = $posts->take(4);
+        $latestPosts = $posts->random(4);
         $popular = $posts->random(6);
         $author = User::find(1);
         $author->load('posts');
         $recommended = $posts->random(3);
         $comments = Comment::get()->random(3);
-        //footer var
-
 
         return view('welcome',compact('tags','firstFivePosts','latestPosts','author','popular','recommended','comments','posts'));
     }
@@ -101,8 +99,8 @@ class WelcomeController extends Controller
     public function library(Request $request)
     {
         $tag = Tag::where('title', "library")->orWhere('slug',"library")->first();
-        $posts = Post::latest()->get();
-        $sidePost = Post::latest()->get();
+        $posts = Post::inRandomOrder()->get();
+        $sidePost = Post::inRandomOrder()->get();
         $title = $tag?->title;
         $searchData = $tag ? $tag->posts()
             ->get()
@@ -124,8 +122,8 @@ class WelcomeController extends Controller
     public function getLibraryCategoryData($librarySlug)
     {
         $tag = Tag::where('title', "library")->orWhere('slug',"library")->first();
-        $posts = Post::latest()->get();
-        $sidePost = Post::latest()->get();
+        $posts = Post::inRandomOrder()->get();
+        $sidePost = Post::inRandomOrder()->get();
         $title = LibraryTags::where("slug", $librarySlug)->first()?->title ?? abort(404, "Incorrect url path");
         $searchData = $tag?->posts()?->whereHas("library_tag", function ($q) use($librarySlug){$q->where("slug", $librarySlug);})?->inRandomOrder()->paginate(15) ?? [];
         $popular = $posts->random(6);

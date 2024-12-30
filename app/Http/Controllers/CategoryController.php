@@ -19,13 +19,13 @@ class CategoryController extends Controller
         $tag = Tag::where('title', $title)->orWhere('slug',$title)->first();
         if (!$tag){
             $posts = [];
-            $sidePost = Post::latest()->get();
+            $sidePost = Post::inRandomOrder()->get();
             $encodedTitle = urlencode($title);
         }
         else{
             $tagId = $tag->id;
-            $posts = Post::where('tag_id', $tagId)->paginate(8);
-            $sidePost = Post::latest()->get();
+            $posts = Post::where('tag_id', $tagId)->inRandomOrder()->paginate(8);
+            $sidePost = Post::inRandomOrder()->get();
 
             // URL-encode the title parameter for proper formatting in URLs
             $encodedTitle = urlencode($title);
@@ -36,10 +36,10 @@ class CategoryController extends Controller
     public function dynamicContent($slug)
     {
         $tag = Tag::where('title', $slug)->orWhere('slug',$slug)->first();
-        $posts = Post::latest()->get();
-        $sidePost = Post::latest()->get();
+        $posts = Post::inRandomOrder()->get();
+        $sidePost = Post::inRandomOrder()->get();
         $title = $tag?->title ?? Str::title(str_replace('-', ' ', $slug));;
-        $searchData = $tag?->posts()?->paginate(14) ?? [];
+        $searchData = $tag?->posts()->inRandomOrder()?->paginate(14) ?? [];
         $popular = $posts->random(6);
         $author = User::find(1);
         $author->load('posts');

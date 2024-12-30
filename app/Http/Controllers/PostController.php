@@ -19,8 +19,8 @@ class PostController extends Controller
         if ($verify){
             $title = $post_slug;
             $tag = $category;
-            $post = Post::where('slug',$post_slug)->first();
-            $posts = Post::latest()->get();
+            $post = Post::where('slug',$post_slug)->inRandomOrder()->first();
+            $posts = Post::inRandomOrder()->get();
             $recommended = $posts->random(3);
             $comments = $post->comments;
             $tagCount = Tag::count();
