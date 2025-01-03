@@ -1,5 +1,7 @@
 @php
-    use App\Models\Post;use App\Models\Tag;
+    use App\Models\Post;
+    use App\Models\Tag;
+    use \App\Enums\TagEnum;
     $trending = Post::where('status','trending')->get();
     if ($trending->count() > 0) {
          if ($trending->count() >= 5) {
@@ -16,7 +18,7 @@
     <div class="container">
         <div class="brand">
             <a href="#">
-                <img src="{{asset('asset/images/20230714_154601.png')}}" alt="Odisanflair Logo">
+                <img src="{{asset('asset/images/odin.png')}}" style="height: 90%;" alt="Magz Logo">
             </a>
         </div>
         <div class="mobile-toggle">
@@ -29,7 +31,7 @@
             <ul class="nav-list">
                 <li class="for-tablet nav-title"><a>Menu</a></li>
                 <li class="dropdown magz-dropdown magz-dropdown-megamenu">
-                    <a href="#">Blogs<i
+                    <a href="#">BLOG<i
                             class="ion-ios-arrow-right"></i>
                         <div class="badge">Hot</div>
                     </a>
@@ -89,116 +91,89 @@
                         </div>
                     </div>
                 </li>
-{{--                @foreach($categories as $data)--}}
-{{--                    <li>--}}
-{{--                        <a href="{{url('/category/'.$data->title)}}">{{$data->title}} <i class="ion-ios-arrow-right"></i></a>--}}
-{{--                    </li>--}}
-{{--                @endforeach--}}
-                <!-- academy starts -->
-                <li><a href="{{url('starter')}}">ACADEMY</a></li>
-                <!-- academy ends -->
 
                 <!-- PODCAST STARTS -->
-                <li class="dropdown magz-dropdown magz-dropdown-megamenu"><a href="#">PODCASTS <i class="ion-ios-arrow-right"></i></a>
-                    <div class="dropdown-menu megamenu">
-                        <div class="megamenu-inner">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <h2 class="megamenu-title">TRADING</h2>
-                                    <ul class="vertical-menu">
-                                        <li><a href="{{url('starter')}}">FOREX</a></li>
-                                        <li><a href="{{url('starter')}}">CRYPTO</a></li>
-                                        <li><a href="{{url('starter')}}">STOCK</a></li>
-                                        <li><a href="{{url('starter')}}">COMMODITY</a></li>
-                                        <li><a href="{{url('starter')}}">OTHERS</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-3">
-                                    <h2 class="megamenu-title">SUCCESS</h2>
-                                    <ul class="vertical-menu">
-                                        <li><a href="{{url('starter')}}">FOREX</a></li>
-                                        <li><a href="{{url('starter')}}">CRYPTO</a></li>
-                                        <li><a href="{{url('starter')}}">STOCK</a></li>
-                                        <li><a href="{{url('starter')}}">COMMODITY</a></li>
-                                        <li><a href="{{url('starter')}}">OTHERS</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-3">
-                                    <h2 class="megamenu-title">BUINESS</h2>
-                                    <ul class="vertical-menu">
-                                        <li><a href="{{url('starter')}}">FOREX</a></li>
-                                        <li><a href="{{url('starter')}}">CRYPTO</a></li>
-                                        <li><a href="{{url('starter')}}">STOCK</a></li>
-                                        <li><a href="{{url('starter')}}">COMMODITY</a></li>
-                                        <li><a href="{{url('starter')}}">OTHERS</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-3">
-                                    <h2 class="megamenu-title">RANDOM</h2>
-                                    <ul class="vertical-menu">
-                                        <li><a href="{{url('starter')}}">FOREX</a></li>
-                                        <li><a href="{{url('starter')}}">CRYPTO</a></li>
-                                        <li><a href="{{url('starter')}}">STOCK</a></li>
-                                        <li><a href="{{url('starter')}}">COMMODITY</a></li>
-                                        <li><a href="{{url('starter')}}">OTHERS</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
+                <li><a href="{{route('category_card', "Life's Talk")}}">Life's Talk</a></li>
 
 
 
-                <!-- books starts -->
+                <!-- markets starts -->
                 <li class="dropdown magz-dropdown">
-                    <a href="category.html">BOOKS <i class="ion-ios-arrow-right"></i></a>
+                    <a href="#">Academy <i class="ion-ios-arrow-right"></i>  <div class="badge">Trading</div></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{url('starter')}}">Price Action</a></li>
-                        <li><a href="{{url('starter')}}">Surpport And Resistnace</i></a></li>
-                        <li><a href="{{url('starter')}}">Indicator Trading</a></li>
-                        <li><a href="{{url('starter')}}">Supply And Demand</a></li>
-                        <li><a href="{{url('starter')}}">Chart pattern Trading</a></li>
-                        <li><a href="{{url('starter')}}">Trade Properlly</a></li>
-                        <li><a href="{{url('starter')}}">Psychology Treatment</a></li>
-                        <li><a href="{{url('starter')}}">What Really Works</a>
+                        <li>
+                            <a style="text-transform: capitalize" href="{{route('category_card', ucwords(TagEnum::FOREX_TRADING->value))}}">
+                                {{ucwords(TagEnum::FOREX_TRADING->value)}}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('category_card', ucwords(TagEnum::CRYPTO_TRADING->value))}}">
+                                {{ucwords(TagEnum::CRYPTO_TRADING->value)}}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('category_card', ucwords(TagEnum::STOCKS_TRADING->value))}}">
+                                {{ucwords(TagEnum::STOCKS_TRADING->value)}}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('category', ucwords(TagEnum::BUSINESS_ACUMEN->value))}}">
+                                {{ucwords(TagEnum::BUSINESS_ACUMEN->value)}}
+                            </a>
+                        </li>
+{{--                        <li>--}}
+{{--                            <a href="{{route('category', ucwords(TagEnum::PODCAST->value))}}">--}}
+{{--                                {{ucwords(TagEnum::PODCAST->value)}}--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
                         </li>
                     </ul>
                 </li>
-                <!-- books ends -->
+                <!-- markets ends -->
 
 
-                <!-- Premium starts -->
-                <li class="dropdown magz-dropdown">
-                    <a href="category.html">PREMIUM <i class="ion-ios-arrow-right"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{url('starter')}}">Price Action</a></li>
-                        <li><a href="{{url('starter')}}">Surpport And Resistnace</i></a></li>
-                        <li><a href="{{url('starter')}}">Indicator Trading</a></li>
-                        <li><a href="{{url('starter')}}">Supply And Demand</a></li>
-                        <li><a href="{{url('starter')}}">Chart pattern Trading</a></li>
-                        <li><a href="{{url('starter')}}">Trade Properlly</a></li>
-                        <li><a href="{{url('starter')}}">Psychology Treatment</a></li>
-                        <li><a href="{{url('starter')}}">What Really Works</a>
-                        </li>
-                    </ul>
-                </li>
+                <!-- Mentorship starts -->
+                <li><a href="{{route("library")}}">Library</a></li>
                 <!-- premium ends -->
 
+                <!-- watch and listen starts -->
+                <li class="dropdown magz-dropdown"><a href="#">Watch & Listen <i class="ion-ios-arrow-right"></i></a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown magz-dropdown">
+                            <a href="#">Video <i class="ion-ios-arrow-right"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{route('category_card', "amazon-finds")}}">Amazon Finds</a></li>
+                                <li><a href="{{route('category_card', "trading-videos")}}">Trading Videos</a></li>
+                                <li><a href="{{route('category_card', "realities-of-life")}}">Realities Of Life</a>
+                            </ul>
+                        </li>
+{{--                        <li class="dropdown magz-dropdown">--}}
+{{--                            <a href="#">Podcasts <i class="ion-ios-arrow-right"></i></a>--}}
+{{--                            <ul class="dropdown-menu">--}}
+{{--                                <li><a href="{{route('category_card', "trading-videos")}}">Trading Videos</a></li>--}}
+{{--                                <li><a href="{{route('category_card', "realities-of-life")}}">Realities Of Life</a>--}}
+{{--                            </ul>--}}
+{{--                        </li>--}}
+                    </ul>
+                </li>
+                <!-- watch and listen ends -->
+
+                <!-- entertainment start -->
+{{--                <li class="dropdown magz-dropdown">--}}
+{{--                    <a href="#">Entertainment <i class="ion-ios-arrow-right"></i></a>--}}
+{{--                    <ul class="dropdown-menu">--}}
+{{--                        <li><a href="{{route('category_card', "trailers")}}">Movie Trailers</a></li>--}}
+{{--                        <li><a href="{{route('category_card', "meme")}}">Meme</a></li>--}}
+{{--                        <li><a href="{{route('category_card', "videos")}}">videos</a></li>--}}
+{{--                    </ul>--}}
+{{--                </li>--}}
+
                 <!-- results starts -->
-                <li><a href="{{url('starter')}}">RESULTS</a></li>
+{{--                <li><a href="{{route('category_card', "Results")}}">Results</a></li>--}}
                 <!-- results end -->
 
-                <!-- about starts -->
-                <li><a href="{{url('about')}}">ABOUT</a></li>
-                <!-- about ends	-->
-
-                <!-- contact starts -->
-                <li><a href="{{url('contact')}}">CONTACT</a></li>
-                <!-- contact ends -->
-
                 <!-- academy starts -->
-                <li><a href="#">TELEGRAM</a></li>
+{{--                <li><a href="https://t.me/PrecizeTrading">Telegram <div class="badge">Join</div></a></li>--}}
                 <!-- academy ends -->
 
             </ul>

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
-    protected $fillable = ['user_id','title','post','likes','tag_id','cover','slug','status'];
+    protected $fillable = ['user_id','title','post','likes','tag_id','cover','library_tags_id','slug','status'];
     public function scopeFilter($query, array $filters)
     {
         if (isset($filters['q'])) {
@@ -44,10 +44,19 @@ class Post extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+    public function media()
+    {
+        return $this->hasOne(Media::class);
+    }
     public function comments(){
         return $this->hasMany(Comment::class);
     }
     public function tags(){
         return $this->belongsTo(Tag::class,'tag_id','id');
+    }
+
+    public function library_tag()
+    {
+        return $this->belongsTo(LibraryTags::class,'library_tags_id');
     }
 }

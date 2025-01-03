@@ -44,6 +44,16 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('admin.library_tags.index') }}" class="nav-link @if (Route::currentRouteName() === 'admin.library_tags.index') active @endif">
+
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Library Tags
+                            <span class="right badge badge-success">New</span>
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{route('admin.posts.index')}}" class="nav-link @if (Route::currentRouteName() === 'admin.posts.index') active @endif">
                         <i class="nav-icon fas fa-table"></i>
                         <p>
@@ -59,6 +69,22 @@
                         </p>
                     </a>
                 </li>
+{{--                <li class="nav-item">--}}
+{{--                    <a href="{{route('admin.videos.index')}}" class="nav-link @if (Route::currentRouteName() === 'admin.videos.index') active @endif">--}}
+{{--                        <i class="nav-icon fas fa-chart-pie"></i>--}}
+{{--                        <p>--}}
+{{--                            Manage Videos--}}
+{{--                        </p>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+{{--                <li class="nav-item">--}}
+{{--                    <a href="{{route('admin.audios.index')}}" class="nav-link @if (Route::currentRouteName() === 'admin.audios.index') active @endif">--}}
+{{--                        <i class="nav-icon fas fa-chart-pie"></i>--}}
+{{--                        <p>--}}
+{{--                            Manage Audios--}}
+{{--                        </p>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
                 <li class="nav-item">
                     <a href="{{'#'}}" class="nav-link">
                         <i class="nav-icon fas fa-server"></i>
@@ -67,6 +93,18 @@
                         </p>
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                    <a href="#" class="nav-link"
+                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <i class="nav-icon fas fa-server"></i>
+                        <p>Logout</p>
+                    </a>
+                </li>
+
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

@@ -21,7 +21,7 @@ class PostFactory extends Factory
         return [
             'title' => $title,
             'user_id' => 1,
-            'tag_id' => fake()->numberBetween(1,10),
+            'tag_id' => fake()->numberBetween(1,4),
             'post' => fake()->text,
             'slug' => Str::slug($title),
             'likes' => fake()->numberBetween(1,100),

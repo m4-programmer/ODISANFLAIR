@@ -4,8 +4,8 @@
             <div class="row">
                 <div class="col-md-3 col-sm-12">
                     <div class="brand">
-                        <a href="/">
-                            <img src="{{asset('asset/images/20230714_154601.png')}}" alt="Magz Logo">
+                        <a href="{{route('blog_index')}}">
+                            <img src="{{asset('asset/images/odin.png')}}" style="height: 80px; width: 100%" alt="Magz Logo">
                         </a>
                     </div>
                 </div>

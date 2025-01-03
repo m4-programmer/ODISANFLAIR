@@ -9,7 +9,7 @@
                                 <li><a href="{{url('/')}}">Home</a></li>
                                 <li class="active">{{$title}}</li>
                             </ol>
-                            <h1 class="page-title"> {{$title}}</h1>
+                            <h1 class="page-title"> {{strtoupper($title)}}</h1>
                             <p class="page-subtitle">Showing all posts with category <i>{{$title}}</i></p>
                         </div>
                     </div>
@@ -52,35 +52,37 @@
                             </article>
                         @endforelse
 
-                            <div class="col-md-12 text-center">
-                                <ul class="pagination">
-                                    <!-- Previous Page Link -->
-                                    @if ($posts->onFirstPage())
-                                        <li class="disabled"><a href="#"><i class="ion-ios-arrow-left"></i></a></li>
-                                    @else
-                                        <li><a href="{{ $posts->previousPageUrl() }}"><i class="ion-ios-arrow-left"></i></a></li>
-                                    @endif
-
-                                    <!-- Pagination Links -->
-                                    @for ($page = 1; $page <= $posts->lastPage(); $page++)
-                                        @if ($page == $posts->currentPage())
-                                            <li class="active"><a href="#">{{ $page }}</a></li>
+                            @if($posts)
+                                <div class="col-md-12 text-center">
+                                    <ul class="pagination">
+                                        <!-- Previous Page Link -->
+                                        @if ($posts->onFirstPage())
+                                            <li class="disabled"><a href="#"><i class="ion-ios-arrow-left"></i></a></li>
                                         @else
-                                            <li><a href="{{ $posts->url($page) }}">{{ $page }}</a></li>
+                                            <li><a href="{{ $posts->previousPageUrl() }}"><i class="ion-ios-arrow-left"></i></a></li>
                                         @endif
-                                    @endfor
 
-                                    <!-- Next Page Link -->
-                                    @if ($posts->hasMorePages())
-                                        <li><a href="{{ $posts->nextPageUrl() }}"><i class="ion-ios-arrow-right"></i></a></li>
-                                    @else
-                                        <li class="disabled"><a href="#"><i class="ion-ios-arrow-right"></i></a></li>
-                                    @endif
-                                </ul>
-                                <div class="pagination-help-text">
-                                    Showing {{ $posts->firstItem() }}-{{ $posts->lastItem() }} of {{ $posts->total() }} &mdash; Page {{ $posts->currentPage() }}
+                                        <!-- Pagination Links -->
+                                        @for ($page = 1; $page <= $posts->lastPage(); $page++)
+                                            @if ($page == $posts->currentPage())
+                                                <li class="active"><a href="#">{{ $page }}</a></li>
+                                            @else
+                                                <li><a href="{{ $posts->url($page) }}">{{ $page }}</a></li>
+                                            @endif
+                                        @endfor
+
+                                        <!-- Next Page Link -->
+                                        @if ($posts->hasMorePages())
+                                            <li><a href="{{ $posts->nextPageUrl() }}"><i class="ion-ios-arrow-right"></i></a></li>
+                                        @else
+                                            <li class="disabled"><a href="#"><i class="ion-ios-arrow-right"></i></a></li>
+                                        @endif
+                                    </ul>
+                                    <div class="pagination-help-text">
+                                        Showing {{ $posts->firstItem() }}-{{ $posts->lastItem() }} of {{ $posts->total() }} &mdash; Page {{ $posts->currentPage() }}
+                                    </div>
                                 </div>
-                            </div>
+                            @endif
 
 
                     </div>

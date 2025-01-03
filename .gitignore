@@ -2,8 +2,8 @@
 /node_modules
 /public/build
 /public/hot
+/public/asset/uploads
 /public/storage
-/public/asset
 /storage/*.key
 /vendor
 .env

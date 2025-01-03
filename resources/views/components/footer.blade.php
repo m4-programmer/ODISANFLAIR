@@ -7,8 +7,8 @@
                     <h1 class="block-title">Company Info</h1>
                     <div class="block-body">
                         <figure class="foot-logo">
-                            <img src="{{asset('asset/images/20230713_171907.png')}}" class="img-responsive" alt="Logo">
-                            <img src="{{asset('asset/images/20230713_171214.png')}}" class="img-responsive" alt="Logo">
+                            <img src="{{asset('asset/images/odin1.png')}}" class="img-responsive" alt="Logo">
+<!-- {{--                   <img src="{{asset('asset/images/20230713_171214.png')}}" class="img-responsive" alt="Logo">--}} -->
                         </figure>
                         <p class="brand-description">
                             Odisanflair offers an extensive blogging articles, online courses, and best-selling books covering a variety of topics.
@@ -117,21 +117,20 @@
                         <ul class="footer-nav-horizontal">
                             <ul class="footer-nav-horizontal">
                                 <li><a href="{{url('/')}}">HOME</a></li>
-                                <li><a href="{{url('starter')}}">ACADEMY</a></li>
-                                <li><a href="{{url('starter')}}">PREMIUM</a></li>
+                                <li><a href="{{route('category_card', \Illuminate\Support\Str::slug("LIFE'S TALK"))}}">LIFE'S TALK</a></li>
                             </ul>
                             <ul class="footer-nav-horizontal">
-                                <li><a href="{{url('starter')}}">BOOKS</a></li>
-                                <li><a href="{{url('starter')}}">BLOG</a></li>
+                                <li><a href="{{route('category_card', \Illuminate\Support\Str::slug("ACADEMY"))}}">ACADEMY</a></li>
+                                <li><a href="{{url('#')}}">LIBRARY</a></li>
                             </ul>
                             <ul class="footer-nav-horizontal">
                                 <li><a href="{{url('contact')}}">CONTACT</a></li>
                                 <li><a href="{{url('about')}}">ABOUT</a></li>
                             </ul>
                             <ul class="footer-nav-horizontal">
-                                <li><a href="{{url('starter')}}">PRIVACY</a></li>
-                                <li><a href="{{url('starter')}}">POLICY</a></li>
-                                <li><a href="{{url('starter')}}">SCAM ALERT</a></li>
+                                <li><a href="{{url('privacy-policy')}}">PRIVACY POLICY</a></li>
+                                <li><a href="{{route('disclaimer')}}">DISCLAIMER</a></li>
+                                <li><a href="{{route('scam_alert')}}">SCAM ALERT</a></li>
                             </ul>
                         </ul>
                     </div>
@@ -141,9 +140,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="copyright">
-                    COPYRIGHT &copy; Odisanflair 2017. ALL RIGHT RESERVED.
+                    COPYRIGHT &copy; Odisanflair 2019. ALL RIGHT RESERVED.
                     <div>
-                        Made with <i class="ion-heart"></i> by <a href="http://kodinger.com">Kodinger</a>
+                        Made with <i class="ion-heart"></i> by <a href="/">Daniel</a>
                     </div>
                 </div>
             </div>

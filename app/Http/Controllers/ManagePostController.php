@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LibraryTags;
+use App\Models\Media;
 use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Session;
 
@@ -26,7 +29,8 @@ class ManagePostController extends Controller
     public function create()
     {
         $categories = Tag::all();
-        return view('admin.posts.create',compact('categories'));
+        $libraryTags = LibraryTags::latest()->get();
+        return view('admin.posts.create',compact('categories', 'libraryTags'));
     }
 
     /**
@@ -34,11 +38,13 @@ class ManagePostController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
+        $request->validate([
             'title' => 'required|unique:posts,title',
             'post' => 'required',
             'status'=>'required',
-            'cover'=>'required|mimes:png,jpg'
+            'cover'=>'required|mimes:png,jpg',
+            'url' => 'nullable',
+            'library_tag_id' => "nullable|exists:library_tags,id"
         ]);
         $slug = Str::slug($request->title);
         if ($request->hasFile('cover')) {
@@ -50,11 +56,21 @@ class ManagePostController extends Controller
             'post'=>$request->post,
             'cover'=>$cover,
             'slug'=>$slug,
-            'likes'=>$request->likes,
+            'likes'=>$request->likes ?? 0,
             'tag_id'=>$request->tag_id,
             'status'=>$request->status,
             'user_id'=>$request->user()->id ?? 1,
+            'library_tags_id' => $request->library_tag_id
         ]);
+        if ($request->url){
+            $result->media()->create([
+                'title'=>$request->title,
+                'slug'=>$slug,
+                'type'=>Media::VIDEO,
+                'status'=>true,
+                "url" => $request->url,
+            ]);
+        }
         if ($result){
             $message = 'post created successfully';
             Session::put('message',$message);
@@ -88,10 +104,12 @@ class ManagePostController extends Controller
     public function update(Request $request, Post $post)
     {
         $postId = Post::where('title',$request->title)->first()?->id;
-        $validated = $request->validate([
+        $request->validate([
             'title' => 'required|unique:posts,title,'.$postId,
             'post' => 'required',
             'status'=>'required',
+            "created_at" => "required|date",
+            'url' => 'nullable',
         ]);
         $slug = Str::slug($request->title);
         //to write logic to handle uploading the cover image
@@ -113,6 +131,17 @@ class ManagePostController extends Controller
             'status'=>$request->status,
             'user_id'=>$request->user()->id ?? 1,
         ]);
+        $post->created_at = Carbon::parse($request->created_at);
+        $post->save();
+        $post->media()->update([
+            'title'=>$request->title ?? $post->media->title,
+            'slug'=>$slug ?? $post->media->slug,
+            'type'=>Media::VIDEO,
+            'status'=>true,
+        ]);
+        if ($request->url){
+            $post->media()->update(["url" => $request->url]);
+        }
         if ($result){
             return back()->with('success','post updated successfully');
         }else{

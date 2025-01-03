@@ -13,6 +13,6 @@
     </li>
     <li><a href="#">Youtube <i class="ion-social-youtube-outline"></i></a></li>
     <li>
-        <a href="#">Telegram  <i class="ion-social-telegram"></i></a>
+        <a href="#">Telegram  <i class="ion-social-tumblr"></i></a>
     </li>
 </ul>

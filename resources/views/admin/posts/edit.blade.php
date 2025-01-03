@@ -89,6 +89,15 @@
                                     <label for="exampleInputEmail1">Likes</label>
                                     <input type="text" class="form-control" name="likes"  value="{{$post->likes}}" placeholder="likes" >
                                 </div>
+                                
+                                {{--Created At--}}
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Created At</label>
+                                    <input type="datetime-local" class="form-control" name="created_at"  value="{{$post->created_at ? $post->created_at->format('Y-m-d\TH:i') : ''}}" placeholder="created at" >
+                                    @error('created_at')
+                                    <label for="" class="text-danger">{{$message}}</label>
+                                    @enderror
+                                </div>
                                 {{--Tag_id--}}
                                 <input type="hidden" class="form-control" name="tag_id"  value="{{$post->tag_id}}" placeholder="likes" >
                                 {{--Status--}}

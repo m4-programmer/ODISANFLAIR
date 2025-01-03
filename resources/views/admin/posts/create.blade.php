@@ -13,9 +13,9 @@
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Edit Posts</h3>
+                            <h3 class="card-title">Create Post</h3>
                         </div>
-                        
+
                         <!-- /.card-header -->
                         <!-- form start -->
                         <form action="{{route('admin.posts.store')}}" method="post" enctype="multipart/form-data">
@@ -40,6 +40,25 @@
                                         @endif>{{$data->title}}</option>
                                         @endforeach
                                     </select>
+                                    @error('tag_id')
+                                    <label for="" class="text-danger">{{$message}}</label>
+                                    @enderror
+                                </div>
+
+                                {{--Library Tags--}}
+                                <div class="form-group">
+                                    <label>Select Library Tag <small class="text-danger">(Select this if the selected category above is library)</small></label>
+                                    <select class="form-control select2" name="library_tag_id" style="width: 100%;">
+                                        <option value="" disabled selected> Select a tag if category is Library</option>
+                                        @foreach($libraryTags as $data)
+                                        <option value="{{$data->id}}" @if ($data->id == old('library_tag_id'))
+                                            selected
+                                        @endif>{{$data->title}}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('library_tag_id')
+                                    <label for="" class="text-danger">{{$message}}</label>
+                                    @enderror
                                 </div>
                                 {{--Title--}}
                                 <div class="form-group">
@@ -59,11 +78,11 @@
                                         </div>
                                         <!-- /.card-header -->
                                         <div class="card-body">
-                                            
+
                                             <textarea id="tiny" name="post">
                                                 {!! old('post') ? old('post') : 'Place <em>some</em> <u>text</u> <strong>here</strong>' !!}
                                             </textarea>
-                                            
+
                                         </div>
                                         <div class="card-footer">
                                             Write an elagant post
@@ -72,7 +91,15 @@
                                     @error('post')
                                     <label for="" class="text-danger">{{$message}}</label>
                                     @enderror
-                                    
+
+                                </div>
+                                {{--Video Url--}}
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Youtube Link</label>
+                                    <input type="text" class="form-control" id="exampleInputPassword1" name="url" placeholder="Enter Youtube Link">
+                                    @error('url')
+                                    <label for="" class="text-danger">{{$message}}</label>
+                                    @enderror
                                 </div>
                                 {{--Cover--}}
                                 <div class="form-group">

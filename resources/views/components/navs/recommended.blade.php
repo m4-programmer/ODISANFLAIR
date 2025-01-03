@@ -18,7 +18,7 @@
                     <div class="inner">
                         <figure>
                             <a href="{{url($data->tags->title.'/'.$data->slug)}}">
-                                <img src="{{asset('asset/images/news/img16.jpg')}}" alt="Sample Article">
+                                <img src="{{asset($data->cover)}}" alt="{{$data->title}}">
                             </a>
                         </figure>
                         <div class="details">
@@ -28,7 +28,7 @@
                             </div>
                             <h1><a href="{{url($data->tags->title.'/'.$data->slug)}}">{{$data->title}}</a></h1>
                             <p>
-                                {{Str::limit($data->post, 200)}}
+                                {!! Str::limit($data->post, 200)!!}
                             </p>
                         </div>
                     </div>
@@ -57,11 +57,10 @@
         {{--Begining Comments--}}
         <div class="tab-pane comments" id="comments">
             <div class="comment-list sm">
-                @forelse($comments as $data)
                 <div class="item">
-                    <div class="user">
+                    <div class="user">                                
                         <figure>
-                            <img src="{{asset('asset/images/img01.jpg')}}" alt="User Picture">
+                            <img src="{{asset('asset/images/user-06.jpg')}}" alt="User Picture">
                         </figure>
                         <div class="details">
                             <h5 class="name">James Harris Simons</h5>
@@ -72,9 +71,34 @@
                         </div>
                     </div>
                 </div>
-                @empty
-                      <div></div>
-                @endforelse
+                <div class="item">
+                    <div class="user">                                
+                        <figure>
+                            <img src="{{asset('asset/images/user-02.jpg')}}" alt="User Picture">
+                        </figure>
+                        <div class="details">
+                            <h5 class="name">Bubka</h5>
+                            <div class="time">24 Hours</div>
+                            <div class="description">
+                                Your lectures are invaluable to me, a faulty but improving day trader. Thank you very much ☺️🙏
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="user">                                
+                        <figure>
+                            <img src="{{asset('asset/images/user-07.jpg')}}" alt="User Picture">
+                        </figure>
+                        <div class="details">
+                            <h5 class="name">Sujith P</h5>
+                            <div class="time">24 Hours</div>
+                            <div class="description">
+                                "As a trader, feeling uncomfortable is your new comfort zone." ❤👍
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         {{-- End of Comments        --}}

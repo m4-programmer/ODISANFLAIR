@@ -19,12 +19,14 @@ class PostController extends Controller
         if ($verify){
             $title = $post_slug;
             $tag = $category;
-            $post = Post::where('slug',$post_slug)->first();
-            $posts = Post::latest()->get();
+            $post = Post::where('slug',$post_slug)->inRandomOrder()->first();
+            $posts = Post::inRandomOrder()->get();
             $recommended = $posts->random(3);
             $comments = $post->comments;
+            $tagCount = Tag::count();
+            $tags = Tag::all()->random($tagCount <= 10 ? $tagCount : 10);
 
-            return view('single',compact('title','post','recommended','tag','comments'));
+            return view('single',compact('title','post','recommended','tag','comments', 'tags'));
         }else{
             abort(404);
         }
