@@ -16,10 +16,10 @@ class WelcomeController extends Controller
     public function index(){
         $tagCount = Tag::count();
         $tags = Tag::all()->random($tagCount <= 10 ? $tagCount : 10);
-        $posts = Post::inRandomOrder()->get();
+        $posts = Post::latest()->get();
         $posts->load('comments','tags','user');
         $firstFivePosts = $posts->random(5);
-        $latestPosts = $posts->random(4);
+        $latestPosts = $posts->take(4);
         $popular = $posts->random(6);
         $author = User::find(1);
         $author->load('posts');
@@ -29,11 +29,14 @@ class WelcomeController extends Controller
         return view('welcome',compact('tags','firstFivePosts','latestPosts','author','popular','recommended','comments','posts'));
     }
 
-    public function category(Request $request,$title){
+    public function category(Request $request,$title)
+    {
 
         return view('category',compact('title'));
     }
-    public function search(Request $request){
+
+    public function search(Request $request)
+    {
         $query = $request->q;
 
         $result = Post::latest()->filter($request->all())->paginate(10);
@@ -41,7 +44,8 @@ class WelcomeController extends Controller
         return  view('search', compact('result','query','totalCount'));
     }
 
-    public function portfolio(){
+    public function portfolio()
+    {
         $quotes = (object)[
             (object)[
                 "href" => "images-portfolio/folio/gallery/Piture6.png",
@@ -134,5 +138,19 @@ class WelcomeController extends Controller
         $anotherNews = $posts->random(5);
         $hotNews = $posts->random(8);
         return view('library_content', compact('posts', 'sidePost','searchData','title','author','popular','recommended','comments', 'anotherNews', 'hotNews'));
+    }
+
+    public function contact(Request $request)
+    {
+        $data =  $request->validate([
+            "name" => "required",
+            "email" => "required",
+            "subject" => "nullable",
+            "description" =>  "nullable",
+        ]);
+
+
+
+
     }
 }
