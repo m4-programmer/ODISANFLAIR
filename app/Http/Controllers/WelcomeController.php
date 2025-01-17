@@ -3,17 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use App\Models\Contact;
 use App\Models\LibraryTags;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Models\User;
+use App\Notifications\ContactAdmin;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 
 class WelcomeController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $tagCount = Tag::count();
         $tags = Tag::all()->random($tagCount <= 10 ? $tagCount : 10);
         $posts = Post::latest()->get();
@@ -149,8 +153,19 @@ class WelcomeController extends Controller
             "description" =>  "nullable",
         ]);
 
+        //we create contact and trigger mail sending through event
+        $contact = Contact::create($data);
 
+        try {
+            Controller::notifyAdmin(new ContactAdmin($contact));
+        }catch (Exception $e)
+        {
+            logger()->error("could not notify admin ". $e->getMessage());
+        }
 
-
+        return response()->json([
+            "message" => "message sent successfully",
+            "status" => 200,
+        ]);
     }
 }

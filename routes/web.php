@@ -20,6 +20,7 @@ Route::middleware("traffic")->group(function (){
 //    Route::get("/videos/{title}", ViewVideoController::class)->name("view_video");
     Route::post('/newsletter',[App\Http\Controllers\Controller::class,'subscribe']);
     Route::view('/contact',"contact");
+    Route::post('/contact',[WelcomeController::class, "contact"]);
     Route::view('/about', 'about');
     Route::view('/privacy-policy', 'privacy');
 
