@@ -65,6 +65,13 @@
         }
 
     </style>
+
+    @section('meta_title'){{ $post->title }}@stop
+
+    @section('meta_description'){!! Str::limit(implode(' ', array_slice(explode(' ', strip_tags($data->post)), 0, 50)), 150, '...' )!!}@stop
+
+    @section('meta_image'){{ asset($post?->cover) }}@stop
+
     <section class="single">
         <div class="container">
             <div class="row">

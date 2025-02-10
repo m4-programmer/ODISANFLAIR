@@ -1,4 +1,10 @@
 <x-layout body="primary" >
+    @section('meta_title'){{ $title }}@stop
+
+    @section('meta_description'){{ $title }}@stop
+
+    @section('meta_image'){{ "" }}@stop
+
     <section class="category">
         <div class="container">
             <div class="row">

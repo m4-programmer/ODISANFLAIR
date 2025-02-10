@@ -1,4 +1,11 @@
 <x-layout body="skin-orange">
+    @section('meta_title'){{ "About Page" }}@stop
+
+    @section('meta_description'){{ "Know more about odisanflare" }}@stop
+
+    @section('meta_image'){{ "" }}@stop
+
+
     <section class="page">
         <div class="container">
             <div class="row">
