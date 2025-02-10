@@ -68,7 +68,7 @@
 
     @section('meta_title'){{ $post->title }}@stop
 
-    @section('meta_description'){!! Str::limit(implode(' ', array_slice(explode(' ', strip_tags($data->post)), 0, 50)), 150, '...' )!!}@stop
+    @section('meta_description'){!! Str::limit(implode(' ', array_slice(explode(' ', strip_tags($post->post)), 0, 50)), 150, '...' )!!}@stop
 
     @section('meta_image'){{ asset($post?->cover) }}@stop
 
