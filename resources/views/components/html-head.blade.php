@@ -6,11 +6,11 @@
     <meta name="author" content="Kodinger">
     <meta name="keyword" content="magz, html5, css3, template, magazine template">
     <!-- Shareable -->
-    <meta property="og:title" content="HTML5 & CSS3 magazine template is based on Bootstrap 3" />
-    <meta property="og:type" content="article" />
-    <meta property="og:url" content="http://github.com/nauvalazhar/Magz" />
-    <meta property="og:image" content="https://raw.githubusercontent.com/nauvalazhar/Magz/master/images/preview.png" />
-    <title>Odisanflair &mdash; Odisanflair Markets &amp; Elit Trading Ideas</title>
+    <meta property="og:title" content="@yield('meta_title', 'Odisanflare')" />
+    <meta property="og:description" content="@yield('meta_description', 'Default Description')" />
+    <meta property="og:image" content="@yield('meta_image', asset('default-image.jpg'))" />
+    <meta property="og:url" content="@yield('meta_url', request()->url())" />
+    <title>@yield("meta_title", "Odisanflare &mdash; Odisanflare Markets &amp; Elit Trading Ideas")</title>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="{{asset('asset/scripts/bootstrap/bootstrap.min.css')}}">
     <!-- IonIcons -->

@@ -19,10 +19,10 @@ Route::middleware("traffic")->group(function (){
 //    Route::get("/videos", GetVideosController::class)->name("videos");
 //    Route::get("/videos/{title}", ViewVideoController::class)->name("view_video");
     Route::post('/newsletter',[App\Http\Controllers\Controller::class,'subscribe']);
-    Route::view('/contact',"contact");
+    Route::view('/contact',"contact")->name("contact");
     Route::post('/contact',[WelcomeController::class, "contact"]);
-    Route::view('/about', 'about');
-    Route::view('/privacy-policy', 'privacy');
+    Route::view('/about', 'about')->name("about");
+    Route::view('/privacy-policy', 'privacy')->name("privacy");
 
     Route::view('/disclaimer', 'disclaimer')->name('disclaimer');
     Route::view('/scam-alert', 'scam_alert')->name('scam_alert');
