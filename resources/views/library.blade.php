@@ -23,10 +23,10 @@
                             <div class="line mt-5" style="margin: 80px 0;">
                                 <div>{{$posts->first()->library_tag->title ?? 'Unknown Tag'}}</div>
                             </div>
+
+                            <x-library_card :searchData="$posts" buttonText="Check it Out"/>
+
                             <div class="row">
-                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <x-library_card :searchData="$posts" buttonText="Check it Out"/>
-                                </div>
                                 @if($posts->count())
                                     <div class="col-md-12 text-center mb-5">
                                         <a class="btn btn-primary more" href="{{route("library_more", $posts->first()->library_tag->slug ?? "none" )}}">

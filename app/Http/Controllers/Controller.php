@@ -6,6 +6,7 @@ use App\Models\Newsletter;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Request;
 
 class Controller extends BaseController
@@ -24,5 +25,10 @@ class Controller extends BaseController
     }
     public function unsubscribe(Request $request){
 
+    }
+
+    public static function notifyAdmin($notification, string $email = "flaremarkets@gmail.com")
+    {
+        Notification::route('mail', $email)->notify($notification);
     }
 }
