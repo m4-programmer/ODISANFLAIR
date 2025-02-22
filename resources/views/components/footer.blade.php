@@ -11,7 +11,7 @@
 <!-- {{--                   <img src="{{asset('asset/images/20230713_171214.png')}}" class="img-responsive" alt="Logo">--}} -->
                         </figure>
                         <p class="brand-description">
-                            Odisanflair offers an extensive blogging articles, online courses, and best-selling books covering a variety of topics.
+                            Odisanflare offers an extensive blogging articles, online courses, and best-selling books covering a variety of topics.
                         </p>
                         <a href="{{url('/about')}}" class="btn btn-magz white">About Us <i class="ion-ios-arrow-thin-right"></i></a>
                     </div>
@@ -79,31 +79,31 @@
                         <p>Follow us and stay in touch to get the latest news</p>
                         <ul class="social trp">
                             <li>
-                                <a href="#" class="facebook">
+                                <a href="https://bit.ly/49h7fvB" class="facebook">
                                     <svg><rect width="0" height="0"/></svg>
                                     <i class="ion-social-facebook"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="twitter">
+                                <a href="https://bit.ly/4eZ6FnI" class="twitter">
                                     <svg><rect width="0" height="0"/></svg>
                                     <i class="ion-social-twitter-outline"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="youtube">
+                                <a href="https://youtube.com/@odisanflare?si=ZkRQtrn_GmuPK2Ty" class="youtube">
                                     <svg><rect width="0" height="0"/></svg>
                                     <i class="ion-social-youtube-outline"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="instagram">
+                                <a href="https://www.instagram.com/odisanflair?igsh=bnVrdzQ5cDlsN2Jn" class="instagram">
                                     <svg><rect width="0" height="0"/></svg>
                                     <i class="ion-social-instagram-outline"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="linkedin">
+                                <a href="https://www.linkedin.com/in/som-daniel-7021aa227?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="linkedin">
                                     <svg><rect width="0" height="0"/></svg>
                                     <i class="ion-social-linkedin"></i>
                                 </a>
@@ -140,7 +140,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="copyright">
-                    COPYRIGHT &copy; Odisanflair 2019. ALL RIGHT RESERVED.
+                    COPYRIGHT &copy; Odisanflare 2019. ALL RIGHT RESERVED.
                     <div>
                         Made with <i class="ion-heart"></i> by <a href="/">Daniel</a>
                     </div>

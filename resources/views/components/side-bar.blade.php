@@ -60,7 +60,7 @@
                             </div>
                         </div>
                        <div class="featured-author-footer">
-                           <a href="#">See All Authors</a>
+                           <a href="https://odisanflare.com">See All Authors</a>
                        </div>
                     </div>
                 </div>
