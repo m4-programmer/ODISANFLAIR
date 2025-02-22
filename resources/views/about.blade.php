@@ -1,4 +1,11 @@
 <x-layout body="skin-orange">
+    @section('meta_title'){{ "About Page" }}@stop
+
+    @section('meta_description'){{ "Know more about odisanflare" }}@stop
+
+    @section('meta_image'){{ "" }}@stop
+
+
     <section class="page">
         <div class="container">
             <div class="row">
@@ -176,7 +183,7 @@
                         your trading journey.    
                         </P>
                         <div class="question">
-                            Have a question? <a href="contact.blade.php" class="btn btn-primary">Contact Us</a>
+                            Have a question? <a href="{{route("contact")}}" class="btn btn-primary">Contact Us</a>
                         </div>
                     </div>
                 </div>

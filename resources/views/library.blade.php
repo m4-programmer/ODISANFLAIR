@@ -1,5 +1,10 @@
 <x-layout body="skin-orange">
 
+    @section('meta_title'){{ "Title" }}@stop
+
+    @section('meta_description'){{ "Title" }}@stop
+
+    @section('meta_image'){{ "" }}@stop
 
     <section class="home">
         <div class="container">

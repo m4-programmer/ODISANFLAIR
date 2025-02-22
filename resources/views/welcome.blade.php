@@ -7,6 +7,7 @@
         white-space: nowrap;
     }
     </style>
+
     <section class="home">
         <div class="container">
             <div class="row">
