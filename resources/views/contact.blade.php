@@ -21,11 +21,7 @@
                                 </p>
                                 <p>
                                     Phone: <span class="bold">+234 90 346 92 024</span> <br>
-                                    Email: <span class="bold">Odisanflair@gmail.com</span>
-                                    <br>
-                                    <br>
-                                    LAGOS, ISLAND<br>
-                                    KM 19, Lekki-Epe Expressway
+                                    Email: <span class="bold">Odisanflare@gmail.com</span>
                                 </p>
                             </div>
                             <div class="col-md-6 col-sm-6">
