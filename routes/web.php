@@ -10,8 +10,8 @@ Route::middleware("traffic")->group(function (){
     //Admin Routes
     Route::prefix('admin')->middleware("auth")->name('admin.')->group(base_path('routes/admin.php'));
 
-    Route::get('/index', [WelcomeController::class,'index'])->name('blog_index');
-    Route::get('/', [WelcomeController::class,'portfolio']);
+    Route::get('/', [WelcomeController::class,'index'])->name('blog_index');
+    Route::get('/portfolio', [WelcomeController::class,'portfolio']);
     Route::get('/search', [WelcomeController::class,'search'])->name('search');
     Route::get('/category/latest',[CategoryController::class,'latest'])->name('latest');
     Route::get('/category/popular',[CategoryController::class,'popular'])->name('popular');
