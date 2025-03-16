@@ -329,11 +329,13 @@
                                 <button class="btn btn-primary">Send Response</button>
                             </div>
                         </form>
-                        <h2 class="title">{{$comments->count()}} Responses
+                        @php $total = $comments->whereNull("parent_id")->count() @endphp
+
+                        <h2 class="title">{{$total}} Response{{$total > 1 && "s"}}
                         </h2>
                         <div class="comment-list">
                             <div class="item">
-                                @foreach($comments as $data)
+                                @foreach($comments->whereNull("parent_id") as $data)
                                 <div class="user">
                                     <figure>
                                         <img src="{{asset('asset/images/avatar_profile.png')}}">
@@ -345,9 +347,9 @@
                                         <div class="description">
                                             {{$data->comment}}
                                         </div>
-                                        <footer>
-                                            <a href="#">Reply</a>
-                                        </footer>
+{{--                                        <footer>--}}
+{{--                                            <a href="#">Reply</a>--}}
+{{--                                        </footer>--}}
                                         @if ($data->replies->count() > 0)
                                             <div class="nested-comments">
                                                 @include('partials.comments', ['comments' => $data->replies])

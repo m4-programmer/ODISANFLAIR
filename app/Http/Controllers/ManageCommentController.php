@@ -12,7 +12,7 @@ class ManageCommentController extends Controller
      */
     public function index()
     {
-        $comments = Comment::orderBy('created_at','desc')->get()->load('user','post','replies');
+        $comments = Comment::whereNull("parent_id")->orderBy('created_at','desc')->get()->load('user','post','replies');
         return view('admin.comments.index',compact('comments'));
     }
 
@@ -51,9 +51,23 @@ class ManageCommentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Comment $comment)
     {
-        //
+        $request->validate([
+            'reply' => 'required|string'
+        ]);
+//        dd($request->reply, $comment);
+
+        Comment::create([
+            "post_id" => $comment->post->id,
+            "parent_id" => $comment->id,
+            "user_id" => auth()->user()->id,
+            "comment" => $request->reply,
+            'ipAddress' => $request->ip()
+        ]);
+
+        return response()->json(['success' => true]);
+
     }
 
     /**
