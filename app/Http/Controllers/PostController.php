@@ -13,7 +13,7 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index($category,$post_slug)
+    public function show($category,$post_slug)
     {
         $verify = Tag::where('title',$category)->orWhere('slug',$category)->exists();
         if ($verify){
@@ -23,6 +23,7 @@ class PostController extends Controller
             $posts = Post::inRandomOrder()->get();
             $recommended = $posts->random(3);
             $comments = $post->comments;
+//            dd($comments->toArray());
             $tagCount = Tag::count();
             $tags = Tag::all()->random($tagCount <= 10 ? $tagCount : 10);
 
@@ -50,13 +51,7 @@ class PostController extends Controller
         return back()->with(['success' => 'Comment stored successfully']);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Post $post)
-    {
-        //
-    }
+
 
     /**
      * Show the form for editing the specified resource.

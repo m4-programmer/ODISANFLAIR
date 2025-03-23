@@ -168,5 +168,54 @@
         })
     })
 </script>
+{{--Script for admin to reply to comments--}}
+<script>
+    $(document).ready(function () {
+
+        $('.reply-btn').click(function () {
+            let commentId = $(this).data('comment');
+            let replies = $(this).data('replies');
+
+            $('#commentId').val(commentId);
+            $('#repliesList').empty();
+
+            if (replies.length > 0) {
+                $.each(replies, function (index, reply) {
+                    $('#repliesList').append(`<li class="list-group-item">${reply.comment} <small class="text-muted">(${reply.created_at})</small></li>`);
+                });
+            } else {
+                $('#repliesList').append('<li class="list-group-item text-muted">No replies yet.</li>');
+            }
+
+            $('#replyModal').modal('show');
+        });
+
+        $('#replyForm').submit(function (e) {
+            e.preventDefault();
+
+            let commentId = $('#commentId').val();
+            let replyText = $('#replyText').val();
+
+            $.ajax({
+                url: '{{ route('admin.comments.update', ['comment' => '__ID__']) }}'.replace('__ID__', commentId),
+                type: 'PUT',
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    comment_id: commentId,
+                    reply: replyText
+                },
+                success: function (response) {
+                    if (response.success) {
+                        $('#repliesList').append(`<li class="list-group-item">${replyText} <small class="text-muted">(Just now)</small></li>`);
+                        $('#replyText').val('');
+                    }
+                },
+                error: function () {
+                    alert('Something went wrong. Please try again.');
+                }
+            });
+        });
+    });
+</script>
 </body>
 </html>

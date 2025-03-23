@@ -10,8 +10,8 @@ Route::middleware("traffic")->group(function (){
     //Admin Routes
     Route::prefix('admin')->middleware("auth")->name('admin.')->group(base_path('routes/admin.php'));
 
-    Route::get('/index', [WelcomeController::class,'index'])->name('blog_index');
-    Route::get('/', [WelcomeController::class,'portfolio']);
+    Route::get('/', [WelcomeController::class,'index'])->name('blog_index');
+    Route::get('/portfolio', [WelcomeController::class,'portfolio']);
     Route::get('/search', [WelcomeController::class,'search'])->name('search');
     Route::get('/category/latest',[CategoryController::class,'latest'])->name('latest');
     Route::get('/category/popular',[CategoryController::class,'popular'])->name('popular');
@@ -38,7 +38,7 @@ Route::middleware("traffic")->group(function (){
     Route::get('/library', [WelcomeController::class, 'library'])->name('library');
     Route::get('/library/tags/{librarySlug}', [WelcomeController::class, 'getLibraryCategoryData'])->name('library_more');
     Route::get('/{category}', [CategoryController::class,'dynamicContent'])->name('category_card');
-    Route::get('/{category}/{post_slug}', [PostController::class,'index']);
+    Route::get('/{category}/{post_slug}', [PostController::class,'show'])->name("viewSinglePost");
     Route::post('/{category}/{post_slug}', [PostController::class,'store']);
 });
 
