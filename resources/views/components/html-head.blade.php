@@ -10,7 +10,7 @@
     <meta property="og:type" content="article" />
     <meta property="og:url" content="http://github.com/nauvalazhar/Magz" />
     <meta property="og:image" content="https://raw.githubusercontent.com/nauvalazhar/Magz/master/images/preview.png" />
-    <title>Odisanflair &mdash; Odisanflair Markets &amp; Elit Trading Ideas</title>
+    <title>Odisanflare &mdash; Odisanflare Markets &amp; Elit Trading Ideas</title>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="{{asset('asset/scripts/bootstrap/bootstrap.min.css')}}">
     <!-- IonIcons -->
@@ -27,7 +27,9 @@
     <link rel="stylesheet" href="{{asset('asset/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('asset/css/skins/all.css')}}">
     <link rel="stylesheet" href="{{asset('asset/css/demo.css')}}">
-    <!-- My Adsence -->
+    <!-- My google Adsence -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7886554521780028"
     crossorigin="anonymous"></script>
+    <!-- my adsence from Monetag -->
+    <meta name="monetag" content="c63a7a7b57e6dedc3acd6e81a4a33ee5">
 </head>
