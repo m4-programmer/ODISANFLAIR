@@ -133,6 +133,12 @@
 {{--<script src="{{asset('admin/dist/js/demo.js')}}"></script>--}}
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 {{--<script src="{{asset('admin/dist/js/pages/dashboard.js')}}"></script>--}}
+<!-- adsence 1 -->
+<script type="text/javascript">  atOptions = {   'key' : 'b89299cc542e36bf5d734c0053c35ec8',   'format' : 'iframe',   'height' : 60,   'width' : 468,   'params' : {}  }; </script> <script type="text/javascript" src="//www.highperformanceformat.com/b89299cc542e36bf5d734c0053c35ec8/invoke.js"></script>
+<!-- adsence 2 -->
+<script type="text/javascript">  atOptions = {   'key' : '053966c4568854eaaf58e5b5dc1e2563',   'format' : 'iframe',   'height' : 300,   'width' : 160,   'params' : {}  }; </script> <script type="text/javascript" src="//www.highperformanceformat.com/053966c4568854eaaf58e5b5dc1e2563/invoke.js"></script>
+<!-- adsence 3 -->
+<script type="text/javascript">  atOptions = {   'key' : 'e8d0deef1b18720055b87279d3088e7a',   'format' : 'iframe',   'height' : 600,   'width' : 160,   'params' : {}  }; </script> <script type="text/javascript" src="//www.highperformanceformat.com/e8d0deef1b18720055b87279d3088e7a/invoke.js"></script> 
 
 <!-- Page specific script -->
 <script>
