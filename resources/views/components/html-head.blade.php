@@ -27,7 +27,9 @@
     <link rel="stylesheet" href="{{asset('asset/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('asset/css/skins/all.css')}}">
     <link rel="stylesheet" href="{{asset('asset/css/demo.css')}}">
-    <!-- My Adsence -->
+    <!-- My google Adsence -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7886554521780028"
     crossorigin="anonymous"></script>
+    <!-- my adsence from Monetag -->
+    <meta name="monetag" content="c63a7a7b57e6dedc3acd6e81a4a33ee5">
 </head>
