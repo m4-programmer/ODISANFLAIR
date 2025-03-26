@@ -142,6 +142,7 @@
 <!-- for monetag adsence -->
 <script src="https://kulroakonsu.net/88/tag.min.js" data-zone="138936" async data-cfasync="false"></script>
 
+
 <!-- Page specific script -->
 <script>
     $(function () {
