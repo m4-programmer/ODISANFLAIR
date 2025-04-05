@@ -185,4 +185,5 @@ return [
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
+    "admin_mail" => env("ADMIN_MAIL", "flaremarkets@gmail.com"),
 ];
