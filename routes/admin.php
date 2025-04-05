@@ -15,3 +15,4 @@ Route::resource('/posts', ManagePostController::class);
 Route::resource('/videos', ManageVideosController::class);
 Route::resource('/audios', ManageAudiosController::class);
 Route::resource('/comments', ManageCommentController::class);
+Route::put("update-reply/{reply}", [ManageCommentController::class, 'editReply'])->name("updateReply");

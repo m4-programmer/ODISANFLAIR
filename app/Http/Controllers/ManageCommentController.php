@@ -70,11 +70,18 @@ class ManageCommentController extends Controller
 
     }
 
+    public function editReply(Request $request, Comment $reply)
+    {
+        $reply->update(["comment" => $request->comment]);
+        return response()->json(['success' => true]);
+    }
+
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Comment $comment)
     {
-        //
+        $comment->delete();
+        return back()->with('success','deleted successfully');
     }
 }

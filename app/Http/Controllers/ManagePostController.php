@@ -156,7 +156,7 @@ class ManagePostController extends Controller
     {
         try {
             $post->delete();
-            return back()->with('success','post deleted successsfully');
+            return back()->with('success','post deleted successfully');
         }catch (ModelNotFoundException $e){
             return back()->with('error','post not found');
         }
