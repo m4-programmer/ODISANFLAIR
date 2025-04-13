@@ -7,6 +7,8 @@ use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Models\Tag;
+use App\Notifications\NotifyAdminOfComment;
+use Illuminate\Support\Facades\Notification;
 
 class PostController extends Controller
 {
@@ -47,7 +49,9 @@ class PostController extends Controller
     public function store(StorePostRequest $request)
     {
         $ip = ['ipAddress' => $request->ip()];
-        Comment::create(array_merge($request->validated(), $ip));
+       $comment = Comment::create(array_merge($request->validated(), $ip));
+        Notification::route('mail', config('app.admin_mail'))
+            ->notify(new NotifyAdminOfComment($comment));
         return back()->with(['success' => 'Comment stored successfully']);
     }
 

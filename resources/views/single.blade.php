@@ -331,7 +331,7 @@
                         </form>
                         @php $total = $comments->whereNull("parent_id")->count() @endphp
 
-                        <h2 class="title">{{$total}} Response{{$total > 1 && "s"}}
+                        <h2 class="title">{{$total}} Response{{($total > 1) ? "s" : ""}}
                         </h2>
                         <div class="comment-list">
                             <div class="item">

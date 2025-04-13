@@ -133,6 +133,15 @@
 {{--<script src="{{asset('admin/dist/js/demo.js')}}"></script>--}}
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 {{--<script src="{{asset('admin/dist/js/pages/dashboard.js')}}"></script>--}}
+<!-- adsence 1 -->
+<script type="text/javascript">  atOptions = {   'key' : 'b89299cc542e36bf5d734c0053c35ec8',   'format' : 'iframe',   'height' : 60,   'width' : 468,   'params' : {}  }; </script> <script type="text/javascript" src="//www.highperformanceformat.com/b89299cc542e36bf5d734c0053c35ec8/invoke.js"></script>
+<!-- adsence 2 -->
+<script type="text/javascript">  atOptions = {   'key' : '053966c4568854eaaf58e5b5dc1e2563',   'format' : 'iframe',   'height' : 300,   'width' : 160,   'params' : {}  }; </script> <script type="text/javascript" src="//www.highperformanceformat.com/053966c4568854eaaf58e5b5dc1e2563/invoke.js"></script>
+<!-- adsence 3 -->
+<script type="text/javascript">  atOptions = {   'key' : 'e8d0deef1b18720055b87279d3088e7a',   'format' : 'iframe',   'height' : 600,   'width' : 160,   'params' : {}  }; </script> <script type="text/javascript" src="//www.highperformanceformat.com/e8d0deef1b18720055b87279d3088e7a/invoke.js"></script> 
+<!-- for monetag adsence -->
+<script src="https://kulroakonsu.net/88/tag.min.js" data-zone="138936" async data-cfasync="false"></script>
+
 
 <!-- Page specific script -->
 <script>
@@ -181,8 +190,20 @@
 
             if (replies.length > 0) {
                 $.each(replies, function (index, reply) {
-                    $('#repliesList').append(`<li class="list-group-item">${reply.comment} <small class="text-muted">(${reply.created_at})</small></li>`);
+                    $('#repliesList').append(`
+        <li class="list-group-item d-flex justify-content-between align-items-start" data-reply-id="${reply.id}">
+            <div class="flex-grow-1">
+                <div class="reply-content" contenteditable="false">${reply.comment}</div>
+                <small class="text-muted">${reply.created_at}</small>
+            </div>
+            <div>
+                <button class="btn btn-sm btn-secondary edit-reply-btn">Edit</button>
+                <button class="btn btn-sm btn-success save-reply-btn d-none">Save</button>
+            </div>
+        </li>
+    `);
                 });
+
             } else {
                 $('#repliesList').append('<li class="list-group-item text-muted">No replies yet.</li>');
             }
@@ -216,6 +237,39 @@
             });
         });
     });
+
+    $(document).on('click', '.edit-reply-btn', function () {
+        let listItem = $(this).closest('li');
+        listItem.find('.reply-content').attr('contenteditable', true).focus();
+        $(this).addClass('d-none');
+        listItem.find('.save-reply-btn').removeClass('d-none');
+    });
+
+    $(document).on('click', '.save-reply-btn', function () {
+        let listItem = $(this).closest('li');
+        let replyId = listItem.data('reply-id');
+        let updatedComment = listItem.find('.reply-content').text();
+
+        $.ajax({
+            url: '{{ route('admin.updateReply', ['reply' => '__ID__']) }}'.replace('__ID__', replyId),
+            type: 'PUT',
+            data: {
+                _token: '{{ csrf_token() }}',
+                comment: updatedComment
+            },
+            success: function (response) {
+                if (response.success) {
+                    listItem.find('.reply-content').attr('contenteditable', false);
+                    listItem.find('.edit-reply-btn').removeClass('d-none');
+                    listItem.find('.save-reply-btn').addClass('d-none');
+                }
+            },
+            error: function () {
+                alert('Failed to update reply');
+            }
+        });
+    });
+
 </script>
 </body>
 </html>
