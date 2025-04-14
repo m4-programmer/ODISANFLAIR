@@ -46,11 +46,12 @@
      <script>(function(s,u,z,p){s.src=u,s.setAttribute('data-zone',z),p.appendChild(s);})(document.createElement('script'),'https://shebudriftaiter.net/tag.min.js',9210534,document.body||document.documentElement)</script>
     <!-- native banner -->
     <script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('groleegni.net',9209481,document.createElement('script'))</script>
+    <script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('groleegni.net',9209481,document.createElement('script'))</script>
     <!-- inpage push=this is the ads that is showing on the right top conner of the webpage -->
     <!-- <script>(function(d,z,s){s.src='https://'+d+'/400/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('vemtoutcheeg.com',9209471,document.createElement('script'))</script>
      -->
 
-     <!-- push notification -->
+     <!-- push notification = this is when a pop up notification show on the website -->
      <script src="https://couphaithuph.net/act/files/tag.min.js?z=9209463" data-cfasync="false" async></script>
 
 </head>
