@@ -43,9 +43,10 @@
      <!-- <script type="text/javascript">  atOptions = {   'key' : 'e8d0deef1b18720055b87279d3088e7a',   'format' : 'iframe',   'height' : 600,   'width' : 160,   'params' : {}  }; </script> <script type="text/javascript" src="//www.highperformanceformat.com/e8d0deef1b18720055b87279d3088e7a/invoke.js"></script>  -->
 
     <!--in push (banner ads) -->
-    <!-- <script>(function(d,z,s){s.src='https://'+d+'/400/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('vemtoutcheeg.com',9209471,document.createElement('script'))</script>
-     -->
+    <script>(function(d,z,s){s.src='https://'+d+'/400/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('vemtoutcheeg.com',9209471,document.createElement('script'))</script>
     <!-- native baner -->
      <script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('groleegni.net',9209481,document.createElement('script'))</script>
-      
+    <!-- lucky anti ads banner -->
+     
+
 </head>
