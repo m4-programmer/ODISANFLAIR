@@ -46,7 +46,8 @@
     <script>(function(d,z,s){s.src='https://'+d+'/400/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('vemtoutcheeg.com',9209471,document.createElement('script'))</script>
     <!-- native baner -->
      <script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('groleegni.net',9209481,document.createElement('script'))</script>
-    <!-- lucky anti ads banner -->
-     
-
+    <!-- push notification -->
+    <script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('groleegni.net',9209481,document.createElement('script'))</script>
+    <!-- on-click pop under -->
+    <script src="https://kulroakonsu.net/88/tag.min.js" data-zone="142169" async data-cfasync="false"></script> 
 </head>
