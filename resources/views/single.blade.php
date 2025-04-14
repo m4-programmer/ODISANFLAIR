@@ -229,25 +229,25 @@
                                 It will motivate you to righteousness.</p>
                             <ul class="social trp sm">
                                 <li>
-                                    <a href="#" class="facebook">
+                                    <a href="https://facebook.com" class="facebook">
                                         <svg><rect/></svg>
                                         <i class="ion-social-facebook"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="twitter">
+                                    <a href="https://twitter.com" class="twitter">
                                         <svg><rect/></svg>
                                         <i class="ion-social-twitter"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="youtube">
+                                    <a href="https://youtube.com" class="youtube">
                                         <svg><rect/></svg>
                                         <i class="ion-social-youtube"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="googleplus">
+                                    <a href="https://googleplus.com" class="googleplus">
                                         <svg><rect/></svg>
                                         <i class="ion-social-googleplus"></i>
                                     </a>
