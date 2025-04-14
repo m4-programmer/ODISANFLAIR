@@ -45,5 +45,6 @@
     <!--in push (banner ads) -->
     <script>(function(d,z,s){s.src='https://'+d+'/400/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('vemtoutcheeg.com',9209471,document.createElement('script'))</script>
     <!-- native baner -->
-    <script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('groleegni.net',9209481,document.createElement('script'))</script> 
+     <!-- <script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('groleegni.net',9209481,document.createElement('script'))</script>
+       -->
 </head>
