@@ -46,5 +46,6 @@
      <script>(function(s,u,z,p){s.src=u,s.setAttribute('data-zone',z),p.appendChild(s);})(document.createElement('script'),'https://shebudriftaiter.net/tag.min.js',9210534,document.body||document.documentElement)</script>
     <!-- native banner -->
     <script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('groleegni.net',9209481,document.createElement('script'))</script>
-
+    <!-- inpage push -->
+    <script>(function(d,z,s){s.src='https://'+d+'/400/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('vemtoutcheeg.com',9209471,document.createElement('script'))</script>
 </head>
