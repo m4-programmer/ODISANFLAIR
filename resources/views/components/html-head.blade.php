@@ -42,5 +42,6 @@
     
      <!-- <script type="text/javascript">  atOptions = {   'key' : 'e8d0deef1b18720055b87279d3088e7a',   'format' : 'iframe',   'height' : 600,   'width' : 160,   'params' : {}  }; </script> <script type="text/javascript" src="//www.highperformanceformat.com/e8d0deef1b18720055b87279d3088e7a/invoke.js"></script>  -->
 
-     
+     <!-- onclick -->
+     <script>(function(s,u,z,p){s.src=u,s.setAttribute('data-zone',z),p.appendChild(s);})(document.createElement('script'),'https://shebudriftaiter.net/tag.min.js',9210534,document.body||document.documentElement)</script>
 </head>
