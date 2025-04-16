@@ -36,6 +36,11 @@
                                             </div>
                                             <div class="time">{{$data->created_at->format('F d, Y')}}</div>
                                         </div>
+<!--native banner -->
+<script async="async" data-cfasync="false" src="//offsetgobetween.com/5935fcd7724d405b677cb02cab37bf77/invoke.js"></script> <div id="container-5935fcd7724d405b677cb02cab37bf77"></div>
+
+
+
                                         <h1><a href="{{url($data->tags->title.'/'.$data->slug)}}">{{$data->title}}</a></h1>
                                         <p style="text-align: justify">{!! Str::limit(implode(' ', array_slice(explode(' ', strip_tags($data->post)), 0, 80)),80,'...' )!!}    </p>
                                         <footer>
