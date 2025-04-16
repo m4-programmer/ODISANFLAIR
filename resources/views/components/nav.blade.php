@@ -63,6 +63,10 @@
                                     <div class="row">
                                         @foreach($posts as $data)
                                             <article class="article col-md-4 mini">
+
+<!--native adsterra ads-->
+<script async="async" data-cfasync="false" src="//offsetgobetween.com/5935fcd7724d405b677cb02cab37bf77/invoke.js"></script> <div id="container-5935fcd7724d405b677cb02cab37bf77"></div>
+
                                                 <div class="inner">
                                                     <figure>
                                                         <a href="{{url($data->tags->title.'/'.$data->slug)}}">
