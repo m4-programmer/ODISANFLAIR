@@ -28,6 +28,9 @@
                 <h2 class="article-title"><a href="{{url($data->tags->title.'/'.$data->slug)}}">{{$data->title}}</a></h2>
                 <div class="article-description" style="height: 100px!important;" style="text-align: justify">{!! Str::limit(implode(' ', array_slice(explode(' ', strip_tags($data->post)), 0, 50)), 150, '...' )!!}</div>
 
+<!--native adsterra ads -->
+<script async="async" data-cfasync="false" src="//offsetgobetween.com/5935fcd7724d405b677cb02cab37bf77/invoke.js"></script> <div id="container-5935fcd7724d405b677cb02cab37bf77"></div>
+
                 <footer style="margin-top: 10px!important">
                     <a href="#" class="love"><i class="ion-android-favorite-outline"></i> <div>{{$data->likes}}</div></a>
                     <a class="btn btn-primary more" href="{{url($data->tags->title.'/'.$data->slug)}}">
