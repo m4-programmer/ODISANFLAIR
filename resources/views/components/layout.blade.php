@@ -13,5 +13,9 @@
 {{$slot}}
 <x-footer :tags="$tags" :latestnews="$latestPosts"/>
 @include('partials.scripts')
+ <!--  -->
+
+ <script type='text/javascript' src='//offsetgobetween.com/e3/9c/ae/e39caeea4916f4282f87459370871c55.js'></script>
+    
 </body>
 </html>
